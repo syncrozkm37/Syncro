@@ -1,8 +1,8 @@
 /* =========================================================
    Apertura + hero
-   - Apertura: las dos mitades del isotipo (recortadas del trazo del manual, sin redibujar)
-     entran desfasadas y encajan; la cortina sube y entra el titular. Una vez por sesión.
-   - Muro curvo de trabajo real: columnas a velocidades distintas que se sincronizan
+   - Apertura al estilo de la precarga de Marea: campo de caracteres que ondula, etiqueta
+     y contador 000 → 100; la cortina sube y entra el titular. Una vez por sesión.
+   - Muro curvo con los fotogramas del spot: columnas a velocidades distintas que se sincronizan
      (misma velocidad y filas alineadas) a medida que se baja. Ligera inclinación con el ratón.
    ========================================================= */
 import { reduce, root, MQ, lockScroll } from "./core.js";
@@ -103,16 +103,55 @@ export function initHero() {
   });
 }
 
-/* ---------- Apertura ---------- */
+/* ---------- Apertura (al estilo de la precarga de Marea) ----------
+   Campo de caracteres en <canvas>: dos ondas desfasadas que se van alineando
+   ("en sincronía") mientras el contador llega a 100. Después la cortina sube. */
 function runOpening(prepare, onReveal) {
   const ov = document.querySelector(".opening");
   if (!ov) { root.classList.remove("is-opening"); return onReveal(); }
-  const a = ov.querySelector(".half--a");
-  const b = ov.querySelector(".half--b");
-  const glow = ov.querySelector(".opening__glow");
+  const canvas = ov.querySelector(".opening__canvas");
+  const ctx = canvas.getContext("2d");
+  const countEl = ov.querySelector(".opening__count span");
+  const CHARS = " .·:-=+*#%@";
+  const state = { v: 0, sync: 0 };
+  const t0 = performance.now();
+  let w = 0, h = 0, raf = 0, frame = 0;
+
+  const size = () => {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = window.innerWidth; h = window.innerHeight;
+    canvas.width = w * dpr; canvas.height = h * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  };
+  size();
+  window.addEventListener("resize", size);
+
+  const draw = (now) => {
+    raf = requestAnimationFrame(draw);
+    if (frame++ % 2) return;                          // 30 fps: sobra para una textura y cuesta la mitad
+    const t = (now - t0) / 1000;
+    const phase = (1 - state.sync) * 2.4;             // el desfase desaparece al llegar a 100
+    ctx.fillStyle = "#1C1C1C";
+    ctx.fillRect(0, 0, w, h);
+    ctx.font = '500 12px "Montserrat", ui-monospace, monospace';
+    for (let y = 0; y < h; y += 16) {
+      for (let x = 0; x < w; x += 11) {
+        const a = Math.sin(x * 0.012 + t * 1.6 + Math.sin(y * 0.01 + t) * 1.5) * 0.5 + 0.5;
+        const b = Math.sin(y * 0.018 - t * 1.2 + x * 0.004 + phase) * 0.5 + 0.5;
+        const o = Math.min(0.999, Math.max(0, a * b * 1.25 - 0.05));
+        const ch = CHARS[(o * CHARS.length) | 0];
+        if (ch === " ") continue;
+        ctx.fillStyle = o > 0.82 ? `rgba(160,139,255,${(0.45 + o * 0.5).toFixed(2)})` : `rgba(240,241,255,${(0.1 + o * 0.6).toFixed(2)})`;
+        ctx.fillText(ch, x, y + 12);
+      }
+    }
+  };
+  raf = requestAnimationFrame(draw);
   lockScroll(true);
 
   const finish = () => {
+    cancelAnimationFrame(raf);
+    window.removeEventListener("resize", size);
     root.classList.remove("is-opening");
     lockScroll(false);
     try { sessionStorage.setItem("syncro-opened", "1"); } catch (e) { /* modo privado */ }
@@ -120,16 +159,16 @@ function runOpening(prepare, onReveal) {
     removeSkip();
   };
   const tl = gsap.timeline({ onComplete: finish });
-  tl.set([a, b], { opacity: 1 })
-    .fromTo(a, { x: -150, y: -70, rotate: -32, svgOrigin: "185 130" }, { x: 0, y: 0, rotate: 0, duration: 0.85, ease: "expo.out" }, 0.1)
-    .fromTo(b, { x: 150, y: 70, rotate: -32, svgOrigin: "185 130" }, { x: 0, y: 0, rotate: 0, duration: 0.85, ease: "expo.out" }, 0.1)
-    .fromTo(glow, { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.6, ease: "power2.out" }, 0.62)
-    .call(prepare, null, 0.84)
-    .to(ov, { clipPath: "inset(0% 0% 100% 0%)", duration: 0.72, ease: "power4.inOut" }, 0.86)
-    .call(onReveal, null, 1.02);
+  tl.to(state, {
+    v: 100, sync: 1, duration: 1.9, ease: "power2.inOut",
+    onUpdate: () => { countEl.textContent = String(Math.round(state.v)).padStart(3, "0"); },
+  })
+    .call(prepare, null, "+=0.1")
+    .to(ov, { clipPath: "inset(0% 0% 100% 0%)", duration: 0.95, ease: "expo.inOut" }, "+=0.05")
+    .call(onReveal, null, "-=0.55");
 
   // Cualquier gesto acelera la apertura
-  const skip = () => tl.timeScale(5);
+  const skip = () => tl.timeScale(4);
   const evs = ["keydown", "pointerdown", "wheel", "touchstart"];
   evs.forEach((ev) => window.addEventListener(ev, skip, { passive: true }));
   function removeSkip() { evs.forEach((ev) => window.removeEventListener(ev, skip)); }

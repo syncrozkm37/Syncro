@@ -1,9 +1,12 @@
 /* =========================================================
    Fig. 01 · "Marca y web, en sincronía"
-   Escritorio: la escena se queda fija (sticky); un panel pequeño crece hasta
-   pantalla completa y las dos mitades de la frase entran por lados opuestos
-   y encajan. Después, el acto claro (Estudio) sube por encima.
-   Móvil / táctil: el panel se revela al entrar, sin fijar.
+   Las dos mitades del isotipo (el trazo del manual recortado, sin redibujar)
+   entran desfasadas desde lados opuestos y encajan; se enciende el resplandor
+   violeta y sube la frase.
+   Escritorio: la escena se queda fija y todo va atado al scroll; después el
+   acto claro (Estudio) sube por encima.
+   Móvil / táctil: la misma coreografía se reproduce una vez al entrar.
+   Movimiento reducido: estado final, sin animación.
    ========================================================= */
 import { MQ } from "./core.js";
 
@@ -13,37 +16,36 @@ export function initFig() {
   const fig = document.getElementById("fig");
   if (!fig) return;
   const track = fig.querySelector(".fig__track");
-  const panel = fig.querySelector(".fig__panel");
-  const bg = fig.querySelector(".fig__bg");
-  const a = fig.querySelector(".fig__a");
-  const b = fig.querySelector(".fig__b");
-  const iso = fig.querySelector(".fig__iso");
+  const a = fig.querySelector(".fig__half--a");
+  const b = fig.querySelector(".fig__half--b");
+  const glow = fig.querySelector(".fig__glow");
+  const lines = fig.querySelectorAll(".fig__claim .ln > span");
   const cap = fig.querySelector(".fig__cap");
+
+  const build = (tl) => {
+    const far = () => Math.min(window.innerWidth * 0.36, 540);
+    const up = () => window.innerHeight * 0.12;
+    gsap.set(lines, { yPercent: 105 });             // las dos líneas empiezan escondidas (con stagger, fromTo solo ocultaba la primera)
+    return tl
+      .fromTo(a, { x: () => -far(), y: () => -up(), rotate: -32, opacity: 0 }, { x: 0, y: 0, rotate: 0, opacity: 1, duration: 1, ease: "expo.out" }, 0)
+      .fromTo(b, { x: () => far(), y: () => up(), rotate: -32, opacity: 0 }, { x: 0, y: 0, rotate: 0, opacity: 1, duration: 1, ease: "expo.out" }, 0)
+      .fromTo(glow, { opacity: 0, scale: 0.35 }, { opacity: 1, scale: 1, duration: 0.7, ease: "power2.out" }, 0.72)
+      .to(lines, { yPercent: 0, duration: 0.9, stagger: 0.1, ease: "expo.out" }, 0.95)
+      .fromTo(cap, { opacity: 0 }, { opacity: 1, duration: 0.5 }, 1.1);
+  };
 
   const mm = gsap.matchMedia();
 
   mm.add(MQ.desktop, () => {
     fig.classList.add("is-pinned");
-    const tl = gsap.timeline({
-      defaults: { ease: "none" },
-      scrollTrigger: { trigger: track, start: "top top", end: () => "+=" + window.innerHeight, scrub: true, invalidateOnRefresh: true },
-    });
-    tl.fromTo(panel, { clipPath: "inset(24% 31% 24% 31% round 28px)" }, { clipPath: "inset(0% 0% 0% 0% round 0px)" }, 0)
-      .fromTo(bg, { scale: 1.4 }, { scale: 1 }, 0)
-      .fromTo(a, { xPercent: -55, opacity: 0.2 }, { xPercent: 0, opacity: 1, ease: "power2.out" }, 0.12)
-      .fromTo(b, { xPercent: 55, opacity: 0.2 }, { xPercent: 0, opacity: 1, ease: "power2.out" }, 0.12)
-      .fromTo(iso, { rotate: -34, scale: 0.55, opacity: 0 }, { rotate: 0, scale: 1, opacity: 0.9, ease: "power2.out" }, 0.3)
-      .fromTo(cap, { opacity: 0 }, { opacity: 1 }, 0.7);
+    build(gsap.timeline({
+      scrollTrigger: { trigger: track, start: "top 65%", end: () => "+=" + window.innerHeight * 1.45, scrub: 0.8, invalidateOnRefresh: true },
+    }));
     return () => fig.classList.remove("is-pinned");
   });
 
   mm.add(`not all and ${MQ.desktop}`, () => {
-    // Sin fijar: revelado único al entrar (con movimiento reducido todo queda visible)
     if (window.matchMedia(MQ.reduce).matches) return;
-    const tl = gsap.timeline({ scrollTrigger: { trigger: fig, start: "top 75%", once: true } });
-    tl.fromTo(panel, { clipPath: "inset(10% 8% 10% 8% round 22px)" }, { clipPath: "inset(0% 0% 0% 0% round 0px)", duration: 1.4, ease: "expo.out" }, 0)
-      .fromTo(a, { xPercent: -30, opacity: 0 }, { xPercent: 0, opacity: 1, duration: 1.2 }, 0.2)
-      .fromTo(b, { xPercent: 30, opacity: 0 }, { xPercent: 0, opacity: 1, duration: 1.2 }, 0.2)
-      .fromTo(iso, { rotate: -30, opacity: 0 }, { rotate: 0, opacity: 0.9, duration: 1.4 }, 0.3);
+    build(gsap.timeline({ scrollTrigger: { trigger: fig, start: "top 70%", once: true } }));
   });
 }

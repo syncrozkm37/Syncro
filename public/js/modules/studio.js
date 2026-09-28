@@ -1,7 +1,6 @@
 /* =========================================================
    01 · Estudio (acto claro)
    - Manifiesto que se ilumina palabra a palabra con el scroll (la frase clave, en violeta)
-   - Objetos de barrio (recortes de Olmo y Kaia) a tres profundidades con parallax
    - Equipo: nombres gigantes que se inclinan hacia el puntero
    - Misión y Visión como desplegables accesibles
    ========================================================= */
@@ -15,7 +14,6 @@ export function initStudio() {
   const sec = document.getElementById("estudio");
   if (!sec) return;
   const text = sec.querySelector(".studio__text");
-  const manifesto = sec.querySelector(".studio__manifesto");
 
   /* Misión / Visión: desplegables (sin JS se ven abiertos) */
   sec.querySelectorAll(".mv__btn").forEach((btn) => {
@@ -48,14 +46,6 @@ export function initStudio() {
     });
     const unregister = registerSplit(split);
 
-    // Objetos: cada uno a su velocidad (profundidad)
-    sec.querySelectorAll(".obj").forEach((o) => {
-      const s = parseFloat(o.dataset.speed || 0.4);
-      gsap.fromTo(o, { yPercent: 70 * s, rotate: -8 * s }, {
-        yPercent: -90 * s, rotate: 8 * s, ease: "none",
-        scrollTrigger: { trigger: manifesto, start: "top bottom", end: "bottom top", scrub: true },
-      });
-    });
 
     // Equipo: los nombres suben desde su máscara
     gsap.from(sec.querySelectorAll(".team__chars"), {
