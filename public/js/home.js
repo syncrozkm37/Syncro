@@ -11,6 +11,7 @@ import { initStudio } from "./modules/studio.js";
 import { initServices } from "./modules/services.js";
 import { initWork } from "./modules/work.js";
 import { initMethod } from "./modules/method.js";
+import { initPrices } from "./modules/prices.js";
 import { initLegacy } from "./modules/legacy.js";
 
 const CONTACT_EMAIL = "syncrozkm37@gmail.com"; // buzón compartido del estudio; cambiar al dominio propio cuando lo haya
@@ -30,6 +31,7 @@ function boot() {
   initServices();
   initWork();
   initMethod();
+  initPrices();
   initLegacy();
 
   /* Email de contacto centralizado */

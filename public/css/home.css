@@ -509,8 +509,40 @@ a:hover > .roll .roll__c,a:focus-visible > .roll .roll__c{transform:translateY(-
 .motto__q em{font-style:normal;color:var(--violet-soft)}
 .motto__p{margin-top:clamp(18px, 2vw, 28px);color:#A9ABBE}
 
-/* ---------- 14. Responsive ---------- */
+/* ---------- 14. 05 · Precios (acto claro, la pantalla tranquila) ---------- */
+.prices{padding-block:clamp(110px, 12vw, 190px) var(--section-y);margin-top:calc(-1 * var(--radius))}
+.prices__shared{display:flex;flex-wrap:wrap;align-items:baseline;gap:.3em .5em;margin:0 0 clamp(36px, 4.4vw, 70px) clamp(0px, 16.3vw, 236px);font-size:clamp(1.25rem, 2.3vw, 2.3rem);font-weight:700;letter-spacing:-.02em}
+.prices__shared .dot{color:var(--violet)}
+.plans{display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:var(--col-gap);align-items:start}
+.plan{position:relative;display:flex;flex-direction:column;gap:14px;padding:clamp(24px, 2.6vw, 40px);border-radius:var(--radius);background:var(--glacial-2);transition:transform .6s var(--ease)}
+.plan:hover{transform:translateY(-6px)}
+.plan__name{margin-top:clamp(40px, 5vw, 90px);font-size:clamp(1.5rem, 2.3vw, 2.35rem);font-weight:800;text-transform:uppercase;letter-spacing:-.035em;line-height:.95}
+.plan__for{font-size:15px;font-weight:500;color:var(--ink-muted)}
+.plan__fee{font-size:13px;font-weight:700;letter-spacing:.02em}
+.plan__more{display:flex;align-items:center;width:100%;margin-top:10px;padding:13px 0;border-top:1px solid var(--line);font-size:13px;font-weight:700;text-align:left}
+.plan__more .mv__plus{margin-left:auto}
+.plan__more[aria-expanded="true"] .mv__plus::after{transform:rotate(0deg)}
+.plan__list li{display:flex;gap:12px;padding:9px 0;border-top:1px solid var(--line);font-size:14px;font-weight:500}
+.plan__list li::before{content:"";flex:none;width:6px;height:6px;margin-top:.6em;border-radius:50%;background:var(--violet)}
+.js .plan__panel{display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .6s var(--ease), visibility 0s .6s}
+.js .plan__panel > ul{min-height:0;overflow:hidden}
+.js .plan__more[aria-expanded="true"] + .plan__panel{grid-template-rows:1fr;visibility:visible;transition:grid-template-rows .6s var(--ease)}
+.plan .btn{align-self:flex-start;margin-top:10px}
+.plan__badge{position:absolute;top:clamp(24px, 2.6vw, 40px);right:clamp(24px, 2.6vw, 40px);border:1px solid rgba(240,241,255,.5);border-radius:999px;padding:5px 11px;font-size:10px}
+.plan--featured{background:var(--violet);color:var(--glacial)}
+.plan--featured .label .num{color:var(--glacial)}
+.plan--featured .plan__for{color:rgba(240,241,255,.82)}
+.plan--featured .plan__more,.plan--featured .plan__list li{border-color:rgba(240,241,255,.28)}
+.plan--featured .plan__list li::before{background:var(--glacial)}
+.plan--featured .btn{background:var(--glacial);color:var(--obsidian)}
+.plan--featured .btn:hover{background:var(--obsidian);color:var(--glacial)}
+.plan--featured :focus-visible{outline-color:var(--glacial)}
+.prices__note{margin-top:28px;font-size:13px}
+
+/* ---------- 15. Responsive ---------- */
 @media (max-width: 1023px){
+  .plans{grid-template-columns:1fr}
+  .plan__name{margin-top:28px}
   .nav{grid-template-columns:1fr auto}
   .nav__pill{display:none}
   .burger{display:block}
@@ -540,11 +572,12 @@ a:hover > .roll .roll__c,a:focus-visible > .roll .roll__c{transform:translateY(-
   .svc__inner{padding-left:40px}
   .work__lead{margin-left:0}
   .work__ctrl{display:none}
+  .prices__shared{margin-left:0}
   .wall{--tile-w:31vw}
   .wall__col:first-child,.wall__col:last-child{display:none}
 }
 
-/* ---------- 15. Movimiento reducido ---------- */
+/* ---------- 16. Movimiento reducido ---------- */
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
   .hero-pre .hero__title .ln > span{transform:none}

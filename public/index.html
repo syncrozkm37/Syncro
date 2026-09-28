@@ -43,6 +43,7 @@
 <link rel="modulepreload" href="/js/modules/services.js">
 <link rel="modulepreload" href="/js/modules/work.js">
 <link rel="modulepreload" href="/js/modules/method.js">
+<link rel="modulepreload" href="/js/modules/prices.js">
 <link rel="modulepreload" href="/js/modules/legacy.js">
 <script type="module" src="/js/home.js"></script>
 </head>
@@ -418,59 +419,44 @@
   </div>
 </section>
 
-<!-- ===================== 05 · PRECIOS ===================== -->
-<!-- Paquetes sin importes: el precio se da en presupuesto cerrado (pendiente de acordar tarifas en el equipo) -->
-<section class="section wrap" id="precios" aria-labelledby="price-t">
-  <div class="sec-head grid">
-    <p class="label reveal"><span class="num">05</span><span data-i18n="price.label">Precios</span></p>
-    <h2 class="sec-head__title reveal" id="price-t" data-i18n-html="price.title">Sabes lo que pagas <em>antes de empezar</em>.</h2>
-  </div>
-
-  <div class="plans grid">
-    <article class="plan reveal">
-      <p class="label"><span class="num">A</span><span data-i18n="price.aL">Marca</span></p>
-      <h3 class="plan__name" data-i18n="svc.1t">Identidad de marca</h3>
-      <p class="plan__for muted" data-i18n="price.aF">Para abrir o renovar tu negocio con buen pie.</p>
-      <div class="plan__price"><span class="plan__from" data-i18n="price.from">Precio</span><span class="plan__amt" data-i18n="price.amt">A medida</span><span class="plan__plus" data-i18n="price.quote">Presupuesto cerrado en 48 h</span></div>
-      <ul class="plan__list">
-        <li data-i18n="price.a1">Logotipo y variantes</li>
-        <li data-i18n="price.a2">Paleta de color y tipografía</li>
-        <li data-i18n="price.a3">Manual de identidad</li>
-        <li data-i18n="price.a4">Plantillas para redes y tarjetas</li>
-      </ul>
-      <a class="btn" href="#contacto"><span data-i18n="price.cta">Pedir presupuesto</span> <svg class="arr" width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-    </article>
-
-    <article class="plan reveal" style="--d:.08s">
-      <p class="label"><span class="num">B</span><span>Web</span></p>
-      <h3 class="plan__name" data-i18n="svc.2t">Web a medida</h3>
-      <p class="plan__for muted" data-i18n="price.bF">Para que te encuentren en Google y te contacten.</p>
-      <div class="plan__price"><span class="plan__from" data-i18n="price.from">Precio</span><span class="plan__amt" data-i18n="price.amt">A medida</span><span class="plan__plus" data-i18n="price.quoteM">Presupuesto cerrado en 48 h + cuota mensual</span></div>
-      <ul class="plan__list">
-        <li data-i18n="price.b1">Diseño a medida, hasta 5 secciones</li>
-        <li data-i18n="price.b2">Optimizada para móvil y velocidad</li>
-        <li data-i18n="price.b3">SEO local y ficha de Google</li>
-        <li data-i18n="price.b4">Hosting, dominio y soporte en la cuota</li>
-      </ul>
-      <a class="btn" href="#contacto"><span data-i18n="price.cta">Pedir presupuesto</span> <svg class="arr" width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-    </article>
-
-    <article class="plan plan--featured reveal" style="--d:.16s">
-      <span class="plan__badge" data-i18n="price.badge">Más completo</span>
-      <p class="label"><span class="num">C</span><span data-i18n="price.cL">Marca + Web</span></p>
-      <h3 class="plan__name" data-i18n="price.cN">Presencia completa</h3>
-      <p class="plan__for" style="opacity:.85" data-i18n="price.cF">Para negocios que quieren vender o reservar online.</p>
-      <div class="plan__price"><span class="plan__from" data-i18n="price.from">Precio</span><span class="plan__amt" data-i18n="price.amt">A medida</span><span class="plan__plus" data-i18n="price.quoteM">Presupuesto cerrado en 48 h + cuota mensual</span></div>
-      <ul class="plan__list">
-        <li data-i18n="price.c1">Identidad de marca completa</li>
-        <li data-i18n="price.c2">Web a medida</li>
-        <li data-i18n="price.c3">Reservas o pedidos online</li>
-        <li data-i18n="price.c4">Formación para gestionarla tú</li>
-      </ul>
-      <a class="btn" href="#contacto"><span data-i18n="price.cta">Pedir presupuesto</span> <svg class="arr" width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-    </article>
-
-    <p class="plans__note muted reveal" data-i18n="price.note">IVA no incluido. Tras la primera reunión recibes un presupuesto cerrado: sin extras ni sorpresas.</p>
+<!-- ===================== 05 · PRECIOS (claro, la pantalla tranquila) ===================== -->
+<section class="prices act-over" id="precios" data-theme="light" aria-labelledby="price-t">
+  <div class="wrap">
+    <div class="sec-top">
+      <p class="label"><span class="num">05</span><span data-i18n="price.label">Precios</span></p>
+      <h2 class="h2" id="price-t" data-i18n-html="price.title">Sabes lo que pagas <em>antes de empezar</em>.</h2>
+    </div>
+    <p class="prices__shared"><span data-i18n="price.amt">A medida</span> <span class="dot" aria-hidden="true">·</span> <span data-i18n="price.quote">Presupuesto cerrado en 48 h</span></p>
+    <div class="plans">
+      <article class="plan">
+        <p class="label"><span class="num">A</span><span data-i18n="price.aL">Marca</span></p>
+        <h3 class="plan__name" data-i18n="svc.1t">Identidad de marca</h3>
+        <p class="plan__for" data-i18n="price.aF">Para abrir o renovar.</p>
+        <button class="plan__more" type="button" aria-expanded="false" aria-controls="plan-a"><span data-i18n="price.includes">Qué incluye</span><span class="mv__plus" aria-hidden="true"></span></button>
+        <div class="plan__panel" id="plan-a"><ul class="plan__list"><li data-i18n="price.a1">Logotipo y variantes</li><li data-i18n="price.a2">Paleta de color y tipografía</li><li data-i18n="price.a3">Manual de identidad</li><li data-i18n="price.a4">Plantillas para redes y tarjetas</li></ul></div>
+        <a class="btn" href="#contacto"><span data-i18n="price.cta">Pedir presupuesto</span> <svg class="arr" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="plan">
+        <p class="label"><span class="num">B</span><span>Web</span></p>
+        <h3 class="plan__name" data-i18n="svc.2t">Web a medida</h3>
+        <p class="plan__for" data-i18n="price.bF">Para que te encuentren.</p>
+        <p class="plan__fee" data-i18n="price.monthly">+ cuota mensual</p>
+        <button class="plan__more" type="button" aria-expanded="false" aria-controls="plan-b"><span data-i18n="price.includes">Qué incluye</span><span class="mv__plus" aria-hidden="true"></span></button>
+        <div class="plan__panel" id="plan-b"><ul class="plan__list"><li data-i18n="price.b1">Diseño a medida, hasta 5 secciones</li><li data-i18n="price.b2">Optimizada para móvil y velocidad</li><li data-i18n="price.b3">SEO local y ficha de Google</li><li data-i18n="price.b4">Hosting, dominio y soporte en la cuota</li></ul></div>
+        <a class="btn" href="#contacto"><span data-i18n="price.cta">Pedir presupuesto</span> <svg class="arr" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="plan plan--featured" data-cursor-theme="violet">
+        <span class="plan__badge label" data-i18n="price.badge">Más completo</span>
+        <p class="label"><span class="num">C</span><span data-i18n="price.cL">Marca + Web</span></p>
+        <h3 class="plan__name" data-i18n="price.cN">Presencia completa</h3>
+        <p class="plan__for" data-i18n="price.cF">Para vender y reservar online.</p>
+        <p class="plan__fee" data-i18n="price.monthly">+ cuota mensual</p>
+        <button class="plan__more" type="button" aria-expanded="false" aria-controls="plan-c"><span data-i18n="price.includes">Qué incluye</span><span class="mv__plus" aria-hidden="true"></span></button>
+        <div class="plan__panel" id="plan-c"><ul class="plan__list"><li data-i18n="price.c1">Identidad de marca completa</li><li data-i18n="price.c2">Web a medida</li><li data-i18n="price.c3">Reservas o pedidos online</li><li data-i18n="price.c4">Formación para gestionarla tú</li></ul></div>
+        <a class="btn" href="#contacto"><span data-i18n="price.cta">Pedir presupuesto</span> <svg class="arr" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+    </div>
+    <p class="prices__note muted" data-i18n="price.note">IVA no incluido. Presupuesto cerrado tras la primera reunión.</p>
   </div>
 </section>
 
