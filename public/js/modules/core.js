@@ -79,7 +79,8 @@ export function lockScroll(on) {
    setLang() reescribe textContent/innerHTML y rompería los cortes:
    antes de cambiar se deshacen y después se vuelven a cortar. */
 const splits = new Set();
-export function registerSplit(split) { splits.add(split); return split; }
+/* Devuelve una función para darlo de baja (en la limpieza de gsap.matchMedia) */
+export function registerSplit(split) { splits.add(split); return () => splits.delete(split); }
 document.addEventListener("syncro:lang-before", () => splits.forEach((s) => s.revert()));
 document.addEventListener("syncro:lang", () => {
   splits.forEach((s) => s.split());

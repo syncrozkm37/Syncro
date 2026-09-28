@@ -39,6 +39,7 @@
 <link rel="modulepreload" href="/js/modules/cursor.js">
 <link rel="modulepreload" href="/js/modules/hero.js">
 <link rel="modulepreload" href="/js/modules/fig.js">
+<link rel="modulepreload" href="/js/modules/studio.js">
 <link rel="modulepreload" href="/js/modules/legacy.js">
 <script type="module" src="/js/home.js"></script>
 </head>
@@ -167,31 +168,40 @@
 </section>
 
 <!-- ===== LEGADO: secciones aún sin rediseñar (se sustituyen una a una) ===== -->
-<!-- ===================== 01 · ESTUDIO / MANIFIESTO ===================== -->
-<section class="section wrap act-over" id="estudio" data-theme="light" aria-labelledby="estudio-t">
-  <div class="grid">
-    <p class="label reveal" style="grid-column:1 / span 3;padding-top:.9em" id="estudio-t"><span class="num">01</span><span data-i18n="studio.label">Estudio</span></p>
-    <p class="manifesto__text reveal" data-i18n-html="studio.text">Somos un estudio pequeño a propósito. <span class="hl">Hablas directamente con quien diseña y con quien programa</span> — sin intermediarios, sin plantillas y sin letra pequeña. <span class="dim">Hacemos que el negocio de la esquina tenga la presencia que antes solo podían pagarse las cadenas.</span></p>
+<!-- ===================== 01 · ESTUDIO (claro) ===================== -->
+<section class="studio act-over" id="estudio" data-theme="light" aria-labelledby="estudio-t">
+  <!-- Pantalla A: el manifiesto se ilumina palabra a palabra; objetos de barrio a tres profundidades -->
+  <div class="studio__manifesto wrap">
+    <div class="studio__objects" aria-hidden="true">
+      <picture class="obj obj--croissant" data-speed=".55"><source type="image/avif" srcset="/img/cut/croissant-480.avif"><img src="/img/cut/croissant-480.webp" alt="" width="480" height="344" loading="lazy" decoding="async"></picture>
+      <picture class="obj obj--tarta" data-speed=".3"><source type="image/avif" srcset="/img/cut/tarta-480.avif"><img src="/img/cut/tarta-480.webp" alt="" width="480" height="552" loading="lazy" decoding="async"></picture>
+      <picture class="obj obj--baguette" data-speed=".4"><source type="image/avif" srcset="/img/cut/baguette-480.avif"><img src="/img/cut/baguette-480.webp" alt="" width="480" height="543" loading="lazy" decoding="async"></picture>
+      <picture class="obj obj--hogaza" data-speed=".7"><source type="image/avif" srcset="/img/cut/hogaza-480.avif"><img src="/img/cut/hogaza-480.webp" alt="" width="480" height="531" loading="lazy" decoding="async"></picture>
+      <picture class="obj obj--berlina" data-speed=".85"><source type="image/avif" srcset="/img/cut/berlina-480.avif"><img src="/img/cut/berlina-480.webp" alt="" width="480" height="298" loading="lazy" decoding="async"></picture>
+      <picture class="obj obj--pistola" data-speed=".45"><source type="image/avif" srcset="/img/cut/pistola-480.avif"><img src="/img/cut/pistola-480.webp" alt="" width="480" height="390" loading="lazy" decoding="async"></picture>
+    </div>
+    <p class="label studio__label" id="estudio-t"><span class="num">01</span><span data-i18n="studio.label">Estudio</span></p>
+    <p class="studio__text" data-i18n-html="studio.text">Pequeños a propósito. <span class="hl">Hablas directamente con quien diseña y con quien programa</span>: sin intermediarios, sin plantillas, sin letra pequeña.</p>
   </div>
 
-  <div class="mv grid">
-    <div class="mv__item reveal">
-      <p class="label"><span class="num">A</span><span data-i18n="studio.missionL">Misión</span></p>
-      <p data-i18n="studio.mission">Resolver problemas reales de negocios locales — que no los encuentren, perder reservas, no poder vender online — con una marca clara y una web propia.</p>
-    </div>
-    <div class="mv__item reveal" style="--d:.1s">
-      <p class="label"><span class="num">B</span><span data-i18n="studio.visionL">Visión</span></p>
-      <p data-i18n="studio.vision">Ser el estudio de referencia en Galicia para negocios que crecen: de su primera web a sus propias herramientas y apps.</p>
-    </div>
-  </div>
-
-  <div class="team grid">
-    <p class="team__head label reveal"><span class="num">C</span><span data-i18n="studio.teamL">Equipo</span></p>
-    <ul class="team__list reveal">
-      <li class="team__row"><span class="team__name">Jorge</span><span class="team__role" data-i18n="team.jorgeR">Dirección creativa</span><span class="team__desc" data-i18n="team.jorgeD">Diseño gráfico e industrial · marca · UI</span></li>
-      <li class="team__row"><span class="team__name">Lois</span><span class="team__role" data-i18n="team.loisR">Desarrollo</span><span class="team__desc" data-i18n="team.loisD">Programación y parte técnica</span></li>
-      <li class="team__row"><span class="team__name">Elías</span><span class="team__role" data-i18n="team.eliR">Proyecto y cliente</span><span class="team__desc" data-i18n="team.eliD">Tu interlocutor · coordinación · desarrollo</span></li>
+  <!-- Pantalla B: el equipo en grande; misión y visión, desplegables -->
+  <div class="studio__team wrap">
+    <p class="label"><span class="num">C</span><span data-i18n="studio.teamL">Equipo</span></p>
+    <ul class="team">
+      <li class="team__row"><span class="team__name" data-bend>Jorge</span><span class="team__meta"><span class="team__role" data-i18n="team.jorgeR">Dirección creativa</span><span class="team__desc" data-i18n="team.jorgeD">Diseño gráfico e industrial · marca · UI</span></span></li>
+      <li class="team__row"><span class="team__name" data-bend>Lois</span><span class="team__meta"><span class="team__role" data-i18n="team.loisR">Desarrollo</span><span class="team__desc" data-i18n="team.loisD">Programación y parte técnica</span></span></li>
+      <li class="team__row"><span class="team__name" data-bend>Elías</span><span class="team__meta"><span class="team__role" data-i18n="team.eliR">Proyecto y cliente</span><span class="team__desc" data-i18n="team.eliD">Tu interlocutor · coordinación · desarrollo</span></span></li>
     </ul>
+    <div class="studio__mv">
+      <div class="mv">
+        <button class="mv__btn label" type="button" aria-expanded="false" aria-controls="mv-mision"><span class="num">A</span><span data-i18n="studio.missionL">Misión</span><span class="mv__plus" aria-hidden="true"></span></button>
+        <div class="mv__panel" id="mv-mision"><p data-i18n="studio.mission">Resolver lo que te cuesta clientes: no aparecer, perder reservas, no vender online.</p></div>
+      </div>
+      <div class="mv">
+        <button class="mv__btn label" type="button" aria-expanded="false" aria-controls="mv-vision"><span class="num">B</span><span data-i18n="studio.visionL">Visión</span><span class="mv__plus" aria-hidden="true"></span></button>
+        <div class="mv__panel" id="mv-vision"><p data-i18n="studio.vision">El estudio de referencia en Galicia, de tu primera web a tus propias apps.</p></div>
+      </div>
+    </div>
   </div>
 </section>
 

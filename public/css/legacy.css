@@ -20,30 +20,6 @@
 .sec-head__intro{grid-column:4 / span 5;max-width:46ch}
 
 /* =========================================================
-   7. MANIFIESTO / ESTUDIO
-   ========================================================= */
-.manifesto__text{
-  grid-column:4 / span 9;font-family:var(--font-display);font-weight:300;
-  font-size:clamp(1.35rem, 2.7vw, 2.75rem);line-height:1.22;letter-spacing:-.03em;
-}
-.manifesto__text .hl{color:var(--violet)}
-.manifesto__text .dim{color:#9A9CB2}
-.mv{margin-top:clamp(72px,10vw,150px);row-gap:48px}
-.mv__item{grid-column:span 4;border-top:1px solid var(--line);padding-top:22px}
-.mv__item:first-child{grid-column:4 / span 4}
-.mv__item p:not(.label){margin-top:18px;font-size:clamp(16px,1.05rem + .15vw,19px);line-height:1.55;max-width:34ch}
-
-.team{margin-top:clamp(72px,10vw,150px)}
-/* Equipo alineado con Misión/Visión (columnas 4–11) */
-.team__head{grid-column:4 / span 8;margin-bottom:22px}
-.team__list{grid-column:4 / span 8}
-.team__row{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,1.2fr);gap:var(--col-gap);align-items:baseline;padding:22px 0;border-top:1px solid var(--line)}
-.team__row:last-child{border-bottom:1px solid var(--line)}
-.team__name{font-family:var(--font-display);font-weight:400;font-size:clamp(20px,2vw,28px);letter-spacing:-.03em}
-.team__role{font-size:14px;font-weight:600}
-.team__desc{font-size:14px;color:var(--ink-muted)}
-
-/* =========================================================
    8. SERVICIOS — índice editorial con previsualización
    ========================================================= */
 .services{border-bottom:1px solid var(--line)}
@@ -261,18 +237,12 @@ a.card{display:block;color:inherit;text-decoration:none;-webkit-user-drag:none}
   .plan__price{padding-top:32px}
   .statement__q{grid-column:1 / -1}
   .statement__p{grid-column:1 / span 8}
-  .mv__item,.mv__item:first-child{grid-column:span 6}
-  .mv__item:first-child{grid-column:1 / span 6}
-  .team__head,.team__list{grid-column:1 / -1}
+
 }
 @media (max-width: 760px){
   .sec-head .label,.sec-head__title,.sec-head__intro{grid-column:1 / -1}
   .sec-head .label{padding-top:0}
-  .manifesto__text{grid-column:1 / -1}
-  .mv__item,.mv__item:first-child{grid-column:1 / -1}
-  .team__head,.team__list{grid-column:1 / -1}
-  .team__head{margin-bottom:20px}
-  .team__row{grid-template-columns:1fr;gap:4px}
+
   .svc{row-gap:14px}
   .svc__num{grid-column:1 / span 2}
   .svc__title{grid-column:1 / span 10;grid-row:2}

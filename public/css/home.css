@@ -301,7 +301,50 @@ a:hover > .roll .roll__c,a:focus-visible > .roll .roll__c{transform:translateY(-
 .act-over{position:relative;z-index:2;border-radius:var(--radius) var(--radius) 0 0;background:var(--glacial)}
 .fig.is-pinned + .act-over{margin-top:-100svh}
 
-/* ---------- 10. Responsive ---------- */
+/* ---------- 10. 01 · Estudio (acto claro) ---------- */
+.studio{padding-block:clamp(96px, 11vw, 190px) var(--section-y);overflow-x:clip}
+.studio__manifesto{position:relative;min-height:min(92svh, 940px);display:flex;flex-direction:column;justify-content:center}
+.studio__label,.studio__text{position:relative;z-index:1;margin-left:clamp(0px, 14vw, 240px)}
+.studio__label{margin-bottom:clamp(28px, 3.6vw, 52px)}
+.studio__text{
+  max-width:21em;font-size:clamp(1.75rem, 3.7vw, 3.75rem);font-weight:600;line-height:1.1;letter-spacing:-.025em;
+  color:var(--ink);text-wrap:pretty;
+}
+.studio__text .hl{color:var(--violet)}
+.studio__objects{position:absolute;inset:0;z-index:0;pointer-events:none}
+.obj{position:absolute;display:block;will-change:transform;filter:drop-shadow(0 26px 30px rgba(28,28,28,.16))}
+.obj img{width:100%;height:auto}
+.obj--croissant{width:clamp(96px, 12vw, 200px);left:-1%;top:3%}
+.obj--pistola{width:clamp(70px, 8.5vw, 140px);left:46%;top:-3%}
+.obj--tarta{width:clamp(84px, 9.5vw, 160px);right:3%;top:2%}
+.obj--hogaza{width:clamp(80px, 10vw, 170px);left:7%;bottom:3%}
+.obj--baguette{width:clamp(70px, 8vw, 140px);right:24%;bottom:-3%}
+.obj--berlina{width:clamp(80px, 9vw, 150px);right:2%;bottom:12%}
+
+.studio__team{margin-top:clamp(40px, 6vw, 110px)}
+.team{margin-top:clamp(18px, 2vw, 28px);border-top:1px solid var(--line)}
+.team__row{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;padding:clamp(6px, 1vw, 14px) 0 clamp(14px, 1.8vw, 26px);border-bottom:1px solid var(--line)}
+.team__name{display:block;overflow:hidden;padding-top:.24em;font-size:clamp(3.2rem, 11vw, 11.5rem);font-weight:800;text-transform:uppercase;letter-spacing:-.05em;line-height:.8}
+.team__chars{display:inline-flex}
+.team__chars .ch{display:inline-block;transform-origin:50% 100%}
+.team__meta{display:flex;flex-direction:column;align-items:flex-end;text-align:right;gap:4px;padding-bottom:.35em}
+.team__role{font-size:clamp(14px, 1.1vw, 17px);font-weight:700}
+.team__desc{font-size:13px;color:var(--ink-muted);transition:color .4s var(--ease)}
+.team__row:hover .team__desc{color:var(--ink)}
+
+.studio__mv{display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:var(--col-gap);max-width:920px;margin:clamp(28px, 3vw, 48px) 0 0 auto}
+.mv__btn{display:flex;align-items:center;width:100%;padding:16px 0;border-bottom:1px solid var(--line);text-align:left}
+.mv__plus{margin-left:auto;width:12px;height:12px;position:relative;flex:none}
+.mv__plus::before,.mv__plus::after{content:"";position:absolute;left:0;right:0;top:50%;height:1.5px;margin-top:-.75px;background:currentColor;transition:transform .5s var(--ease)}
+.mv__plus::after{transform:rotate(90deg)}
+.mv__btn[aria-expanded="true"] .mv__plus::after{transform:rotate(0deg)}
+.mv__panel p{font-size:clamp(16px, 1.25vw, 19px);line-height:1.45;max-width:34ch;font-weight:500}
+.mv__panel p::before{content:"";display:block;height:14px}
+.js .mv__panel{display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .6s var(--ease), visibility 0s .6s}
+.js .mv__panel > p{min-height:0;overflow:hidden}
+.js .mv__btn[aria-expanded="true"] + .mv__panel{grid-template-rows:1fr;visibility:visible;transition:grid-template-rows .6s var(--ease)}
+
+/* ---------- 11. Responsive ---------- */
 @media (max-width: 1023px){
   .nav{grid-template-columns:1fr auto}
   .nav__pill{display:none}
@@ -315,11 +358,22 @@ a:hover > .roll .roll__c,a:focus-visible > .roll .roll__c{transform:translateY(-
   .hero__title .ln--indent{padding-left:0}
   .hero__foot{align-items:center}
   .scroll-cue{display:none}
+  .studio__label,.studio__text{margin-left:0}
+  .studio__manifesto{min-height:auto;padding-block:clamp(120px, 34vw, 160px)}
+  .obj--croissant{width:26vw;left:-4%;top:0}
+  .obj--tarta{width:21vw;right:-2%;top:1%}
+  .obj--hogaza{width:22vw;left:2%;bottom:0}
+  .obj--berlina{width:22vw;right:4%;bottom:3%}
+  .obj--pistola,.obj--baguette{display:none}
+  .team__row{flex-direction:column;align-items:flex-start;gap:6px}
+  .team__name{font-size:19vw}
+  .team__meta{align-items:flex-start;text-align:left;padding-bottom:0}
+  .studio__mv{grid-template-columns:1fr;margin-left:0}
   .wall{--tile-w:31vw}
   .wall__col:first-child,.wall__col:last-child{display:none}
 }
 
-/* ---------- 11. Movimiento reducido ---------- */
+/* ---------- 12. Movimiento reducido ---------- */
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
   .hero-pre .hero__title .ln > span{transform:none}
