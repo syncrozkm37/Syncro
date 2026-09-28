@@ -25,7 +25,9 @@ export function initFig() {
   const build = (tl) => {
     const far = () => Math.min(window.innerWidth * 0.36, 540);
     const up = () => window.innerHeight * 0.12;
-    gsap.set(lines, { yPercent: 105 });             // las dos líneas empiezan escondidas (con stagger, fromTo solo ocultaba la primera)
+    // Las dos líneas empiezan escondidas (con stagger, fromTo solo ocultaba la primera).
+    // 130 % y no 105 %: la tilde de "SINCRONÍA" sobresale por encima de la línea y asomaba por la máscara.
+    gsap.set(lines, { yPercent: 130 });
     return tl
       .fromTo(a, { x: () => -far(), y: () => -up(), rotate: -32, opacity: 0 }, { x: 0, y: 0, rotate: 0, opacity: 1, duration: 1, ease: "expo.out" }, 0)
       .fromTo(b, { x: () => far(), y: () => up(), rotate: -32, opacity: 0 }, { x: 0, y: 0, rotate: 0, opacity: 1, duration: 1, ease: "expo.out" }, 0)

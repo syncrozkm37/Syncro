@@ -168,33 +168,34 @@
   </div>
 </section>
 
-<!-- ===== LEGADO: secciones aún sin rediseñar (se sustituyen una a una) ===== -->
 <!-- ===================== 01 · ESTUDIO (claro) ===================== -->
 <section class="studio act-over" id="estudio" data-theme="light" aria-labelledby="estudio-t">
   <!-- Pantalla A: el manifiesto se ilumina palabra a palabra -->
   <div class="studio__manifesto wrap">
-    <p class="label studio__label" id="estudio-t"><span class="num">01</span><span data-i18n="studio.label">Estudio</span></p>
+    <h2 class="label studio__label" id="estudio-t"><span class="num">01</span><span data-i18n="studio.label">Estudio</span></h2>
     <p class="studio__text" data-i18n-html="studio.text">Pequeños a propósito. <span class="hl">Hablas directamente con quien diseña y con quien programa</span>: sin intermediarios, sin plantillas, sin letra pequeña.</p>
   </div>
 
-  <!-- Pantalla B: el equipo en grande; misión y visión, desplegables -->
-  <div class="studio__team wrap">
-    <p class="label"><span class="num">C</span><span data-i18n="studio.teamL">Equipo</span></p>
-    <ul class="team">
-      <li class="team__row"><span class="team__name" data-bend>Jorge</span><span class="team__meta"><span class="team__role" data-i18n="team.jorgeR">Dirección creativa</span><span class="team__desc" data-i18n="team.jorgeD">Diseño gráfico e industrial · marca · UI</span></span></li>
-      <li class="team__row"><span class="team__name" data-bend>Lois</span><span class="team__meta"><span class="team__role" data-i18n="team.loisR">Desarrollo</span><span class="team__desc" data-i18n="team.loisD">Programación y parte técnica</span></span></li>
-      <li class="team__row"><span class="team__name" data-bend>Elías</span><span class="team__meta"><span class="team__role" data-i18n="team.eliR">Proyecto y cliente</span><span class="team__desc" data-i18n="team.eliD">Tu interlocutor · coordinación · desarrollo</span></span></li>
-    </ul>
-    <div class="studio__mv">
-      <div class="mv">
-        <button class="mv__btn label" type="button" aria-expanded="false" aria-controls="mv-mision"><span class="num">A</span><span data-i18n="studio.missionL">Misión</span><span class="mv__plus" aria-hidden="true"></span></button>
-        <div class="mv__panel" id="mv-mision"><p data-i18n="studio.mission">Resolver lo que te cuesta clientes: no aparecer, perder reservas, no vender online.</p></div>
-      </div>
-      <div class="mv">
-        <button class="mv__btn label" type="button" aria-expanded="false" aria-controls="mv-vision"><span class="num">B</span><span data-i18n="studio.visionL">Visión</span><span class="mv__plus" aria-hidden="true"></span></button>
-        <div class="mv__panel" id="mv-vision"><p data-i18n="studio.vision">El estudio de referencia en Galicia, de tu primera web a tus propias apps.</p></div>
-      </div>
+  <!-- Pantalla B: misión y visión, a la vista y en grande (van antes que el equipo) -->
+  <div class="studio__mv wrap">
+    <div class="mv">
+      <h3 class="label mv__label"><span class="num">A</span><span data-i18n="studio.missionL">Misión</span></h3>
+      <p class="mv__text" data-i18n="studio.mission">Resolver lo que te cuesta clientes: no aparecer, perder reservas, no vender online.</p>
     </div>
+    <div class="mv">
+      <h3 class="label mv__label"><span class="num">B</span><span data-i18n="studio.visionL">Visión</span></h3>
+      <p class="mv__text" data-i18n="studio.vision">El estudio de referencia en Galicia, de tu primera web a tus propias apps.</p>
+    </div>
+  </div>
+
+  <!-- Pantalla C: el equipo, compacto -->
+  <div class="studio__team wrap">
+    <h3 class="label"><span class="num">C</span><span data-i18n="studio.teamL">Equipo</span></h3>
+    <ul class="team">
+      <li class="team__member"><span class="team__name">Jorge</span><span class="team__role" data-i18n="team.jorgeR">Dirección creativa</span><span class="team__desc" data-i18n="team.jorgeD">Diseño gráfico e industrial · marca · UI</span></li>
+      <li class="team__member"><span class="team__name">Lois</span><span class="team__role" data-i18n="team.loisR">Desarrollo</span><span class="team__desc" data-i18n="team.loisD">Programación y parte técnica</span></li>
+      <li class="team__member"><span class="team__name">Elías</span><span class="team__role" data-i18n="team.eliR">Proyecto y cliente</span><span class="team__desc" data-i18n="team.eliD">Tu interlocutor · coordinación · desarrollo</span></li>
+    </ul>
   </div>
 </section>
 
@@ -205,73 +206,34 @@
       <p class="label"><span class="num">02</span><span data-i18n="svc.label">Servicios</span></p>
       <h2 class="h2" id="serv-t" data-i18n-html="svc.title"><em>Verse</em> y <em>venderse</em>.</h2>
     </div>
+    <!-- Índice sencillo: número, título y descripción a la vista (sin imágenes ni desplegables) -->
     <ul class="svc-list">
-      <li class="svc" data-preview="identity">
-        <button class="svc__head" type="button" aria-expanded="false" aria-controls="svc-1">
-          <span class="svc__num">01</span>
-          <span class="svc__title"><svg class="svc__glyph" viewBox="0 0 369.818 259.627" aria-hidden="true"><use href="#isotipo"/></svg><span data-i18n="svc.1t">Identidad de marca</span></span>
-          <span class="svc__arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
-        </button>
-        <div class="svc__panel" id="svc-1">
-          <div class="svc__inner"><p class="svc__desc" data-i18n="svc.1d">Logo, color, tipografía y manual. Igual en el rótulo que en Instagram.</p><div class="svc__tags"><span class="tag" data-i18n="svc.1a">Logotipo</span><span class="tag" data-i18n="svc.1b">Color y tipo</span><span class="tag" data-i18n="svc.1c">Manual</span></div></div>
-        </div>
+      <li class="svc">
+        <span class="svc__num">01</span>
+        <h3 class="svc__title"><svg class="svc__glyph" viewBox="0 0 369.818 259.627" aria-hidden="true"><use href="#isotipo"/></svg><span data-i18n="svc.1t">Identidad de marca</span></h3>
+        <p class="svc__desc" data-i18n="svc.1d">Logo, color, tipografía y manual. Igual en el rótulo que en Instagram.</p>
       </li>
-      <li class="svc" data-preview="web">
-        <button class="svc__head" type="button" aria-expanded="false" aria-controls="svc-2">
-          <span class="svc__num">02</span>
-          <span class="svc__title"><svg class="svc__glyph" viewBox="0 0 369.818 259.627" aria-hidden="true"><use href="#isotipo"/></svg><span data-i18n="svc.2t">Web a medida</span></span>
-          <span class="svc__arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
-        </button>
-        <div class="svc__panel" id="svc-2">
-          <div class="svc__inner"><p class="svc__desc" data-i18n="svc.2d">Diseñada para tu negocio, rápida en el móvil y lista para Google.</p><div class="svc__tags"><span class="tag">UI</span><span class="tag" data-i18n="svc.2b">Desarrollo</span><span class="tag" data-i18n="svc.2c">SEO local</span></div></div>
-        </div>
+      <li class="svc">
+        <span class="svc__num">02</span>
+        <h3 class="svc__title"><svg class="svc__glyph" viewBox="0 0 369.818 259.627" aria-hidden="true"><use href="#isotipo"/></svg><span data-i18n="svc.2t">Web a medida</span></h3>
+        <p class="svc__desc" data-i18n="svc.2d">Diseñada para tu negocio, rápida en el móvil y lista para Google.</p>
       </li>
-      <li class="svc" data-preview="booking">
-        <button class="svc__head" type="button" aria-expanded="false" aria-controls="svc-3">
-          <span class="svc__num">03</span>
-          <span class="svc__title"><svg class="svc__glyph" viewBox="0 0 369.818 259.627" aria-hidden="true"><use href="#isotipo"/></svg><span data-i18n="svc.3t">Reservas y venta online</span></span>
-          <span class="svc__arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
-        </button>
-        <div class="svc__panel" id="svc-3">
-          <div class="svc__inner"><p class="svc__desc" data-i18n="svc.3d">Citas, pedidos o catálogo en tu web. Sin comisiones por reserva.</p><div class="svc__tags"><span class="tag" data-i18n="svc.3a">Reservas</span><span class="tag" data-i18n="svc.3b">Pedidos</span><span class="tag" data-i18n="svc.3c">Catálogo</span></div></div>
-        </div>
+      <li class="svc">
+        <span class="svc__num">03</span>
+        <h3 class="svc__title"><svg class="svc__glyph" viewBox="0 0 369.818 259.627" aria-hidden="true"><use href="#isotipo"/></svg><span data-i18n="svc.3t">Reservas y venta online</span></h3>
+        <p class="svc__desc" data-i18n="svc.3d">Citas, pedidos o catálogo en tu web. Sin comisiones por reserva.</p>
       </li>
-      <li class="svc" data-preview="care">
-        <button class="svc__head" type="button" aria-expanded="false" aria-controls="svc-4">
-          <span class="svc__num">04</span>
-          <span class="svc__title"><svg class="svc__glyph" viewBox="0 0 369.818 259.627" aria-hidden="true"><use href="#isotipo"/></svg><span data-i18n="svc.4t">Cuidado continuo</span></span>
-          <span class="svc__arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
-        </button>
-        <div class="svc__panel" id="svc-4">
-          <div class="svc__inner"><p class="svc__desc" data-i18n="svc.4d">Hosting, dominio, cambios y copias por una cuota mensual.</p><div class="svc__tags"><span class="tag">Hosting</span><span class="tag" data-i18n="svc.4b">Soporte</span><span class="tag" data-i18n="svc.4c">Mejoras</span></div></div>
-        </div>
+      <li class="svc">
+        <span class="svc__num">04</span>
+        <h3 class="svc__title"><svg class="svc__glyph" viewBox="0 0 369.818 259.627" aria-hidden="true"><use href="#isotipo"/></svg><span data-i18n="svc.4t">Cuidado continuo</span></h3>
+        <p class="svc__desc" data-i18n="svc.4d">Hosting, dominio, cambios y copias por una cuota mensual.</p>
       </li>
-      <li class="svc svc--soon" data-preview="">
-        <button class="svc__head" type="button" aria-expanded="false" aria-controls="svc-5">
-          <span class="svc__num">05</span>
-          <span class="svc__title"><svg class="svc__glyph" viewBox="0 0 369.818 259.627" aria-hidden="true"><use href="#isotipo"/></svg><span data-i18n="svc.5t">Apps a medida</span></span>
-          <span class="svc__arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
-        </button>
-        <div class="svc__panel" id="svc-5">
-          <div class="svc__inner"><p class="svc__desc" data-i18n="svc.5d">Próximamente: cuando necesites más que una web.</p></div>
-        </div>
+      <li class="svc svc--soon">
+        <span class="svc__num">05</span>
+        <h3 class="svc__title"><svg class="svc__glyph" viewBox="0 0 369.818 259.627" aria-hidden="true"><use href="#isotipo"/></svg><span data-i18n="svc.5t">Apps a medida</span></h3>
+        <p class="svc__desc" data-i18n="svc.5d">Próximamente: cuando necesites más que una web.</p>
       </li>
     </ul>
-  </div>
-
-  <!-- Vista previa que sigue al cursor (solo ratón): trabajo real para cada servicio -->
-  <div class="svc-preview" aria-hidden="true">
-    <div class="svc-preview__card">
-      <div class="svc-preview__media">
-      <div class="svc-preview__item svc-preview__item--identity grain" data-key="identity">
-        <svg viewBox="0 0 1204.145 259.627"><use href="#imagotipo"/></svg>
-      </div>
-      <picture class="svc-preview__item" data-key="web"><img src="/img/work/kaia-web.webp" alt="" width="1120" height="700" loading="lazy" decoding="async"></picture>
-      <picture class="svc-preview__item" data-key="booking"><source type="image/avif" srcset="/img/work/izanagi-home-desktop-960.avif"><img src="/img/work/izanagi-home-desktop-960.webp" alt="" width="960" height="600" loading="lazy" decoding="async"></picture>
-      <picture class="svc-preview__item" data-key="care"><source type="image/avif" srcset="/img/svc/ferro-taller-800.avif"><img src="/img/svc/ferro-taller-800.webp" alt="" width="800" height="533" loading="lazy" decoding="async"></picture>
-      </div>
-      <p class="svc-preview__cap"></p>
-    </div>
   </div>
 </section>
 
@@ -421,7 +383,7 @@
         <p class="label"><span class="num">A</span><span data-i18n="price.aL">Marca</span></p>
         <h3 class="plan__name" data-i18n="svc.1t">Identidad de marca</h3>
         <p class="plan__for" data-i18n="price.aF">Para abrir o renovar.</p>
-        <button class="plan__more" type="button" aria-expanded="false" aria-controls="plan-a"><span data-i18n="price.includes">Qué incluye</span><span class="mv__plus" aria-hidden="true"></span></button>
+        <button class="plan__more" type="button" aria-expanded="false" aria-controls="plan-a"><span data-i18n="price.includes">Qué incluye</span><span class="plan__plus" aria-hidden="true"></span></button>
         <div class="plan__panel" id="plan-a"><ul class="plan__list"><li data-i18n="price.a1">Logotipo y variantes</li><li data-i18n="price.a2">Paleta de color y tipografía</li><li data-i18n="price.a3">Manual de identidad</li><li data-i18n="price.a4">Plantillas para redes y tarjetas</li></ul></div>
         <a class="btn" href="#contacto"><span data-i18n="price.cta">Pedir presupuesto</span> <svg class="arr" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </article>
@@ -430,7 +392,7 @@
         <h3 class="plan__name" data-i18n="svc.2t">Web a medida</h3>
         <p class="plan__for" data-i18n="price.bF">Para que te encuentren.</p>
         <p class="plan__fee" data-i18n="price.monthly">+ cuota mensual</p>
-        <button class="plan__more" type="button" aria-expanded="false" aria-controls="plan-b"><span data-i18n="price.includes">Qué incluye</span><span class="mv__plus" aria-hidden="true"></span></button>
+        <button class="plan__more" type="button" aria-expanded="false" aria-controls="plan-b"><span data-i18n="price.includes">Qué incluye</span><span class="plan__plus" aria-hidden="true"></span></button>
         <div class="plan__panel" id="plan-b"><ul class="plan__list"><li data-i18n="price.b1">Diseño a medida, hasta 5 secciones</li><li data-i18n="price.b2">Optimizada para móvil y velocidad</li><li data-i18n="price.b3">SEO local y ficha de Google</li><li data-i18n="price.b4">Hosting, dominio y soporte en la cuota</li></ul></div>
         <a class="btn" href="#contacto"><span data-i18n="price.cta">Pedir presupuesto</span> <svg class="arr" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </article>
@@ -440,7 +402,7 @@
         <h3 class="plan__name" data-i18n="price.cN">Presencia completa</h3>
         <p class="plan__for" data-i18n="price.cF">Para vender y reservar online.</p>
         <p class="plan__fee" data-i18n="price.monthly">+ cuota mensual</p>
-        <button class="plan__more" type="button" aria-expanded="false" aria-controls="plan-c"><span data-i18n="price.includes">Qué incluye</span><span class="mv__plus" aria-hidden="true"></span></button>
+        <button class="plan__more" type="button" aria-expanded="false" aria-controls="plan-c"><span data-i18n="price.includes">Qué incluye</span><span class="plan__plus" aria-hidden="true"></span></button>
         <div class="plan__panel" id="plan-c"><ul class="plan__list"><li data-i18n="price.c1">Identidad de marca completa</li><li data-i18n="price.c2">Web a medida</li><li data-i18n="price.c3">Reservas o pedidos online</li><li data-i18n="price.c4">Formación para gestionarla tú</li></ul></div>
         <a class="btn" href="#contacto"><span data-i18n="price.cta">Pedir presupuesto</span> <svg class="arr" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </article>

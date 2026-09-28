@@ -14,7 +14,7 @@ public/js/home.js          arranque (módulo ES) + CONTACT_EMAIL
 public/js/modules/*.js     núcleo de movimiento y una pieza por sección
 public/vendor/             GSAP 3.15.0 (ScrollTrigger, SplitText) y Lenis 1.3.26, fijados
 public/fonts/              Montserrat variable 5.3.0 (latin + latin-ext), autoalojada
-public/img/                texturas de marca, muro del hero, recortes, capturas (AVIF + WebP)
+public/img/                texturas de marca, fotogramas del spot (muro del hero), capturas (AVIF + WebP)
 public/_headers            caché de Cloudflare: /vendor y /fonts un año; /img una semana
 public/proyectos/          las cuatro webs modelo ya compiladas (Ferro, Olmo, Kaia, Marea)
 wrangler.jsonc             configuración de Cloudflare Workers (Static Assets)

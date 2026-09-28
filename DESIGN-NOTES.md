@@ -14,9 +14,11 @@ El isotipo es un trazo en S que se cortó por la línea que une sus dos puntas
 (mismo trazo del manual, recortado con `clipPath`; no se ha redibujado nada).
 Esas dos mitades desfasadas que encajan son el motivo de movimiento, en 4 momentos:
 
-1. **Apertura**: las dos mitades entran giradas y encajan; la cortina sube.
+1. **Apertura**: un campo de caracteres ondula en dos fases que se van alineando
+   mientras el contador llega a 100 (como la carga de la web modelo Marea); la cortina sube.
 2. **Hero → Fig. 01**: las columnas del muro se mueven a distinta velocidad y se
-   alinean al bajar; "Marca y web," y "en sincronía." entran por lados opuestos.
+   alinean al bajar; en la Fig. 01 las dos mitades del isotipo entran giradas desde
+   lados opuestos y encajan, y sube "Marca y web, en sincronía."
 3. **Método · Definir**: 48 isotipos desordenados encajan en una retícula.
 4. **Contacto**: "¿Hablamos?" y el email llegan desde lados opuestos al haz violeta.
 
@@ -24,11 +26,11 @@ Esas dos mitades desfasadas que encajan son el motivo de movimiento, en 4 moment
 
 | Sección | Acto | Qué se ve | Referencia |
 |---|---|---|---|
-| Apertura | oscuro | Isotipo que encaja (una vez por sesión) | nbnzia |
-| Hero | oscuro | Titular gigante sobre un muro curvo de trabajo real | Sasha |
-| Fig. 01 | oscuro | Panel que crece a pantalla completa + frase que encaja | Grigoletti / nbnzia |
-| 01 Estudio | claro | Manifiesto que se ilumina + objetos de barrio + equipo gigante | Sasha / Spyker |
-| 02 Servicios | claro | Filas gigantes + vista previa que sigue al cursor | Grigoletti / nbnzia |
+| Apertura | oscuro | Caracteres que ondulan y se sincronizan + contador 000→100 (una vez por sesión) | Marea (web modelo) |
+| Hero | oscuro | Titular gigante sobre un muro curvo con fotogramas del spot (provisional) | Sasha |
+| Fig. 01 | oscuro | Las dos mitades del isotipo encajan + frase | nbnzia |
+| 01 Estudio | claro | Manifiesto que se ilumina + misión y visión en grande + equipo compacto | Sasha |
+| 02 Servicios | claro | Índice sencillo: número, título y descripción a la vista (sin imágenes) | Grigoletti |
 | 03 Proyectos | oscuro | Recorrido horizontal fijado, seis paneles de marca | Sasha / nbnzia |
 | 04 Método | oscuro | Cuatro actos a pantalla completa + lema | Sasha / Spyker |
 | 05 Precios | claro | La pantalla tranquila: sin cifras, lo mínimo | — |
@@ -43,10 +45,9 @@ El orden de secciones es el de siempre (lo pediste así). Las anclas no cambian.
 - **Color**: obsidiana, violeta y glacial del manual. El violeta es la luz (acento,
   haz, cursor, estado activo), no el fondo. Sobre oscuro, el texto violeta usa
   `--violet-soft` #A08BFF (6,2:1); el violeta puro solo da 2,1:1.
-- **Texto visible de entrada**: de 745 a 388 palabras (−48 %). Ninguna pantalla pasa
-  de 25 palabras de texto corrido; el resto son etiquetas, botones y el pie.
-  Las descripciones de Servicios, Misión/Visión y lo que incluye cada plan van en
-  desplegables (abiertos si no hay JavaScript).
+- **Texto**: frases cortas y mucha imagen. Misión, visión y la descripción de cada
+  servicio están a la vista (Misión y Visión van antes que el equipo); lo que incluye
+  cada plan va en un desplegable (abierto si no hay JavaScript).
 - **Se cayó**: la entradilla del hero, "Ver proyectos" como segundo botón, la frase
   del negocio de la esquina y las cifras de precios (nunca las hubo).
 - **Honestidad**: nada inventado. Caso 00 (marca propia), Izanagi (en desarrollo) y
@@ -57,17 +58,17 @@ El orden de secciones es el de siempre (lo pediste así). Las anclas no cambian.
 | Qué | Dónde | Cómo se ajusta / desactiva |
 |---|---|---|
 | Scroll suave (Lenis) sincronizado con ScrollTrigger | `js/modules/core.js` | `lerp` en `initCore()`; no se activa con movimiento reducido |
-| Apertura (≤ 1,5 s, una vez por sesión, cualquier gesto la acelera) | `hero.js` → `runOpening()` | Quitar la clase `is-opening` del script del `<head>` |
-| Muro del hero: 7 columnas en bucle, velocidades `speeds[]`, se sincronizan al bajar | `hero.js` | `speeds`, `common` (px/s) y el tramo del ScrollTrigger |
+| Apertura (~3 s, una vez por sesión, cualquier gesto la acelera ×4) | `hero.js` → `runOpening()` | Duración del contador en el timeline; quitar la clase `is-opening` del script del `<head>` la desactiva |
+| Muro del hero: 7 columnas en bucle con los fotogramas del spot (`img/spot/`), se sincronizan al bajar | `hero.js` | `speeds`, `common` (px/s) y el tramo del ScrollTrigger |
 | Inclinación del muro con el ratón (±5°) | `hero.js` | Multiplicadores en `onMove` |
-| Fig. 01 fijada: el panel crece y la frase encaja | `fig.js` | `--fig-h` en CSS y `end` del ScrollTrigger |
+| Fig. 01 fijada: las mitades del isotipo encajan, resplandor y frase | `fig.js` | `--fig-h` en CSS y `end` del ScrollTrigger; en móvil se reproduce una vez |
 | Manifiesto que se ilumina palabra a palabra | `studio.js` | `start`/`end` del scrub; colores `DIM`/`INK` |
-| Objetos a tres profundidades | `studio.js` + `data-speed` en el HTML | `data-speed` de cada `.obj` |
-| Nombres del equipo que se inclinan hacia el puntero | `studio.js` | Rango `/140` y ángulos |
-| Filas de Servicios + vista previa que sigue al cursor | `services.js` | `quickTo` (duración) y tamaño de `.svc-preview__card` |
+| Misión y visión línea a línea; fichas del equipo que suben | `studio.js` | `start` y `delay` de `revealLines()`; `stagger` de las fichas |
+| Servicios: las filas entran; hover con franja, isotipo en el margen y título violeta | `services.js` + CSS (`.svc`) | Solo CSS para el hover |
 | Proyectos: recorrido horizontal y parallax interior | `work.js` | `fromTo` de navegador/móvil/nombre; ancho de panel en CSS |
 | Método: 4 actos fijados, visual por acto | `method.js` | Tiempos de entrada/salida por acto; `visualTimeline()` |
 | Titulares que entran línea a línea | `core.js` → `revealLines()` | `start`, `stagger`, `duration` |
+| Máscaras de línea (`.ln`) con holgura arriba para las tildes de las mayúsculas | `home.css` | Si una frase con Í/É/Á entra desde su máscara, escóndela ≥ 130 % (no 105 %) |
 | Contacto: las dos mitades encajan en el haz | `contact.js` | `xPercent` inicial y tramo |
 | Cursor (enlace, "Arrastra", "Ver web ↗") y botones magnéticos | `cursor.js` | `data-cursor`, `data-magnetic` |
 | Navegación: píldora con sección activa, tema por acto, letras que ruedan | `nav.js` | Línea del 45 % en `update()` |
@@ -95,12 +96,12 @@ scroll. Solo se animan `transform`, `opacity`, `clip-path` y `color`.
 - Contraste AA (scrims sobre el muro; texto "apagado" del manifiesto ≥ 3:1 en texto grande).
 - Copiar el email avisa con `role="status"`; `Escríbenos` sigue siendo `mailto`.
 
-## Rendimiento (local, Lighthouse 12)
+## Rendimiento (local, Lighthouse 12, primera visita con la apertura)
 
 | | Rendimiento | Accesibilidad | Buenas prácticas | SEO | LCP | CLS | TBT |
 |---|---|---|---|---|---|---|---|
-| Móvil | 97 | 100 | 100 | 100 | 2,3 s | 0 | 50 ms |
-| Escritorio | 100 | 100 | 100 | 100 | 0,6 s | 0,036 | 0 ms |
+| Móvil | 99 | 100 | 100 | 100 | 2,2 s | 0 | 30 ms |
+| Escritorio | 100 | 100 | 100 | 100 | 0,5 s | 0 | 0 ms |
 
 - `index.html`: de 426 KB a ~58 KB (sin base64; gzip ≈ 10 KB).
 - Carga inicial en móvil: ~262 KB transferidos. Imágenes en AVIF + WebP con `srcset`
@@ -116,7 +117,8 @@ No hay huecos ni imágenes de relleno: todo es material real del repo o se
 dibuja en código. Si me lo das, sube de nivel:
 
 - **Fotos del equipo** (Jorge, Lois, Elías), mismo tratamiento las tres.
-- **Un vídeo de 10–20 s sin audio** (estudio, proceso, Pontevedra) para la Fig. 01.
+- **Los fotogramas definitivos del muro** (ahora son del spot, de forma provisional).
+  El vídeo del spot (21,7 MB) no se usa: habría que recortarlo y comprimirlo antes.
 - **Una grabación de pantalla de Izanagi** (1440×900, 10 s) para su panel.
 - Email con dominio propio cuando exista (`CONTACT_EMAIL`).
 
