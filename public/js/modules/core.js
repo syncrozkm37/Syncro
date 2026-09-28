@@ -101,3 +101,21 @@ export function fitText(el, { max = 400, min = 16, ratio = 1 } = {}) {
 const seen = new WeakSet();
 export function markSeen(el) { seen.add(el); }
 export function wasSeen(el) { return seen.has(el); }
+
+/* Titular que entra línea a línea desde su máscara (una sola vez).
+   Se rehace solo al cambiar de idioma o de ancho; devuelve la limpieza. */
+export function revealLines(el, { start = "top 86%", stagger = 0.08, duration = 1.25, delay = 0 } = {}) {
+  if (!el) return () => {};
+  const split = SplitText.create(el, {
+    type: "lines", mask: "lines", autoSplit: true,
+    onSplit(self) {
+      if (wasSeen(el)) return;
+      return gsap.from(self.lines, {
+        yPercent: 105, duration, stagger, delay, ease: "expo.out",
+        scrollTrigger: { trigger: el, start, once: true, onEnter: () => markSeen(el) },
+      });
+    },
+  });
+  const unregister = registerSplit(split);
+  return () => { unregister(); split.revert(); };
+}

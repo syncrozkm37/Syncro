@@ -19,46 +19,7 @@
 .on-dark .sec-head__title em{color:var(--violet-soft)}
 .sec-head__intro{grid-column:4 / span 5;max-width:46ch}
 
-/* =========================================================
-   8. SERVICIOS — índice editorial con previsualización
-   ========================================================= */
-.services{border-bottom:1px solid var(--line)}
-.svc{
-  display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--col-gap);
-  align-items:baseline;padding:clamp(24px,3vw,40px) 0;border-top:1px solid var(--line);
-  position:relative;isolation:isolate;
-}
-/* Hover sutil: barrido de color de fondo + isotipo que entra antes del título */
-.svc::before{
-  content:"";position:absolute;z-index:-1;inset:0 calc(-1 * var(--gutter));
-  background:var(--glacial-2);transform:scaleY(0);transform-origin:50% 100%;
-  transition:transform .6s var(--ease);
-}
-.svc__glyph{
-  display:inline-block;width:0;height:.62em;margin-right:0;opacity:0;vertical-align:baseline;
-  color:var(--violet);overflow:hidden;
-  transition:width .6s var(--ease), margin-right .6s var(--ease), opacity .4s var(--ease);
-}
-.svc__num{grid-column:1 / span 1;font-size:12px;font-weight:600;letter-spacing:.14em;color:var(--violet)}
-.svc__title{
-  grid-column:2 / span 6;font-family:var(--font-display);font-weight:300;
-  font-size:clamp(1.6rem, 3.8vw, 3.75rem);line-height:1.02;letter-spacing:-.045em;
-  transition:color .4s;
-}
-.svc__body{grid-column:8 / span 4;font-size:15px;line-height:1.6}
-.svc__tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
 .tag{font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:5px 10px}
-.svc__arrow{grid-column:12 / span 1;justify-self:end;align-self:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:background-color .4s, color .4s, border-color .4s, transform .6s var(--ease)}
-.svc__arrow svg{width:14px;height:14px}
-@media (hover:hover){
-  .svc:hover::before{transform:scaleY(1)}
-  .svc:hover .svc__glyph{width:.88em;margin-right:.22em;opacity:1}
-  .svc:hover .svc__title{color:var(--violet)}
-  .svc:hover .svc__arrow{background:var(--violet);border-color:var(--violet);color:var(--glacial);transform:rotate(-45deg)}
-}
-.svc--soon .svc__title{color:#9A9CB2}
-.svc--soon::before{display:none}
-.svc--soon .svc__arrow{border-style:dashed}
 
 /* =========================================================
    9. PROYECTOS — carrusel arrastrable
@@ -243,11 +204,6 @@ a.card{display:block;color:inherit;text-decoration:none;-webkit-user-drag:none}
   .sec-head .label,.sec-head__title,.sec-head__intro{grid-column:1 / -1}
   .sec-head .label{padding-top:0}
 
-  .svc{row-gap:14px}
-  .svc__num{grid-column:1 / span 2}
-  .svc__title{grid-column:1 / span 10;grid-row:2}
-  .svc__arrow{grid-column:11 / span 2;grid-row:2;width:40px;height:40px}
-  .svc__body{grid-column:1 / -1;grid-row:3}
   .card{flex-basis:78vw}
   .rail-ctrl{display:none}
   .progress{max-width:none}

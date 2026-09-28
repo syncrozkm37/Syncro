@@ -40,6 +40,7 @@
 <link rel="modulepreload" href="/js/modules/hero.js">
 <link rel="modulepreload" href="/js/modules/fig.js">
 <link rel="modulepreload" href="/js/modules/studio.js">
+<link rel="modulepreload" href="/js/modules/services.js">
 <link rel="modulepreload" href="/js/modules/legacy.js">
 <script type="module" src="/js/home.js"></script>
 </head>
@@ -205,58 +206,80 @@
   </div>
 </section>
 
-<!-- ===================== 02 · SERVICIOS ===================== -->
-<section class="section wrap" id="servicios" aria-labelledby="serv-t" style="padding-top:0">
-  <div class="sec-head grid">
-    <p class="label reveal"><span class="num">02</span><span data-i18n="svc.label">Servicios</span></p>
-    <h2 class="sec-head__title reveal" id="serv-t" data-i18n-html="svc.title">Todo lo que tu negocio necesita para <em>verse</em> y <em>venderse</em>.</h2>
+<!-- ===================== 02 · SERVICIOS (claro) ===================== -->
+<section class="svcs" id="servicios" data-theme="light" aria-labelledby="serv-t">
+  <div class="wrap">
+    <div class="sec-top">
+      <p class="label"><span class="num">02</span><span data-i18n="svc.label">Servicios</span></p>
+      <h2 class="h2" id="serv-t" data-i18n-html="svc.title"><em>Verse</em> y <em>venderse</em>.</h2>
+    </div>
+    <ul class="svc-list">
+      <li class="svc" data-preview="identity">
+        <button class="svc__head" type="button" aria-expanded="false" aria-controls="svc-1">
+          <span class="svc__num">01</span>
+          <span class="svc__title"><svg class="svc__glyph" viewBox="0 0 369.818 259.627" aria-hidden="true"><use href="#isotipo"/></svg><span data-i18n="svc.1t">Identidad de marca</span></span>
+          <span class="svc__arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
+        </button>
+        <div class="svc__panel" id="svc-1">
+          <div class="svc__inner"><p class="svc__desc" data-i18n="svc.1d">Logo, color, tipografía y manual. Igual en el rótulo que en Instagram.</p><div class="svc__tags"><span class="tag" data-i18n="svc.1a">Logotipo</span><span class="tag" data-i18n="svc.1b">Color y tipo</span><span class="tag" data-i18n="svc.1c">Manual</span></div></div>
+        </div>
+      </li>
+      <li class="svc" data-preview="web">
+        <button class="svc__head" type="button" aria-expanded="false" aria-controls="svc-2">
+          <span class="svc__num">02</span>
+          <span class="svc__title"><svg class="svc__glyph" viewBox="0 0 369.818 259.627" aria-hidden="true"><use href="#isotipo"/></svg><span data-i18n="svc.2t">Web a medida</span></span>
+          <span class="svc__arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
+        </button>
+        <div class="svc__panel" id="svc-2">
+          <div class="svc__inner"><p class="svc__desc" data-i18n="svc.2d">Diseñada para tu negocio, rápida en el móvil y lista para Google.</p><div class="svc__tags"><span class="tag">UI</span><span class="tag" data-i18n="svc.2b">Desarrollo</span><span class="tag" data-i18n="svc.2c">SEO local</span></div></div>
+        </div>
+      </li>
+      <li class="svc" data-preview="booking">
+        <button class="svc__head" type="button" aria-expanded="false" aria-controls="svc-3">
+          <span class="svc__num">03</span>
+          <span class="svc__title"><svg class="svc__glyph" viewBox="0 0 369.818 259.627" aria-hidden="true"><use href="#isotipo"/></svg><span data-i18n="svc.3t">Reservas y venta online</span></span>
+          <span class="svc__arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
+        </button>
+        <div class="svc__panel" id="svc-3">
+          <div class="svc__inner"><p class="svc__desc" data-i18n="svc.3d">Citas, pedidos o catálogo en tu web. Sin comisiones por reserva.</p><div class="svc__tags"><span class="tag" data-i18n="svc.3a">Reservas</span><span class="tag" data-i18n="svc.3b">Pedidos</span><span class="tag" data-i18n="svc.3c">Catálogo</span></div></div>
+        </div>
+      </li>
+      <li class="svc" data-preview="care">
+        <button class="svc__head" type="button" aria-expanded="false" aria-controls="svc-4">
+          <span class="svc__num">04</span>
+          <span class="svc__title"><svg class="svc__glyph" viewBox="0 0 369.818 259.627" aria-hidden="true"><use href="#isotipo"/></svg><span data-i18n="svc.4t">Cuidado continuo</span></span>
+          <span class="svc__arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
+        </button>
+        <div class="svc__panel" id="svc-4">
+          <div class="svc__inner"><p class="svc__desc" data-i18n="svc.4d">Hosting, dominio, cambios y copias por una cuota mensual.</p><div class="svc__tags"><span class="tag">Hosting</span><span class="tag" data-i18n="svc.4b">Soporte</span><span class="tag" data-i18n="svc.4c">Mejoras</span></div></div>
+        </div>
+      </li>
+      <li class="svc svc--soon" data-preview="">
+        <button class="svc__head" type="button" aria-expanded="false" aria-controls="svc-5">
+          <span class="svc__num">05</span>
+          <span class="svc__title"><svg class="svc__glyph" viewBox="0 0 369.818 259.627" aria-hidden="true"><use href="#isotipo"/></svg><span data-i18n="svc.5t">Apps a medida</span></span>
+          <span class="svc__arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
+        </button>
+        <div class="svc__panel" id="svc-5">
+          <div class="svc__inner"><p class="svc__desc" data-i18n="svc.5d">Próximamente: cuando necesites más que una web.</p></div>
+        </div>
+      </li>
+    </ul>
   </div>
 
-  <div class="services" id="services">
-    <article class="svc reveal">
-      <span class="svc__num">01</span>
-      <h3 class="svc__title"><svg class="svc__glyph" viewBox="0 0 369.818 259.627" aria-hidden="true"><use href="#isotipo"/></svg><span data-i18n="svc.1t">Identidad de marca</span></h3>
-      <div class="svc__body">
-        <p data-i18n="svc.1d">Logotipo, paleta, tipografía y un manual para que tu marca se vea igual en el rótulo, en Instagram y en la factura.</p>
-        <div class="svc__tags"><span class="tag" data-i18n="svc.1a">Logotipo</span><span class="tag" data-i18n="svc.1b">Color y tipo</span><span class="tag" data-i18n="svc.1c">Manual</span></div>
+  <!-- Vista previa que sigue al cursor (solo ratón): trabajo real para cada servicio -->
+  <div class="svc-preview" aria-hidden="true">
+    <div class="svc-preview__card">
+      <div class="svc-preview__media">
+      <div class="svc-preview__item svc-preview__item--identity grain" data-key="identity">
+        <svg viewBox="0 0 1204.145 259.627"><use href="#imagotipo"/></svg>
       </div>
-      <span class="svc__arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
-    </article>
-    <article class="svc reveal">
-      <span class="svc__num">02</span>
-      <h3 class="svc__title"><svg class="svc__glyph" viewBox="0 0 369.818 259.627" aria-hidden="true"><use href="#isotipo"/></svg><span data-i18n="svc.2t">Web a medida</span></h3>
-      <div class="svc__body">
-        <p data-i18n="svc.2d">Diseñada para tu negocio, no copiada de una plantilla. Rápida en el móvil y preparada para aparecer cuando te buscan en Google.</p>
-        <div class="svc__tags"><span class="tag">UI</span><span class="tag" data-i18n="svc.2b">Desarrollo</span><span class="tag" data-i18n="svc.2c">SEO local</span></div>
+      <picture class="svc-preview__item" data-key="web"><img src="/img/work/kaia-web.webp" alt="" width="1120" height="700" loading="lazy" decoding="async"></picture>
+      <picture class="svc-preview__item" data-key="booking"><source type="image/avif" srcset="/img/work/izanagi-home-desktop-960.avif"><img src="/img/work/izanagi-home-desktop-960.webp" alt="" width="960" height="600" loading="lazy" decoding="async"></picture>
+      <picture class="svc-preview__item" data-key="care"><source type="image/avif" srcset="/img/svc/ferro-taller-800.avif"><img src="/img/svc/ferro-taller-800.webp" alt="" width="800" height="533" loading="lazy" decoding="async"></picture>
       </div>
-      <span class="svc__arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
-    </article>
-    <article class="svc reveal">
-      <span class="svc__num">03</span>
-      <h3 class="svc__title"><svg class="svc__glyph" viewBox="0 0 369.818 259.627" aria-hidden="true"><use href="#isotipo"/></svg><span data-i18n="svc.3t">Reservas y venta online</span></h3>
-      <div class="svc__body">
-        <p data-i18n="svc.3d">Citas, pedidos o catálogo dentro de tu propia web. Sin comisiones por reserva y con los datos de tus clientes en tus manos.</p>
-        <div class="svc__tags"><span class="tag" data-i18n="svc.3a">Reservas</span><span class="tag" data-i18n="svc.3b">Pedidos</span><span class="tag" data-i18n="svc.3c">Catálogo</span></div>
-      </div>
-      <span class="svc__arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
-    </article>
-    <article class="svc reveal">
-      <span class="svc__num">04</span>
-      <h3 class="svc__title"><svg class="svc__glyph" viewBox="0 0 369.818 259.627" aria-hidden="true"><use href="#isotipo"/></svg><span data-i18n="svc.4t">Cuidado continuo</span></h3>
-      <div class="svc__body">
-        <p data-i18n="svc.4d">Hosting, dominio, cambios y copias de seguridad por una cuota mensual. Tú atiendes tu negocio; nosotros, tu web.</p>
-        <div class="svc__tags"><span class="tag">Hosting</span><span class="tag" data-i18n="svc.4b">Soporte</span><span class="tag" data-i18n="svc.4c">Mejoras</span></div>
-      </div>
-      <span class="svc__arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
-    </article>
-    <article class="svc svc--soon reveal">
-      <span class="svc__num">05</span>
-      <h3 class="svc__title"><svg class="svc__glyph" viewBox="0 0 369.818 259.627" aria-hidden="true"><use href="#isotipo"/></svg><span data-i18n="svc.5t">Apps a medida</span></h3>
-      <div class="svc__body">
-        <p class="muted" data-i18n="svc.5d">Próximamente. Cuando tu negocio necesite algo más que una web, estaremos preparados.</p>
-      </div>
-      <span class="svc__arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
-    </article>
+      <p class="svc-preview__cap"></p>
+    </div>
   </div>
 </section>
 
