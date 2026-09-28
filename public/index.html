@@ -41,6 +41,7 @@
 <link rel="modulepreload" href="/js/modules/fig.js">
 <link rel="modulepreload" href="/js/modules/studio.js">
 <link rel="modulepreload" href="/js/modules/services.js">
+<link rel="modulepreload" href="/js/modules/work.js">
 <link rel="modulepreload" href="/js/modules/legacy.js">
 <script type="module" src="/js/home.js"></script>
 </head>
@@ -283,84 +284,86 @@
   </div>
 </section>
 
-<!-- ===================== 03 · PROYECTOS ===================== -->
-<section class="section" id="proyectos" aria-labelledby="work-t" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head grid" style="margin-bottom:clamp(40px,5vw,72px)">
-      <p class="label reveal"><span class="num">03</span><span data-i18n="work.label">Proyectos</span></p>
-      <h2 class="sec-head__title reveal" id="work-t" data-i18n-html="work.title">Hecho por nosotros, <em>de principio a fin</em>.</h2>
-      <p class="sec-head__intro muted reveal" style="--d:.1s" data-i18n="work.intro">Un producto propio en desarrollo y cuatro webs completas para negocios ficticios. Ábrelas y navégalas: así trabajamos antes de hacerlo con tu negocio.</p>
+<!-- ===================== 03 · PROYECTOS (oscuro) ===================== -->
+<section class="work" id="proyectos" data-theme="dark" aria-labelledby="work-t">
+  <div class="work__intro wrap">
+    <div class="sec-top">
+      <p class="label"><span class="num">03</span><span data-i18n="work.label">Proyectos</span></p>
+      <h2 class="h2" id="work-t" data-i18n-html="work.title">Hecho por nosotros, <em>de principio a fin</em>.</h2>
     </div>
+    <p class="work__lead" data-i18n="work.intro">Un producto propio y cuatro webs completas. Ábrelas.</p>
   </div>
 
-  <!-- Carrusel: arrastrar con ratón, deslizar en móvil, flechas con teclado -->
-  <div class="rail reveal" id="rail" data-cursor="drag" tabindex="0" role="region" data-i18n-attr="aria-label:work.rail" aria-label="Proyectos (desplazable)">
-    <article class="card">
-      <div class="card__cover card__cover--grain" style="--c-bg:#4915ED;--c-fg:#F0F1FF">
-        <svg class="card__mark mark-syncro" viewBox="0 0 1204.145 259.627" role="img" aria-label="Syncro"><use href="#imagotipo"/></svg>
+  <!-- Escritorio: recorrido horizontal fijado. Táctil / movimiento reducido: carrusel nativo -->
+  <div class="work__pin">
+    <div class="work__stage">
+      <div class="work__track" id="work-track" tabindex="0" role="region" data-i18n-attr="aria-label:work.rail" aria-label="Proyectos (desplazable)" data-cursor="drag">
+      <article class="wp wp--own grain" data-cursor-theme="violet" style="--wp-bg:#4915ED;--wp-fg:#F0F1FF">
+        <span class="wp__meta label"><span class="wp__status" data-i18n="work.own">Caso 00</span><span class="wp__sector" data-i18n="work.p0s">Nuestra propia marca</span></span>
+        <div class="wp__brand" aria-hidden="true">
+          <picture class="wp__tex"><source type="image/avif" srcset="/img/brand/oscuro-1600.avif"><img src="/img/brand/oscuro-1600.webp" alt="" width="1600" height="900" loading="lazy" decoding="async" draggable="false"></picture>
+          <svg class="wp__logo" viewBox="0 0 1204.145 259.627"><use href="#imagotipo"/></svg>
+        </div>
+        <h3 class="wp__name">Syncro</h3>
+        <span class="wp__foot"><span class="wp__tags"><span class="tag" data-i18n="svc.1t">Identidad de marca</span><span class="tag">Web</span></span></span>
+      </article>
+      <article class="wp" data-cursor-theme="dark" style="--wp-bg:#141414;--wp-fg:#F0F1FF">
+        <span class="wp__meta label"><span class="wp__status wp__status--live" data-i18n="work.dev">En desarrollo</span><span class="wp__sector" data-i18n="work.izS">Reservas y gestión para estudios de tatuaje</span></span>
+        <div class="wp__media">
+          <div class="wp__browser" aria-hidden="true"><div class="wp__bar"><i></i><i></i><i></i></div><picture><source type="image/avif" srcset="/img/work/izanagi-home-desktop-1440.avif"><img src="/img/work/izanagi-home-desktop-1440.webp" alt="" width="1440" height="900" loading="lazy" decoding="async" draggable="false"></picture></div>
+          <div class="wp__phone"><picture><source type="image/avif" srcset="/img/work/izanagi-home-movil-390.avif"><img src="/img/work/izanagi-home-movil-390.webp" width="390" height="844" loading="lazy" decoding="async" draggable="false" data-i18n-attr="alt:work.izAlt" alt="Izanagi en el móvil: feed de piezas de tatuaje filtrable por estilo"></picture></div>
+        </div>
+        <h3 class="wp__name">Izanagi</h3>
+        <span class="wp__foot"><span class="wp__tags"><span class="tag">Web app</span><span class="tag" data-i18n="work.booking">Reservas</span><span class="tag">Next.js</span></span></span>
+      </article>
+      <a class="wp wp--link" href="/proyectos/olmo/" target="_blank" rel="noopener" draggable="false" data-cursor="view" data-cursor-theme="light" style="--wp-bg:#EADFCB;--wp-fg:#231B15">
+        <span class="wp__meta label"><span class="wp__status" data-i18n="work.concept">Conceptual</span><span class="wp__sector" data-i18n="work.p1s">Panadería de barrio</span></span>
+        <div class="wp__media" aria-hidden="true">
+          <div class="wp__browser"><div class="wp__bar"><i></i><i></i><i></i></div><picture><img src="/img/work/olmo-web.webp" alt="" width="1120" height="700" loading="lazy" decoding="async" draggable="false"></picture></div>
+          <div class="wp__phone"><picture><img src="/img/work/olmo-movil.webp" alt="" width="360" height="780" loading="lazy" decoding="async" draggable="false"></picture></div>
+        </div>
+        <span class="wp__name">Olmo</span>
+        <span class="wp__foot"><span class="wp__tags"><span class="tag" data-i18n="svc.1t">Identidad de marca</span><span class="tag" data-i18n="work.orders">Pedidos online</span></span><span class="wp__cta"><span data-i18n="work.view">Ver web</span> <svg aria-hidden="true"><use href="#i-arrow"/></svg></span></span>
+        <span class="sr-only" data-i18n="work.newTab">(se abre en otra pestaña)</span>
+      </a>
+      <a class="wp wp--link" href="/proyectos/kaia/" target="_blank" rel="noopener" draggable="false" data-cursor="view" data-cursor-theme="dark" style="--wp-bg:#1E3B30;--wp-fg:#F0F1FF">
+        <span class="wp__meta label"><span class="wp__status" data-i18n="work.concept">Conceptual</span><span class="wp__sector" data-i18n="work.p2s">Clínica de fisioterapia</span></span>
+        <div class="wp__media" aria-hidden="true">
+          <div class="wp__browser"><div class="wp__bar"><i></i><i></i><i></i></div><picture><img src="/img/work/kaia-web.webp" alt="" width="1120" height="700" loading="lazy" decoding="async" draggable="false"></picture></div>
+          <div class="wp__phone"><picture><img src="/img/work/kaia-movil.webp" alt="" width="360" height="780" loading="lazy" decoding="async" draggable="false"></picture></div>
+        </div>
+        <span class="wp__name">Kaia</span>
+        <span class="wp__foot"><span class="wp__tags"><span class="tag">Web</span><span class="tag" data-i18n="work.booking">Reservas</span></span><span class="wp__cta"><span data-i18n="work.view">Ver web</span> <svg aria-hidden="true"><use href="#i-arrow"/></svg></span></span>
+        <span class="sr-only" data-i18n="work.newTab">(se abre en otra pestaña)</span>
+      </a>
+      <a class="wp wp--link" href="/proyectos/ferro/" target="_blank" rel="noopener" draggable="false" data-cursor="view" data-cursor-theme="light" style="--wp-bg:#FF5A1F;--wp-fg:#0B0B0B">
+        <span class="wp__meta label"><span class="wp__status" data-i18n="work.concept">Conceptual</span><span class="wp__sector" data-i18n="work.p3s">Taller de bicicletas</span></span>
+        <div class="wp__media" aria-hidden="true">
+          <div class="wp__browser"><div class="wp__bar"><i></i><i></i><i></i></div><picture><img src="/img/work/ferro-web.webp" alt="" width="1120" height="700" loading="lazy" decoding="async" draggable="false"></picture></div>
+          <div class="wp__phone"><picture><img src="/img/work/ferro-movil.webp" alt="" width="360" height="780" loading="lazy" decoding="async" draggable="false"></picture></div>
+        </div>
+        <span class="wp__name">Ferro</span>
+        <span class="wp__foot"><span class="wp__tags"><span class="tag">Web</span><span class="tag" data-i18n="work.appts">Citas</span></span><span class="wp__cta"><span data-i18n="work.view">Ver web</span> <svg aria-hidden="true"><use href="#i-arrow"/></svg></span></span>
+        <span class="sr-only" data-i18n="work.newTab">(se abre en otra pestaña)</span>
+      </a>
+      <a class="wp wp--link" href="/proyectos/marea/" target="_blank" rel="noopener" draggable="false" data-cursor="view" data-cursor-theme="light" style="--wp-bg:#E7E1D4;--wp-fg:#0E0F10">
+        <span class="wp__meta label"><span class="wp__status" data-i18n="work.concept">Conceptual</span><span class="wp__sector" data-i18n="work.p4s">Taberna marinera</span></span>
+        <div class="wp__media" aria-hidden="true">
+          <div class="wp__browser"><div class="wp__bar"><i></i><i></i><i></i></div><picture><img src="/img/work/marea-web.webp" alt="" width="1120" height="700" loading="lazy" decoding="async" draggable="false"></picture></div>
+          <div class="wp__phone"><picture><img src="/img/work/marea-movil.webp" alt="" width="360" height="780" loading="lazy" decoding="async" draggable="false"></picture></div>
+        </div>
+        <span class="wp__name">Marea</span>
+        <span class="wp__foot"><span class="wp__tags"><span class="tag" data-i18n="svc.1t">Identidad de marca</span><span class="tag">Web</span><span class="tag" data-i18n="work.booking">Reservas</span></span><span class="wp__cta"><span data-i18n="work.view">Ver web</span> <svg aria-hidden="true"><use href="#i-arrow"/></svg></span></span>
+        <span class="sr-only" data-i18n="work.newTab">(se abre en otra pestaña)</span>
+      </a>
       </div>
-      <div class="card__meta"><div><h3 class="card__name">Syncro</h3><p class="card__sector" data-i18n="work.p0s">Nuestra propia marca</p></div><span class="label card__kind card__kind--own" data-i18n="work.own">Caso 00</span></div>
-      <div class="card__tags"><span class="tag" data-i18n="svc.1t">Identidad de marca</span><span class="tag">Web</span></div>
-    </article>
-
-    <!-- Proyecto real: Izanagi (capturas del entorno local, sep. 2026) -->
-    <article class="card">
-      <div class="card__cover card__cover--shot">
-        <div class="shot-browser" aria-hidden="true"><div class="shot-browser__bar"><i></i><i></i><i></i></div><picture><source type="image/avif" srcset="/img/work/izanagi-home-desktop-960.avif"><img src="/img/work/izanagi-home-desktop-960.webp" alt="" width="960" height="600" loading="lazy" decoding="async"></picture></div>
-        <div class="shot-phone"><picture><source type="image/avif" srcset="/img/work/izanagi-home-movil-390.avif"><img src="/img/work/izanagi-home-movil-390.webp" width="390" height="844" loading="lazy" decoding="async" data-i18n-attr="alt:work.izAlt" alt="Izanagi en el móvil: feed de piezas de tatuaje filtrable por estilo"></picture></div>
-        <p class="shot-name" aria-hidden="true">Izanagi<small data-i18n="work.izCover">Web app</small></p>
-      </div>
-      <div class="card__meta"><div><h3 class="card__name">Izanagi</h3><p class="card__sector" data-i18n="work.izS">Reservas y gestión para estudios de tatuaje</p></div><span class="label card__kind card__kind--real" data-i18n="work.dev">En desarrollo</span></div>
-      <div class="card__tags"><span class="tag">Web app</span><span class="tag" data-i18n="work.booking">Reservas</span><span class="tag">Next.js</span></div>
-    </article>
-
-    <a class="card card--site" data-cursor="view" href="/proyectos/olmo/" target="_blank" rel="noopener" draggable="false">
-      <div class="card__cover card__cover--shot" style="--shot-bg:#EADFCB;--shot-fg:#231B15">
-        <div class="shot-browser" aria-hidden="true"><div class="shot-browser__bar"><i></i><i></i><i></i></div><img src="/img/work/olmo-web.webp" alt="" width="1120" height="700" loading="lazy" decoding="async" draggable="false"></div>
-        <div class="shot-phone" aria-hidden="true"><img src="/img/work/olmo-movil.webp" alt="" width="360" height="780" loading="lazy" decoding="async" draggable="false"></div>
-        <p class="shot-name" aria-hidden="true">Olmo<small data-i18n="work.live">Web navegable</small></p>
-      </div>
-      <div class="card__meta"><div><h3 class="card__name">Olmo</h3><p class="card__sector" data-i18n="work.p1s">Panadería de barrio</p></div><span class="label card__kind muted" data-i18n="work.concept">Conceptual</span></div>
-      <div class="card__tags"><span class="tag" data-i18n="svc.1t">Identidad de marca</span><span class="tag" data-i18n="work.orders">Pedidos online</span><span class="card__open"><span data-i18n="work.view">Ver web</span> <svg aria-hidden="true"><use href="#i-arrow"/></svg></span><span class="sr-only" data-i18n="work.newTab">(se abre en otra pestaña)</span></div>
-    </a>
-
-    <a class="card card--site" data-cursor="view" href="/proyectos/kaia/" target="_blank" rel="noopener" draggable="false">
-      <div class="card__cover card__cover--shot" style="--shot-bg:#1E3B30;--shot-fg:#F0F1FF">
-        <div class="shot-browser" aria-hidden="true"><div class="shot-browser__bar"><i></i><i></i><i></i></div><img src="/img/work/kaia-web.webp" alt="" width="1120" height="700" loading="lazy" decoding="async" draggable="false"></div>
-        <div class="shot-phone" aria-hidden="true"><img src="/img/work/kaia-movil.webp" alt="" width="360" height="780" loading="lazy" decoding="async" draggable="false"></div>
-        <p class="shot-name" aria-hidden="true">Kaia<small data-i18n="work.live">Web navegable</small></p>
-      </div>
-      <div class="card__meta"><div><h3 class="card__name">Kaia</h3><p class="card__sector" data-i18n="work.p2s">Clínica de fisioterapia</p></div><span class="label card__kind muted" data-i18n="work.concept">Conceptual</span></div>
-      <div class="card__tags"><span class="tag">Web</span><span class="tag" data-i18n="work.booking">Reservas</span><span class="card__open"><span data-i18n="work.view">Ver web</span> <svg aria-hidden="true"><use href="#i-arrow"/></svg></span><span class="sr-only" data-i18n="work.newTab">(se abre en otra pestaña)</span></div>
-    </a>
-
-    <a class="card card--site" data-cursor="view" href="/proyectos/ferro/" target="_blank" rel="noopener" draggable="false">
-      <div class="card__cover card__cover--shot" style="--shot-bg:#FF5A1F;--shot-fg:#0B0B0B">
-        <div class="shot-browser" aria-hidden="true"><div class="shot-browser__bar"><i></i><i></i><i></i></div><img src="/img/work/ferro-web.webp" alt="" width="1120" height="700" loading="lazy" decoding="async" draggable="false"></div>
-        <div class="shot-phone" aria-hidden="true"><img src="/img/work/ferro-movil.webp" alt="" width="360" height="780" loading="lazy" decoding="async" draggable="false"></div>
-        <p class="shot-name" aria-hidden="true">Ferro<small data-i18n="work.live">Web navegable</small></p>
-      </div>
-      <div class="card__meta"><div><h3 class="card__name">Ferro</h3><p class="card__sector" data-i18n="work.p3s">Taller de bicicletas</p></div><span class="label card__kind muted" data-i18n="work.concept">Conceptual</span></div>
-      <div class="card__tags"><span class="tag">Web</span><span class="tag" data-i18n="work.appts">Citas</span><span class="card__open"><span data-i18n="work.view">Ver web</span> <svg aria-hidden="true"><use href="#i-arrow"/></svg></span><span class="sr-only" data-i18n="work.newTab">(se abre en otra pestaña)</span></div>
-    </a>
-
-    <a class="card card--site" data-cursor="view" href="/proyectos/marea/" target="_blank" rel="noopener" draggable="false">
-      <div class="card__cover card__cover--shot" style="--shot-bg:#E7E1D4;--shot-fg:#0E0F10">
-        <div class="shot-browser" aria-hidden="true"><div class="shot-browser__bar"><i></i><i></i><i></i></div><img src="/img/work/marea-web.webp" alt="" width="1120" height="700" loading="lazy" decoding="async" draggable="false"></div>
-        <div class="shot-phone" aria-hidden="true"><img src="/img/work/marea-movil.webp" alt="" width="360" height="780" loading="lazy" decoding="async" draggable="false"></div>
-        <p class="shot-name" aria-hidden="true">Marea<small data-i18n="work.live">Web navegable</small></p>
-      </div>
-      <div class="card__meta"><div><h3 class="card__name">Marea</h3><p class="card__sector" data-i18n="work.p4s">Taberna marinera</p></div><span class="label card__kind muted" data-i18n="work.concept">Conceptual</span></div>
-      <div class="card__tags"><span class="tag" data-i18n="svc.1t">Identidad de marca</span><span class="tag">Web</span><span class="tag" data-i18n="work.booking">Reservas</span><span class="card__open"><span data-i18n="work.view">Ver web</span> <svg aria-hidden="true"><use href="#i-arrow"/></svg></span><span class="sr-only" data-i18n="work.newTab">(se abre en otra pestaña)</span></div>
-    </a>
-  </div>
-
-  <div class="wrap">
-    <div class="work__bar">
-      <div class="progress" aria-hidden="true"><span id="rail-progress"></span></div>
-      <div class="rail-ctrl">
-        <button type="button" id="rail-prev" data-i18n-attr="aria-label:work.prev" aria-label="Proyecto anterior"><svg aria-hidden="true"><use href="#i-arrow-l"/></svg></button>
-        <button type="button" id="rail-next" data-i18n-attr="aria-label:work.next" aria-label="Proyecto siguiente"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      <div class="work__hud wrap">
+        <span class="work__count label" aria-hidden="true"><b id="work-i">01</b> / 06</span>
+        <span class="work__progress" aria-hidden="true"><span id="work-bar"></span></span>
+        <span class="work__ctrl">
+          <button type="button" id="work-prev" data-i18n-attr="aria-label:work.prev" aria-label="Proyecto anterior"><svg aria-hidden="true"><use href="#i-arrow-l"/></svg></button>
+          <button type="button" id="work-next" data-i18n-attr="aria-label:work.next" aria-label="Proyecto siguiente"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        </span>
       </div>
     </div>
   </div>

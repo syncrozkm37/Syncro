@@ -397,7 +397,64 @@ a:hover > .roll .roll__c,a:focus-visible > .roll .roll__c{transform:translateY(-
 .svc-preview__item--identity svg{width:62%;height:auto;position:relative;z-index:2}
 .svc-preview__cap{padding:13px 16px 15px;font-size:13.5px;font-weight:500;line-height:1.4}
 
-/* ---------- 12. Responsive ---------- */
+/* ---------- 12. 03 · Proyectos (acto oscuro) ---------- */
+.work{position:relative;z-index:2;background:var(--obsidian);color:var(--glacial);border-radius:var(--radius) var(--radius) 0 0;margin-top:calc(-1 * var(--radius));padding-top:clamp(90px, 10vw, 160px);overflow-x:clip}
+.work__intro .sec-top{margin-bottom:clamp(18px, 2vw, 30px)}
+.work__lead{margin-left:clamp(0px, 16.3vw, 236px);max-width:34ch;color:#C9CBDB;font-size:clamp(16px, 1.3vw, 20px);font-weight:500}
+.work__pin{position:relative;margin-top:clamp(36px, 5vw, 72px)}
+.work__stage{position:relative;padding-bottom:clamp(64px, 8vw, 120px)}
+.work__track{display:flex;gap:clamp(14px, 2vw, 28px);padding-inline:var(--gutter);overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scroll-padding-inline:var(--gutter);scrollbar-width:none;cursor:grab}
+.work__track::-webkit-scrollbar{display:none}
+.work__track.is-dragging{cursor:grabbing;scroll-snap-type:none;user-select:none}
+.work__track.is-dragging .wp{pointer-events:none}
+
+.wp{position:relative;flex:0 0 min(84vw, 560px);aspect-ratio:4 / 5;border-radius:var(--radius);overflow:hidden;isolation:isolate;background:var(--wp-bg);color:var(--wp-fg);scroll-snap-align:start;display:block;-webkit-user-drag:none}
+.wp__meta{position:absolute;z-index:3;left:clamp(18px, 2.4vw, 36px);right:clamp(18px, 2.4vw, 36px);top:clamp(18px, 2.2vw, 32px);display:flex;flex-wrap:wrap;gap:6px 14px}
+.wp__sector{opacity:.72}
+.wp__status--live{display:inline-flex;align-items:center;gap:8px}
+.wp__status--live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--violet-soft)}
+.wp__media{position:absolute;z-index:1;inset:15% 7% 34% 7%}
+.wp__browser{position:absolute;right:0;top:0;width:90%;border-radius:10px;overflow:hidden;background:#0d0d0d;border:1px solid rgba(255,255,255,.08);box-shadow:0 30px 60px -22px rgba(0,0,0,.55)}
+.wp__bar{height:18px;display:flex;align-items:center;gap:5px;padding:0 9px;background:#232323}
+.wp__bar i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.22)}
+.wp__browser img,.wp__phone img{display:block;width:100%;height:auto}
+.wp__phone{position:absolute;left:0;top:22%;width:31%;border-radius:16px;overflow:hidden;border:4px solid #2a2a2a;background:#0d0d0d;box-shadow:0 24px 50px -12px rgba(0,0,0,.6)}
+.wp__name{position:absolute;z-index:2;left:clamp(14px, 2vw, 30px);bottom:clamp(58px, 6vw, 92px);margin:0;font-size:clamp(3.2rem, 16vw, 7rem);font-weight:800;text-transform:uppercase;letter-spacing:-.05em;line-height:.8}
+.wp__foot{position:absolute;z-index:3;left:clamp(18px, 2.4vw, 36px);right:clamp(18px, 2.4vw, 36px);bottom:clamp(18px, 2.2vw, 30px);display:flex;align-items:center;justify-content:space-between;gap:12px}
+.wp__tags{display:flex;flex-wrap:wrap;gap:6px}
+.wp .tag{border-color:color-mix(in srgb, var(--wp-fg) 32%, transparent)}
+.wp__cta{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;white-space:nowrap}
+.wp__cta svg{width:14px;height:14px;transform:rotate(-45deg);transition:transform .4s var(--ease)}
+.wp--link:hover .wp__cta svg{transform:rotate(-45deg) translateX(3px)}
+.wp--link:focus-visible{outline:2px solid var(--violet-soft);outline-offset:6px;border-radius:var(--radius)}
+.wp__brand{position:absolute;inset:0;z-index:0}
+.wp__tex{position:absolute;inset:0;opacity:.6;mix-blend-mode:screen}
+.wp__tex img{width:100%;height:100%;object-fit:cover}
+.wp__logo{position:absolute;left:12%;top:36%;width:76%;height:auto;color:var(--glacial);--logo-iso:var(--glacial)}
+
+.work__hud{display:flex;align-items:center;gap:clamp(16px, 2vw, 28px);margin-top:clamp(18px, 2.2vw, 30px)}
+.work__count{color:#A9ABBE;font-variant-numeric:tabular-nums}
+.work__count b{font-weight:700;color:var(--glacial)}
+.work__progress{position:relative;flex:1;max-width:520px;height:1px;background:var(--line-dark);overflow:hidden}
+.work__progress span{position:absolute;inset:0;background:var(--glacial);transform-origin:0 50%;transform:scaleX(0)}
+.work__ctrl{display:flex;gap:8px;margin-left:auto}
+.work__ctrl button{width:48px;height:48px;border-radius:50%;border:1px solid var(--line-dark);display:grid;place-items:center;transition:background-color .3s, color .3s, border-color .3s}
+.work__ctrl button:hover{background:var(--glacial);color:var(--obsidian);border-color:var(--glacial)}
+.work__ctrl button:disabled{opacity:.3;pointer-events:none}
+.work__ctrl svg{width:16px;height:16px}
+
+/* Escritorio: escena fija y recorrido horizontal */
+.work.is-pinned .work__stage{position:sticky;top:0;height:100svh;overflow:clip;padding:calc(var(--nav-h) * .7) 0 0;display:flex;flex-direction:column;justify-content:center}
+.work.is-pinned .work__track{overflow:visible;scroll-snap-type:none;width:max-content;gap:2.4vw;padding-inline:var(--gutter) 10vw;cursor:auto;will-change:transform}
+.work.is-pinned .wp{flex:0 0 auto;width:min(76vw, 1260px);height:min(calc(100svh - var(--nav-h) - 130px), 800px);aspect-ratio:auto}
+.work.is-pinned .wp__media{inset:11% 7% 31% 40%}
+.work.is-pinned .wp__browser{width:100%}
+.work.is-pinned .wp__phone{width:21%;left:auto;right:-5%;top:auto;bottom:-24%}
+.work.is-pinned .wp__name{font-size:clamp(4rem, 11vw, 12.5rem);bottom:clamp(64px, 7.4vw, 116px)}
+.work.is-pinned .wp__logo{left:44%;top:40%;width:48%}
+.work.is-pinned .work__ctrl{display:none}
+
+/* ---------- 13. Responsive ---------- */
 @media (max-width: 1023px){
   .nav{grid-template-columns:1fr auto}
   .nav__pill{display:none}
@@ -426,11 +483,13 @@ a:hover > .roll .roll__c,a:focus-visible > .roll .roll__c{transform:translateY(-
   .sec-top > .label{padding-bottom:18px}
   .svc__head{grid-template-columns:28px minmax(0, 1fr) auto;gap:12px}
   .svc__inner{padding-left:40px}
+  .work__lead{margin-left:0}
+  .work__ctrl{display:none}
   .wall{--tile-w:31vw}
   .wall__col:first-child,.wall__col:last-child{display:none}
 }
 
-/* ---------- 13. Movimiento reducido ---------- */
+/* ---------- 14. Movimiento reducido ---------- */
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
   .hero-pre .hero__title .ln > span{transform:none}

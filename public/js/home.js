@@ -9,6 +9,7 @@ import { initHero } from "./modules/hero.js";
 import { initFig } from "./modules/fig.js";
 import { initStudio } from "./modules/studio.js";
 import { initServices } from "./modules/services.js";
+import { initWork } from "./modules/work.js";
 import { initLegacy } from "./modules/legacy.js";
 
 const CONTACT_EMAIL = "syncrozkm37@gmail.com"; // buzón compartido del estudio; cambiar al dominio propio cuando lo haya
@@ -26,6 +27,7 @@ function boot() {
   initFig();
   initStudio();
   initServices();
+  initWork();
   initLegacy();
 
   /* Email de contacto centralizado */

@@ -54,6 +54,11 @@ export function scrollToTarget(el, { immediate = false } = {}) {
   }
 }
 
+export function scrollToY(y, { immediate = false } = {}) {
+  if (lenis) lenis.scrollTo(y, { duration: immediate ? 0 : 1, immediate });
+  else window.scrollTo({ top: y, behavior: reduce || immediate ? "auto" : "smooth" });
+}
+
 function onAnchorClick(e) {
   const a = e.target.closest && e.target.closest('a[href^="#"]');
   if (!a || e.defaultPrevented || e.metaKey || e.ctrlKey) return;
