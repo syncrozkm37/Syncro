@@ -11,7 +11,6 @@
 <!-- Montserrat autoalojada (sin Google Fonts). Unbounded solo está en el logo SVG. -->
 <link rel="preload" href="/fonts/montserrat-5.3.0/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/css/home.css">
-<link rel="stylesheet" href="/css/legacy.css">
 
 <!-- Estado antes del primer pintado: evita parpadeos (JS disponible, movimiento reducido, apertura) -->
 <script>
@@ -44,7 +43,7 @@
 <link rel="modulepreload" href="/js/modules/work.js">
 <link rel="modulepreload" href="/js/modules/method.js">
 <link rel="modulepreload" href="/js/modules/prices.js">
-<link rel="modulepreload" href="/js/modules/legacy.js">
+<link rel="modulepreload" href="/js/modules/contact.js">
 <script type="module" src="/js/home.js"></script>
 </head>
 
@@ -460,58 +459,66 @@
   </div>
 </section>
 
-<!-- ===================== 06 · CONTACTO + FOOTER ===================== -->
-<section class="contact on-dark" id="contacto" data-theme="dark" aria-labelledby="contact-t">
-  <div class="contact__bg" aria-hidden="true"></div>
-  <div class="wrap">
-    <p class="label reveal"><span class="num">06</span><span data-i18n="contact.label">Contacto</span></p>
-    <h2 class="contact__big reveal" id="contact-t" data-i18n="contact.big">¿Hablamos?</h2>
-
-    <div class="contact__row grid">
-      <p class="contact__p reveal" data-i18n="contact.p">Cuéntanos qué le pasa a tu negocio. Te respondemos en 48 h laborables con una propuesta, no con un catálogo.</p>
-      <div class="contact__mail reveal" style="--d:.1s">
-        <!-- Email de contacto del estudio (buzón compartido) hasta tener dominio propio -->
-        <a class="u-link js-mail" href="mailto:syncrozkm37@gmail.com">syncrozkm37@gmail.com</a><br>
-        <a class="btn btn--light js-mail" href="mailto:syncrozkm37@gmail.com"><span data-i18n="contact.cta">Escríbenos</span> <svg class="arr" width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+<!-- ===================== 06 · CONTACTO + PIE (oscuro, el final) ===================== -->
+<section class="contact" id="contacto" data-theme="dark" aria-labelledby="contact-t">
+  <div class="contact__stage">
+    <div class="contact__glow" aria-hidden="true">
+      <picture><source type="image/avif" srcset="/img/brand/oscuro-960.avif 960w, /img/brand/oscuro-1600.avif 1600w" sizes="100vw"><img src="/img/brand/oscuro-1600.webp" srcset="/img/brand/oscuro-960.webp 960w, /img/brand/oscuro-1600.webp 1600w" sizes="100vw" alt="" width="1600" height="900" loading="lazy" decoding="async"></picture>
+    </div>
+    <span class="contact__beam" aria-hidden="true"></span>
+    <p class="label contact__label"><span class="num">06</span><span data-i18n="contact.label">Contacto</span></p>
+    <div class="contact__halves">
+      <div class="contact__a"><h2 class="contact__big" id="contact-t" data-i18n="contact.big">¿Hablamos?</h2></div>
+      <div class="contact__b">
+        <!-- Clic: copia el email (si el navegador no deja, abre el correo) -->
+        <button class="contact__mail" type="button" data-copy-mail aria-describedby="copy-hint"><span class="js-mail-text">syncrozkm37@gmail.com</span></button>
+        <p class="contact__p" data-i18n="contact.p">Cuéntanos qué le pasa a tu negocio. Respondemos en 48 h con una propuesta.</p>
+        <div class="contact__actions">
+          <a class="btn btn--light js-mail" href="mailto:syncrozkm37@gmail.com" data-magnetic><span data-i18n="contact.cta">Escríbenos</span> <svg class="arr" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <span class="contact__hint label" id="copy-hint" data-i18n="contact.copy">Clic en el email para copiarlo</span>
+        </div>
       </div>
     </div>
-
-    <footer class="footer">
-      <div class="footer__top grid">
-        <div class="footer__brand">
-          <svg class="logo" viewBox="0 0 1204.145 259.627" role="img" aria-label="Syncro"><use href="#imagotipo"/></svg>
-          <p data-i18n="foot.p">Branding y desarrollo web para negocios locales.</p>
-        </div>
-        <div class="footer__col">
-          <span class="label" data-i18n="foot.nav">Navegación</span>
-          <a class="u-link" href="#servicios" data-i18n="nav.services">Servicios</a>
-          <a class="u-link" href="#proyectos" data-i18n="nav.work">Proyectos</a>
-          <a class="u-link" href="#metodo" data-i18n="nav.process">Método</a>
-          <a class="u-link" href="#precios" data-i18n="nav.pricing">Precios</a>
-        </div>
-        <div class="footer__col">
-          <span class="label" data-i18n="foot.studio">Estudio</span>
-          <span>Pontevedra</span>
-          <span>Galicia, España</span>
-        </div>
-        <div class="footer__col">
-          <span class="label" data-i18n="foot.lang">Idioma</span>
-          <div class="lang" role="group" aria-label="Idioma / Language" style="font-size:13px">
-            <button type="button" data-lang="es" aria-pressed="true">ES</button><span>/</span><button type="button" data-lang="en" aria-pressed="false">EN</button>
-          </div>
-        </div>
-      </div>
-      <svg class="footer__iso" viewBox="0 0 1204.145 259.627" aria-hidden="true" style="--logo-iso:rgba(240,241,255,.06)"><use href="#imagotipo"/></svg>
-      <div class="footer__bottom">
-        <span>© <span id="year">2026</span> Syncro</span>
-        <span data-i18n="foot.made">Hecho en Pontevedra</span>
-        <a class="u-link" href="#top" data-i18n="foot.top">Volver arriba ↑</a>
-      </div>
-    </footer>
   </div>
+
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <svg class="logo" viewBox="0 0 1204.145 259.627" role="img" aria-label="Syncro"><use href="#imagotipo"/></svg>
+        <p data-i18n="foot.p">Branding y desarrollo web para negocios locales.</p>
+      </div>
+      <nav class="footer__col" aria-label="Pie de página">
+        <span class="label" data-i18n="foot.nav">Navegación</span>
+        <a class="u-link" href="#estudio" data-i18n="nav.studio">Estudio</a>
+        <a class="u-link" href="#servicios" data-i18n="nav.services">Servicios</a>
+        <a class="u-link" href="#proyectos" data-i18n="nav.work">Proyectos</a>
+        <a class="u-link" href="#metodo" data-i18n="nav.process">Método</a>
+        <a class="u-link" href="#precios" data-i18n="nav.pricing">Precios</a>
+      </nav>
+      <div class="footer__col">
+        <span class="label" data-i18n="foot.studio">Estudio</span>
+        <span>Pontevedra</span>
+        <span>Galicia, España</span>
+      </div>
+      <div class="footer__col">
+        <span class="label" data-i18n="foot.lang">Idioma</span>
+        <div class="lang" role="group" aria-label="Idioma / Language" style="font-size:13px">
+          <button type="button" data-lang="es" aria-pressed="true">ES</button><span aria-hidden="true">/</span><button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </div>
+    <svg class="footer__iso" viewBox="0 0 1204.145 259.627" aria-hidden="true"><use href="#imagotipo"/></svg>
+    <div class="footer__bottom">
+      <span>© <span id="year">2026</span> Syncro</span>
+      <span data-i18n="foot.made">Hecho en Pontevedra</span>
+      <a class="u-link" href="#top" data-i18n="foot.top">Volver arriba ↑</a>
+    </div>
+  </footer>
 </section>
 
 </main>
+
+<p class="toast" role="status" aria-live="polite"></p>
 
 <div class="cursor" id="cursor" aria-hidden="true"><div class="cursor__dot"><span class="cursor__t cursor__t--drag" data-i18n="cursor.drag">Arrastra</span><span class="cursor__t cursor__t--view"><span data-i18n="cursor.view">Ver web</span> ↗</span></div></div>
 

@@ -72,8 +72,8 @@
       "price.c1": "Identidad de marca completa", "price.c2": "Web a medida", "price.c3": "Reservas o pedidos online", "price.c4": "Formación para gestionarla tú",
       "price.note": "IVA no incluido. Presupuesto cerrado tras la primera reunión.",
       "contact.label": "Contacto", "contact.big": "¿Hablamos?",
-      "contact.p": "Cuéntanos qué le pasa a tu negocio. Te respondemos en 48 h laborables con una propuesta, no con un catálogo.",
-      "contact.cta": "Escríbenos",
+      "contact.p": "Cuéntanos qué le pasa a tu negocio. Respondemos en 48 h con una propuesta.",
+      "contact.cta": "Escríbenos", "contact.copy": "Clic en el email para copiarlo", "contact.copied": "Email copiado",
       "foot.p": "Branding y desarrollo web para negocios locales.", "foot.nav": "Navegación", "foot.studio": "Estudio",
       "foot.lang": "Idioma", "foot.made": "Hecho en Pontevedra", "foot.top": "Volver arriba ↑",
       "cursor.drag": "Arrastra", "cursor.view": "Ver web"
@@ -139,8 +139,8 @@
       "price.c1": "Complete brand identity", "price.c2": "Custom website", "price.c3": "Online bookings or orders", "price.c4": "Training to manage it yourself",
       "price.note": "VAT not included. Fixed quote after our first meeting.",
       "contact.label": "Contact", "contact.big": "Let's talk.",
-      "contact.p": "Tell us what's going on with your business. We reply within 48 working hours with a proposal, not a brochure.",
-      "contact.cta": "Write to us",
+      "contact.p": "Tell us what's going on. We reply within 48 h with a proposal.",
+      "contact.cta": "Write to us", "contact.copy": "Click the email to copy it", "contact.copied": "Email copied",
       "foot.p": "Branding and web development for local businesses.", "foot.nav": "Navigation", "foot.studio": "Studio",
       "foot.lang": "Language", "foot.made": "Made in Pontevedra", "foot.top": "Back to top ↑",
       "cursor.drag": "Drag", "cursor.view": "View site"

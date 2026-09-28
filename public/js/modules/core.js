@@ -98,7 +98,8 @@ export function fitText(el, { max = 400, min = 16, ratio = 1 } = {}) {
   el.style.fontSize = "100px";
   el.style.whiteSpace = "nowrap";
   const w = el.scrollWidth;
-  const avail = el.parentElement.clientWidth * ratio;
+  const ps = getComputedStyle(el.parentElement);
+  const avail = (el.parentElement.clientWidth - parseFloat(ps.paddingLeft) - parseFloat(ps.paddingRight)) * ratio;
   el.style.fontSize = Math.max(min, Math.min(max, (100 * avail) / Math.max(1, w))) + "px";
 }
 

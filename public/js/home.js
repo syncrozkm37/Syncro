@@ -12,7 +12,7 @@ import { initServices } from "./modules/services.js";
 import { initWork } from "./modules/work.js";
 import { initMethod } from "./modules/method.js";
 import { initPrices } from "./modules/prices.js";
-import { initLegacy } from "./modules/legacy.js";
+import { initContact } from "./modules/contact.js";
 
 const CONTACT_EMAIL = "syncrozkm37@gmail.com"; // buzón compartido del estudio; cambiar al dominio propio cuando lo haya
 
@@ -32,13 +32,11 @@ function boot() {
   initWork();
   initMethod();
   initPrices();
-  initLegacy();
+  initContact(CONTACT_EMAIL);
 
   /* Email de contacto centralizado */
-  document.querySelectorAll(".js-mail").forEach((a) => {
-    a.href = "mailto:" + CONTACT_EMAIL;
-    if (!a.classList.contains("btn") && !a.hasAttribute("data-keep-text")) a.textContent = CONTACT_EMAIL;
-  });
+  document.querySelectorAll(".js-mail").forEach((a) => { a.href = "mailto:" + CONTACT_EMAIL; });
+  document.querySelectorAll(".js-mail-text").forEach((el) => { el.textContent = CONTACT_EMAIL; });
   const y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
 
