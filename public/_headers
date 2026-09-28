@@ -1,0 +1,14 @@
+# Cabeceras de Cloudflare Workers (Static Assets). Este archivo no se sirve.
+# Por defecto Cloudflare manda "max-age=0, must-revalidate" + ETag a todo.
+
+# Librerías y fuentes viven en carpetas con versión (gsap-3.15.0, montserrat-5.3.0…):
+# si cambian, cambia la ruta, así que el navegador puede guardarlas un año.
+/vendor/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Imágenes sin versión en el nombre: una semana y luego se revalidan.
+/img/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
