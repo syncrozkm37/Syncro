@@ -62,6 +62,7 @@ export function initWork() {
     // Teclado: al enfocar un panel, el scroll lo trae al centro
     const onFocus = (e) => {
       const p = e.target.closest(".wp");
+      if (e.target === track) return;
       if (!p) return;
       const x = Math.max(0, Math.min(dist(), p.offsetLeft - (window.innerWidth - p.offsetWidth) / 2));
       scrollToY(tween.scrollTrigger.start + x);
@@ -73,6 +74,12 @@ export function initWork() {
       scrollToY(st.start + (dist() * k) / (panels.length - 1));
     };
     const onPrev = () => step(-1), onNext = () => step(1);
+    const onKey = (e) => {
+      if (e.target !== track) return;
+      if (e.key === "ArrowRight") { e.preventDefault(); onNext(); }
+      if (e.key === "ArrowLeft") { e.preventDefault(); onPrev(); }
+    };
+    track.addEventListener("keydown", onKey);
     track.addEventListener("focusin", onFocus);
     prev.addEventListener("click", onPrev);
     next.addEventListener("click", onNext);
@@ -83,6 +90,7 @@ export function initWork() {
       pin.style.height = "";
       ScrollTrigger.removeEventListener("refreshInit", setHeight);
       track.removeEventListener("focusin", onFocus);
+      track.removeEventListener("keydown", onKey);
       prev.removeEventListener("click", onPrev);
       next.removeEventListener("click", onNext);
       gsap.set(track, { clearProps: "transform" });

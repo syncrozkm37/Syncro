@@ -113,7 +113,7 @@ export function wasSeen(el) { return seen.has(el); }
 export function revealLines(el, { start = "top 86%", stagger = 0.08, duration = 1.25, delay = 0 } = {}) {
   if (!el) return () => {};
   const split = SplitText.create(el, {
-    type: "lines", mask: "lines", autoSplit: true,
+    type: "lines", mask: "lines", autoSplit: true, aria: "none",
     onSplit(self) {
       if (wasSeen(el)) return;
       return gsap.from(self.lines, {

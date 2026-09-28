@@ -93,7 +93,12 @@ export function initMethod() {
           .fromTo(word, { yPercent: 105 }, { yPercent: 0, duration: 0.45, ease: "power3.out" }, i)
           .fromTo(bits, { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, stagger: 0.06, ease: "power3.out" }, i + 0.08);
       }
-      tl.add(visualTimeline(act, n), i === 0 ? 0 : i + 0.05);
+      if (i === 0) {
+        // El primer visual se dibuja mientras la escena llega, para no empezar con la pantalla vacía
+        gsap.timeline({ scrollTrigger: { trigger: pin, start: "top 85%", end: "top top", scrub: 0.6 } }).add(visualTimeline(act, n));
+      } else {
+        tl.add(visualTimeline(act, n), i + 0.05);
+      }
       if (i < acts.length - 1) {
         tl.to(word, { yPercent: -105, duration: 0.4, ease: "power3.in" }, i + 0.78)
           .to(bits, { y: -20, opacity: 0, duration: 0.3 }, i + 0.78)

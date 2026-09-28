@@ -23,16 +23,18 @@ function boot() {
     return;
   }
   initCore();
-  initNav();
-  initCursor();
-  initHero();
-  initFig();
-  initStudio();
-  initServices();
-  initWork();
-  initMethod();
-  initPrices();
-  initContact(CONTACT_EMAIL);
+  // Cada sección arranca por separado: si una falla, el resto de la web sigue funcionando
+  const run = (name, fn) => { try { fn(); } catch (e) { console.error("[syncro] " + name, e); } };
+  run("nav", initNav);
+  run("cursor", initCursor);
+  run("hero", initHero);
+  run("fig", initFig);
+  run("estudio", initStudio);
+  run("servicios", initServices);
+  run("proyectos", initWork);
+  run("metodo", initMethod);
+  run("precios", initPrices);
+  run("contacto", () => initContact(CONTACT_EMAIL));
 
   /* Email de contacto centralizado */
   document.querySelectorAll(".js-mail").forEach((a) => { a.href = "mailto:" + CONTACT_EMAIL; });

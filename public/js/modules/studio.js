@@ -27,8 +27,7 @@ export function initStudio() {
   /* Nombres del equipo partidos en letras (no cambian con el idioma) */
   sec.querySelectorAll("[data-bend]").forEach((el) => {
     const name = el.textContent.trim();
-    el.setAttribute("aria-label", name);
-    el.innerHTML = `<span class="team__chars" aria-hidden="true">${Array.from(name).map((c) => `<span class="ch">${c}</span>`).join("")}</span>`;
+    el.innerHTML = `<span class="sr-only">${name}</span><span class="team__chars" aria-hidden="true">${Array.from(name).map((c) => `<span class="ch">${c}</span>`).join("")}</span>`;
   });
 
   const mm = gsap.matchMedia();
@@ -36,7 +35,7 @@ export function initStudio() {
   mm.add(MQ.motion, () => {
     // Manifiesto: de apagado a encendido, palabra a palabra, atado al scroll
     const split = SplitText.create(text, {
-      type: "words",
+      type: "words", aria: "none",
       onSplit(self) {
         return gsap.fromTo(self.words,
           { color: (i, el) => (el.closest(".hl") ? DIM_HL : DIM) },

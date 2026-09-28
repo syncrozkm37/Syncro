@@ -45,8 +45,8 @@ export function initContact(email) {
   const mm = gsap.matchMedia();
   mm.add(MQ.motion, () => {
     const st = { trigger: stage, start: "top 88%", end: "top 18%", scrub: true };
-    gsap.fromTo(sec.querySelector(".contact__a"), { xPercent: -22, opacity: 0.15 }, { xPercent: 0, opacity: 1, ease: "power2.out", scrollTrigger: st });
-    gsap.fromTo(sec.querySelector(".contact__b"), { xPercent: 22, opacity: 0.15 }, { xPercent: 0, opacity: 1, ease: "power2.out", scrollTrigger: st });
+    gsap.fromTo(sec.querySelector(".contact__a"), { xPercent: -22 }, { xPercent: 0, ease: "power2.out", scrollTrigger: st });
+    gsap.fromTo(sec.querySelector(".contact__b"), { xPercent: 22 }, { xPercent: 0, ease: "power2.out", scrollTrigger: st });
     gsap.fromTo(sec.querySelector(".contact__beam"), { scaleY: 0, transformOrigin: "50% 0%" }, { scaleY: 1, ease: "none", scrollTrigger: st });
     gsap.fromTo(sec.querySelector(".contact__glow"), { opacity: 0.2, scale: 0.8 }, { opacity: 1, scale: 1, ease: "none", scrollTrigger: { trigger: stage, start: "top 90%", end: "bottom bottom", scrub: true } });
   });

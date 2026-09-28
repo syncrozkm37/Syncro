@@ -38,13 +38,11 @@ export function initHero() {
     root.classList.remove("hero-pre", "is-opening");
   }
 
-  /* ---------- Muro: pistas duplicadas para el bucle infinito ---------- */
+  /* ---------- Muro: cuatro tandas iguales por columna para un bucle sin huecos (también en vertical) ---------- */
+  const SETS = 4;
   tracks.forEach((tr) => {
-    Array.from(tr.children).forEach((n) => {
-      const c = n.cloneNode(true);
-      c.setAttribute("aria-hidden", "true");
-      tr.appendChild(c);
-    });
+    const originals = Array.from(tr.children);
+    for (let k = 1; k < SETS; k++) originals.forEach((n) => tr.appendChild(n.cloneNode(true)));
   });
   if (reduce) return;
 
@@ -53,7 +51,7 @@ export function initHero() {
   const state = { p: 0 };                               // 0 = desfasadas · 1 = en sincronía
   let H = 1, t0 = performance.now(), running = false;
 
-  const measure = () => { H = Math.max(1, tracks[0].scrollHeight / 2 + parseFloat(getComputedStyle(tracks[0]).rowGap || 0) / 2); };
+  const measure = () => { H = Math.max(1, (tracks[0].scrollHeight + parseFloat(getComputedStyle(tracks[0]).rowGap || 0)) / SETS); };
   measure();
   window.addEventListener("resize", measure);
 
@@ -77,7 +75,7 @@ export function initHero() {
 
   const mm = gsap.matchMedia();
   mm.add(MQ.motion, () => {
-    gsap.set(wall, { xPercent: -50, yPercent: -50, rotateX: 6 });
+    gsap.set(wall, { rotateX: 6 });
     // Al bajar: las columnas se sincronizan, el muro se aleja y el titular se despide
     gsap.timeline({
       scrollTrigger: {
