@@ -42,6 +42,7 @@
 <link rel="modulepreload" href="/js/modules/studio.js">
 <link rel="modulepreload" href="/js/modules/services.js">
 <link rel="modulepreload" href="/js/modules/work.js">
+<link rel="modulepreload" href="/js/modules/method.js">
 <link rel="modulepreload" href="/js/modules/legacy.js">
 <script type="module" src="/js/home.js"></script>
 </head>
@@ -370,42 +371,50 @@
 </section>
 
 <!-- ===================== 04 · MÉTODO (oscuro) ===================== -->
-<section class="section wrap on-dark" id="metodo" data-theme="dark" aria-labelledby="proc-t">
-  <div class="sec-head grid">
-    <p class="label reveal"><span class="num">04</span><span data-i18n="proc.label">Método</span></p>
-    <h2 class="sec-head__title reveal" id="proc-t" data-i18n-html="proc.title">Cuatro pasos. Un precio cerrado. <em>Cero sorpresas.</em></h2>
+<section class="method" id="metodo" data-theme="dark" aria-labelledby="proc-t">
+  <div class="method__intro wrap">
+    <div class="sec-top">
+      <p class="label"><span class="num">04</span><span data-i18n="proc.label">Método</span></p>
+      <h2 class="h2" id="proc-t" data-i18n-html="proc.title">Cuatro pasos. Un precio cerrado. <em>Cero sorpresas.</em></h2>
+    </div>
   </div>
 
-  <ol class="steps grid" style="list-style:none;margin:0;padding:0">
-    <li class="step reveal">
-      <span class="step__n">01</span>
-      <h3 class="step__t" data-i18n="proc.1t">Escuchar</h3>
-      <p class="step__d" data-i18n="proc.1d">Vamos a tu local. Antes de diseñar nada, entendemos qué te está costando clientes.</p>
-      <span class="step__time label muted" data-i18n="proc.1w">Semana 1</span>
-    </li>
-    <li class="step reveal" style="--d:.08s">
-      <span class="step__n">02</span>
-      <h3 class="step__t" data-i18n="proc.2t">Definir</h3>
-      <p class="step__d" data-i18n="proc.2d">Marca, estructura de la web y presupuesto cerrado. Lo apruebas por escrito antes de empezar.</p>
-      <span class="step__time label muted" data-i18n="proc.2w">Semanas 1–2</span>
-    </li>
-    <li class="step reveal" style="--d:.16s">
-      <span class="step__n">03</span>
-      <h3 class="step__t" data-i18n="proc.3t">Diseñar y construir</h3>
-      <p class="step__d" data-i18n="proc.3d">Diseñamos, programamos y te enseñamos avances cada semana. Tú decides; nosotros ejecutamos.</p>
-      <span class="step__time label muted" data-i18n="proc.3w">Semanas 2–5</span>
-    </li>
-    <li class="step reveal" style="--d:.24s">
-      <span class="step__n">04</span>
-      <h3 class="step__t" data-i18n="proc.4t">Lanzar y cuidar</h3>
-      <p class="step__d" data-i18n="proc.4d">Publicamos, te enseñamos a gestionarla y seguimos a tu lado con el mantenimiento mensual.</p>
-      <span class="step__time label muted" data-i18n="proc.4w">Continuo</span>
-    </li>
-  </ol>
+  <!-- Escritorio: cuatro actos a pantalla completa, fijados. Móvil / movimiento reducido: uno debajo de otro -->
+  <div class="method__pin">
+    <div class="method__stage">
+      <ol class="acts">
+        <li class="act act--1">
+          <div class="act__visual" aria-hidden="true"><svg class="v-rings" viewBox="0 0 600 600"><circle cx="300" cy="300" r="36"/><circle cx="300" cy="300" r="70"/><circle cx="300" cy="300" r="104"/><circle cx="300" cy="300" r="138"/><circle cx="300" cy="300" r="172"/><circle cx="300" cy="300" r="206"/><circle cx="300" cy="300" r="240"/><circle cx="300" cy="300" r="274"/><circle class="v-dot" cx="300" cy="300" r="7"/></svg></div>
+          <p class="act__time label"><span class="num">01</span><span data-i18n="proc.1w">Semana 1</span></p>
+          <div class="act__mask"><h3 class="act__word" data-i18n="proc.1t">Escuchar</h3></div>
+          <p class="act__line" data-i18n="proc.1d">Vamos a tu local y entendemos qué te cuesta clientes.</p>
+        </li>
+        <li class="act act--2">
+          <div class="act__visual" aria-hidden="true"><svg class="v-grid" viewBox="0 0 576 450"><use href="#isotipo" x="8" y="18" width="44" height="31"/><use href="#isotipo" x="80" y="18" width="44" height="31"/><use href="#isotipo" x="152" y="18" width="44" height="31"/><use href="#isotipo" x="224" y="18" width="44" height="31"/><use href="#isotipo" x="296" y="18" width="44" height="31"/><use href="#isotipo" x="368" y="18" width="44" height="31"/><use href="#isotipo" x="440" y="18" width="44" height="31"/><use href="#isotipo" x="512" y="18" width="44" height="31"/><use href="#isotipo" x="8" y="90" width="44" height="31"/><use href="#isotipo" x="80" y="90" width="44" height="31"/><use href="#isotipo" x="152" y="90" width="44" height="31"/><use href="#isotipo" x="224" y="90" width="44" height="31"/><use href="#isotipo" x="296" y="90" width="44" height="31"/><use href="#isotipo" x="368" y="90" width="44" height="31"/><use href="#isotipo" x="440" y="90" width="44" height="31"/><use href="#isotipo" x="512" y="90" width="44" height="31"/><use href="#isotipo" x="8" y="162" width="44" height="31"/><use href="#isotipo" x="80" y="162" width="44" height="31"/><use href="#isotipo" x="152" y="162" width="44" height="31"/><use href="#isotipo" x="224" y="162" width="44" height="31"/><use href="#isotipo" x="296" y="162" width="44" height="31"/><use href="#isotipo" x="368" y="162" width="44" height="31"/><use href="#isotipo" x="440" y="162" width="44" height="31"/><use href="#isotipo" x="512" y="162" width="44" height="31"/><use href="#isotipo" x="8" y="234" width="44" height="31"/><use href="#isotipo" x="80" y="234" width="44" height="31"/><use href="#isotipo" x="152" y="234" width="44" height="31"/><use href="#isotipo" x="224" y="234" width="44" height="31"/><use href="#isotipo" x="296" y="234" width="44" height="31"/><use href="#isotipo" x="368" y="234" width="44" height="31"/><use href="#isotipo" x="440" y="234" width="44" height="31"/><use href="#isotipo" x="512" y="234" width="44" height="31"/><use href="#isotipo" x="8" y="306" width="44" height="31"/><use href="#isotipo" x="80" y="306" width="44" height="31"/><use href="#isotipo" x="152" y="306" width="44" height="31"/><use href="#isotipo" x="224" y="306" width="44" height="31"/><use href="#isotipo" x="296" y="306" width="44" height="31"/><use href="#isotipo" x="368" y="306" width="44" height="31"/><use href="#isotipo" x="440" y="306" width="44" height="31"/><use href="#isotipo" x="512" y="306" width="44" height="31"/><use href="#isotipo" x="8" y="378" width="44" height="31"/><use href="#isotipo" x="80" y="378" width="44" height="31"/><use href="#isotipo" x="152" y="378" width="44" height="31"/><use href="#isotipo" x="224" y="378" width="44" height="31"/><use href="#isotipo" x="296" y="378" width="44" height="31"/><use href="#isotipo" x="368" y="378" width="44" height="31"/><use href="#isotipo" x="440" y="378" width="44" height="31"/><use href="#isotipo" x="512" y="378" width="44" height="31"/></svg></div>
+          <p class="act__time label"><span class="num">02</span><span data-i18n="proc.2w">Semanas 1–2</span></p>
+          <div class="act__mask"><h3 class="act__word" data-i18n="proc.2t">Definir</h3></div>
+          <p class="act__line" data-i18n="proc.2d">Marca, estructura y presupuesto cerrado. Lo apruebas por escrito.</p>
+        </li>
+        <li class="act act--3">
+          <div class="act__visual" aria-hidden="true"><div class="v-build"><div class="v-build__bar"><i></i><i></i><i></i></div><div class="v-build__body"><span class="b b--nav"></span><span class="b b--h1"></span><span class="b b--h2"></span><span class="b b--btn"></span><span class="b b--c1"></span><span class="b b--c2"></span><span class="b b--c3"></span><picture class="v-build__shot"><img src="/img/work/kaia-web.webp" alt="" width="1120" height="700" loading="lazy" decoding="async"></picture></div></div></div>
+          <p class="act__time label"><span class="num">03</span><span data-i18n="proc.3w">Semanas 2–5</span></p>
+          <div class="act__mask"><h3 class="act__word" data-i18n="proc.3t">Construir</h3></div>
+          <p class="act__line" data-i18n="proc.3d">Diseñamos y programamos. Avances cada semana; tú decides.</p>
+        </li>
+        <li class="act act--4">
+          <div class="act__visual" aria-hidden="true"><div class="v-launch"><span class="v-launch__glow"></span><span class="v-launch__beam"></span></div></div>
+          <p class="act__time label"><span class="num">04</span><span data-i18n="proc.4w">Continuo</span></p>
+          <div class="act__mask"><h3 class="act__word" data-i18n="proc.4t">Lanzar</h3></div>
+          <p class="act__line" data-i18n="proc.4d">Publicamos, te enseñamos a gestionarla y seguimos a tu lado.</p>
+        </li>
+      </ol>
+      <div class="acts__dots" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    </div>
+  </div>
 
-  <div class="statement grid">
-    <p class="statement__q reveal" data-i18n-html="proc.q">Tu web. Tus clientes. <em>Tus datos.</em></p>
-    <p class="statement__p reveal" style="--d:.1s" data-i18n="proc.qp">Nada de depender de plataformas que cobran por cada reserva y se quedan con la relación con tu cliente.</p>
+  <div class="motto">
+    <p class="motto__q" data-i18n-html="proc.q">Tu web. Tus clientes. <em>Tus datos.</em></p>
+    <p class="motto__p label" data-i18n="proc.qp">Sin plataformas que se queden con tu cliente.</p>
   </div>
 </section>
 

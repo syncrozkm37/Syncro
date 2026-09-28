@@ -26,19 +26,6 @@
    ========================================================= */
 .on-dark{background:var(--obsidian);color:var(--glacial)}
 .on-dark .muted{color:#A9ABBE}
-.steps{row-gap:56px}
-.step{grid-column:span 3;border-top:1px solid var(--line-dark);padding-top:24px;display:flex;flex-direction:column;gap:16px}
-.step__n{font-family:var(--font-display);font-weight:300;font-size:clamp(40px,4.4vw,64px);letter-spacing:-.05em;line-height:1;color:var(--violet-soft)}
-.step__t{font-family:var(--font-display);font-weight:400;font-size:clamp(18px,1.5vw,22px);letter-spacing:-.02em;line-height:1.2}
-.step__d{font-size:15px;line-height:1.6;color:#C9CBDB}
-.step__time{margin-top:auto;padding-top:8px}
-.statement{margin-top:clamp(96px,12vw,180px);align-items:end;row-gap:28px}
-.statement__q{
-  grid-column:1 / span 9;font-family:var(--font-display);font-weight:300;
-  font-size:clamp(2rem, 6.4vw, 6.5rem);line-height:1;letter-spacing:-.05em
-}
-.statement__q em{font-style:normal;color:var(--violet-soft)}
-.statement__p{grid-column:10 / span 3;font-size:15px;color:#C9CBDB;max-width:30ch}
 
 /* =========================================================
    11. PRECIOS
@@ -100,19 +87,15 @@
 .footer__bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:clamp(56px,8vw,120px);font-size:12px;color:#A9ABBE}
 .footer__iso{width:100%;margin-top:clamp(40px,6vw,80px);color:rgba(240,241,255,.06)}
 @media (max-width: 1024px){
-  .step{grid-column:span 6}
+
   .plan{grid-column:span 12;min-height:0}
   .plan__price{padding-top:32px}
-  .statement__q{grid-column:1 / -1}
-  .statement__p{grid-column:1 / span 8}
 
 }
 @media (max-width: 760px){
   .sec-head .label,.sec-head__title,.sec-head__intro{grid-column:1 / -1}
   .sec-head .label{padding-top:0}
 
-  .step{grid-column:1 / -1}
-  .statement__p{grid-column:1 / -1}
   .contact__p,.contact__mail{grid-column:1 / -1}
   .contact__mail{justify-self:start;text-align:left}
   .footer__brand{grid-column:1 / -1}

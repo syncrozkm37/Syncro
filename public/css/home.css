@@ -454,7 +454,62 @@ a:hover > .roll .roll__c,a:focus-visible > .roll .roll__c{transform:translateY(-
 .work.is-pinned .wp__logo{left:44%;top:40%;width:48%}
 .work.is-pinned .work__ctrl{display:none}
 
-/* ---------- 13. Responsive ---------- */
+/* ---------- 13. 04 · Método (acto oscuro) ---------- */
+.method{position:relative;background:var(--obsidian);color:var(--glacial);padding-top:var(--section-y);overflow-x:clip}
+.method__pin{position:relative;margin-top:clamp(40px, 6vw, 100px)}
+.acts{display:grid;gap:clamp(56px, 10vw, 140px);padding-inline:var(--gutter)}
+.act{position:relative;display:grid;justify-items:center;align-content:center;text-align:center;gap:clamp(10px, 1.4vw, 18px)}
+.act__visual{position:relative;width:min(80vw, 460px);aspect-ratio:1;display:grid;place-items:center;margin-bottom:clamp(8px, 1.4vw, 20px)}
+.act__time{color:#A9ABBE}
+.act__mask{overflow:hidden;padding:.08em .1em .12em;margin:-.08em -.1em -.12em}
+.act__word{display:block;margin:0;font-size:clamp(2.9rem, 13.2vw, 13rem);font-weight:800;text-transform:uppercase;letter-spacing:-.05em;line-height:.86}
+.act__line{max-width:30ch;color:#C9CBDB;font-size:clamp(16px, 1.35vw, 21px);font-weight:500;line-height:1.45}
+.acts__dots{display:none}
+
+/* Visuales de cada acto (elementos de marca, sin imágenes salvo la web de Kaia) */
+.v-rings{width:100%;height:auto;overflow:visible}
+.v-rings circle{fill:none;stroke:var(--glacial);stroke-width:1;opacity:.5}
+.v-rings .v-dot{fill:var(--violet-soft);stroke:none;opacity:1;filter:drop-shadow(0 0 14px rgba(160,139,255,.9))}
+.v-grid{width:100%;height:auto;overflow:visible;color:var(--glacial)}
+.v-grid use:nth-child(7n+3){color:var(--violet-soft)}
+.act--3 .act__visual{aspect-ratio:16 / 11}
+.v-build{position:relative;width:100%;border-radius:12px;overflow:hidden;background:#101011;border:1px solid var(--line-dark);box-shadow:0 30px 60px -24px rgba(0,0,0,.6)}
+.v-build__bar{height:20px;display:flex;align-items:center;gap:5px;padding:0 10px;background:#232323}
+.v-build__bar i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.22)}
+.v-build__body{position:relative;aspect-ratio:16 / 10}
+.v-build .b{position:absolute;border-radius:6px;background:rgba(240,241,255,.13)}
+.v-build .b--nav{left:5%;right:5%;top:6%;height:7%}
+.v-build .b--h1{left:20%;right:20%;top:22%;height:10%;background:rgba(240,241,255,.55)}
+.v-build .b--h2{left:30%;right:30%;top:36%;height:6%}
+.v-build .b--btn{left:43%;right:43%;top:46%;height:6%;background:var(--violet-soft)}
+.v-build .b--c1,.v-build .b--c2,.v-build .b--c3{top:60%;height:32%;width:28%}
+.v-build .b--c1{left:5%}.v-build .b--c2{left:36%}.v-build .b--c3{left:67%}
+.v-build__shot{position:absolute;inset:0}
+.v-build__shot img{width:100%;height:100%;object-fit:cover;object-position:top}
+.v-launch{position:relative;width:70%;height:100%}
+.v-launch__beam{position:absolute;left:50%;bottom:0;width:3px;height:100%;margin-left:-1.5px;border-radius:3px;background:linear-gradient(to top, var(--glacial) 0%, var(--violet-soft) 30%, rgba(160,139,255,0) 100%);box-shadow:0 0 22px 5px rgba(73,21,237,.55)}
+.v-launch__glow{position:absolute;left:50%;bottom:-38%;width:150%;aspect-ratio:1;margin-left:-75%;border-radius:50%;background:radial-gradient(circle, rgba(73,21,237,.6) 0%, rgba(73,21,237,.18) 38%, rgba(73,21,237,0) 64%)}
+
+/* Escritorio: cuatro actos fijados */
+.method.is-pinned .method__pin{height:400svh}
+.method.is-pinned .method__stage{position:sticky;top:0;height:100svh;overflow:clip}
+.method.is-pinned .acts{display:block;height:100%;padding:0}
+.method.is-pinned .act{position:absolute;inset:0;padding:calc(var(--nav-h) + 1vh) var(--gutter) 5vh}
+.method.is-pinned .act:not(:first-child){visibility:hidden;opacity:0}
+.method.is-pinned .act__visual{width:min(46vh, 440px)}
+.method.is-pinned .act--3 .act__visual{width:min(64vh, 600px)}
+.method.is-pinned .act__word{font-size:clamp(4rem, 12.6vw, 13rem)}
+.method.is-pinned .acts__dots{display:flex;flex-direction:column;gap:10px;position:absolute;right:var(--gutter);top:50%;transform:translateY(-50%)}
+.acts__dots i{width:6px;height:6px;border-radius:50%;background:var(--line-dark);transition:background-color .3s, transform .3s}
+.acts__dots i.is-on{background:var(--violet-soft);transform:scale(1.5)}
+
+/* Lema: "Tu web. Tus clientes. Tus datos." */
+.motto{padding:clamp(90px, 11vw, 170px) var(--gutter) var(--section-y);text-align:center}
+.motto__q{max-width:13ch;margin:0 auto;font-size:clamp(2.4rem, 7.4vw, 7.75rem);font-weight:800;text-transform:uppercase;letter-spacing:-.045em;line-height:.9}
+.motto__q em{font-style:normal;color:var(--violet-soft)}
+.motto__p{margin-top:clamp(18px, 2vw, 28px);color:#A9ABBE}
+
+/* ---------- 14. Responsive ---------- */
 @media (max-width: 1023px){
   .nav{grid-template-columns:1fr auto}
   .nav__pill{display:none}
@@ -489,7 +544,7 @@ a:hover > .roll .roll__c,a:focus-visible > .roll .roll__c{transform:translateY(-
   .wall__col:first-child,.wall__col:last-child{display:none}
 }
 
-/* ---------- 14. Movimiento reducido ---------- */
+/* ---------- 15. Movimiento reducido ---------- */
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
   .hero-pre .hero__title .ln > span{transform:none}
