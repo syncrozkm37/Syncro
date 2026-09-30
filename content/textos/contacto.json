@@ -1,0 +1,30 @@
+{
+  "es": {
+    "contact_label": "Contacto",
+    "contact_big": "¿Hablamos?",
+    "contact_p": "Cuéntanos qué le pasa a tu negocio. Respondemos en 48 h con una propuesta.",
+    "contact_cta": "Escríbenos",
+    "contact_copy": "Clic en el email para copiarlo",
+    "contact_copied": "Email copiado",
+    "foot_p": "Branding y desarrollo web para negocios locales.",
+    "foot_nav": "Navegación",
+    "foot_studio": "Estudio",
+    "foot_lang": "Idioma",
+    "foot_made": "Hecho en Pontevedra",
+    "foot_top": "Volver arriba ↑"
+  },
+  "en": {
+    "contact_label": "Contact",
+    "contact_big": "Let's talk.",
+    "contact_p": "Tell us what's going on. We reply within 48 h with a proposal.",
+    "contact_cta": "Write to us",
+    "contact_copy": "Click the email to copy it",
+    "contact_copied": "Email copied",
+    "foot_p": "Branding and web development for local businesses.",
+    "foot_nav": "Navigation",
+    "foot_studio": "Studio",
+    "foot_lang": "Language",
+    "foot_made": "Made in Pontevedra",
+    "foot_top": "Back to top ↑"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "es": {
+    "meta_title": "Syncro — Branding y web para negocios locales",
+    "meta_desc": "Syncro es un estudio de branding y desarrollo web en Pontevedra. Diseñamos la marca y construimos la web de negocios locales para que los encuentren y los elijan.",
+    "nav_studio": "Estudio",
+    "nav_services": "Servicios",
+    "nav_work": "Proyectos",
+    "nav_process": "Método",
+    "nav_pricing": "Precios",
+    "nav_contact": "Contacto",
+    "nav_cta": "Hablemos",
+    "nav_menu": "Abrir menú",
+    "a11y_skip": "Saltar al contenido",
+    "cursor_drag": "Arrastra",
+    "cursor_view": "Ver web"
+  },
+  "en": {
+    "meta_title": "Syncro — Branding & web for local businesses",
+    "meta_desc": "Syncro is a branding and web development studio in Pontevedra, Spain. We design the brand and build the website so local businesses get found — and chosen.",
+    "nav_studio": "Studio",
+    "nav_services": "Services",
+    "nav_work": "Work",
+    "nav_process": "Process",
+    "nav_pricing": "Pricing",
+    "nav_contact": "Contact",
+    "nav_cta": "Let's talk",
+    "nav_menu": "Open menu",
+    "a11y_skip": "Skip to content",
+    "cursor_drag": "Drag",
+    "cursor_view": "View site"
+  }
+}

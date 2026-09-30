@@ -1,0 +1,32 @@
+{
+  "es": {
+    "studio_label": "Estudio",
+    "studio_text": "Pequeños a propósito. *Hablas directamente con quien diseña y con quien programa*: sin intermediarios, sin plantillas, sin letra pequeña.",
+    "studio_missionL": "Misión",
+    "studio_mission": "Resolver lo que te cuesta clientes: no aparecer, perder reservas, no vender online.",
+    "studio_visionL": "Visión",
+    "studio_vision": "El estudio de referencia en Galicia, de tu primera web a tus propias apps.",
+    "studio_teamL": "Equipo",
+    "team_jorgeR": "Dirección creativa",
+    "team_jorgeD": "Diseño gráfico e industrial · marca · UI",
+    "team_loisR": "Desarrollo",
+    "team_loisD": "Programación y parte técnica",
+    "team_eliR": "Proyecto y cliente",
+    "team_eliD": "Tu interlocutor · coordinación · desarrollo"
+  },
+  "en": {
+    "studio_label": "Studio",
+    "studio_text": "Small on purpose. *You talk directly to the people who design and build*: no middlemen, no templates, no fine print.",
+    "studio_missionL": "Mission",
+    "studio_mission": "Fix what costs you customers: not being found, lost bookings, no online sales.",
+    "studio_visionL": "Vision",
+    "studio_vision": "Galicia's go-to studio, from your first website to your own apps.",
+    "studio_teamL": "Team",
+    "team_jorgeR": "Creative direction",
+    "team_jorgeD": "Graphic & industrial design · brand · UI",
+    "team_loisR": "Development",
+    "team_loisD": "Engineering and technical build",
+    "team_eliR": "Project & client",
+    "team_eliD": "Your point of contact · coordination · development"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "es": {
+    "proc_label": "Método",
+    "proc_title": "Cuatro pasos. Un precio cerrado. *Cero sorpresas.*",
+    "proc_1t": "Escuchar",
+    "proc_1d": "Vamos a tu local y entendemos qué te cuesta clientes.",
+    "proc_1w": "Semana 1",
+    "proc_2t": "Definir",
+    "proc_2d": "Marca, estructura y presupuesto cerrado. Lo apruebas por escrito.",
+    "proc_2w": "Semanas 1–2",
+    "proc_3t": "Construir",
+    "proc_3d": "Diseñamos y programamos. Avances cada semana; tú decides.",
+    "proc_3w": "Semanas 2–5",
+    "proc_4t": "Lanzar",
+    "proc_4d": "Publicamos, te enseñamos a gestionarla y seguimos a tu lado.",
+    "proc_4w": "Continuo",
+    "proc_q": "Tu web. Tus clientes. *Tus datos.*",
+    "proc_qp": "Sin plataformas que se queden con tu cliente."
+  },
+  "en": {
+    "proc_label": "Process",
+    "proc_title": "Four steps. One fixed price. *Zero surprises.*",
+    "proc_1t": "Listen",
+    "proc_1d": "We visit your place and learn what's costing you customers.",
+    "proc_1w": "Week 1",
+    "proc_2t": "Define",
+    "proc_2d": "Brand, structure and a fixed quote. You sign off in writing.",
+    "proc_2w": "Weeks 1–2",
+    "proc_3t": "Build",
+    "proc_3d": "We design and code. Progress every week; you decide.",
+    "proc_3w": "Weeks 2–5",
+    "proc_4t": "Launch",
+    "proc_4d": "We go live, teach you to run it and stay by your side.",
+    "proc_4w": "Ongoing",
+    "proc_q": "Your site. Your customers. *Your data.*",
+    "proc_qp": "No platform standing between you and your customer."
+  }
+}

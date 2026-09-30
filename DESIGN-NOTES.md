@@ -45,6 +45,14 @@ El orden de secciones es el de siempre (lo pediste así). Las anclas no cambian.
 - **Color**: obsidiana, violeta y glacial del manual. El violeta es la luz (acento,
   haz, cursor, estado activo), no el fondo. Sobre oscuro, el texto violeta usa
   `--violet-soft` #A08BFF (6,2:1); el violeta puro solo da 2,1:1.
+- **Paleta editable**: cinco colores se cambian desde el panel (obsidiana, violeta,
+  violeta sobre oscuro, glacial y gris de texto). El resto de tonos (superficies, grises
+  sobre oscuro, textos "apagados", maquetas) se calculan a partir de ellos en el build
+  (`scripts/contenido.mjs › DERIVADOS`); las transparencias usan `color-mix()` sobre esas
+  variables. No queda ningún color de marca escrito a mano en el CSS ni en el JS (solo sombras
+  negras). Los colores de las marcas de ejemplo (paneles de Proyectos) y de las imágenes no cambian.
+  El build no publica una paleta sin contraste AA, y los textos "apagados" se ajustan solos
+  lo justo para seguir legibles.
 - **Texto**: frases cortas y mucha imagen. Misión, visión y la descripción de cada
   servicio están a la vista (Misión y Visión van antes que el equipo); lo que incluye
   cada plan va en un desplegable (abierto si no hay JavaScript).
@@ -62,7 +70,7 @@ El orden de secciones es el de siempre (lo pediste así). Las anclas no cambian.
 | Muro del hero: 7 columnas en bucle con los fotogramas del spot (`img/spot/`), se sincronizan al bajar | `hero.js` | `speeds`, `common` (px/s) y el tramo del ScrollTrigger |
 | Inclinación del muro con el ratón (±5°) | `hero.js` | Multiplicadores en `onMove` |
 | Fig. 01 fijada: las mitades del isotipo encajan, resplandor y frase | `fig.js` | `--fig-h` en CSS y `end` del ScrollTrigger; en móvil se reproduce una vez |
-| Manifiesto que se ilumina palabra a palabra | `studio.js` | `start`/`end` del scrub; colores `DIM`/`INK` |
+| Manifiesto que se ilumina palabra a palabra (todas empiezan apagadas) | `studio.js` | `start`/`end` del scrub; colores `--dim-light`/`--dim-hl` → `--ink`/`--violet` |
 | Misión y visión línea a línea; fichas del equipo que suben | `studio.js` | `start` y `delay` de `revealLines()`; `stagger` de las fichas |
 | Servicios: las filas entran; hover con franja, isotipo en el margen y título violeta | `services.js` + CSS (`.svc`) | Solo CSS para el hover |
 | Proyectos: recorrido horizontal y parallax interior | `work.js` | `fromTo` de navegador/móvil/nombre; ancho de panel en CSS |
@@ -121,6 +129,21 @@ dibuja en código. Si me lo das, sube de nivel:
   El vídeo del spot (21,7 MB) no se usa: habría que recortarlo y comprimirlo antes.
 - **Una grabación de pantalla de Izanagi** (1440×900, 10 s) para su panel.
 - Email con dominio propio cuando exista (`CONTACT_EMAIL`).
+
+## Contenido editable (panel)
+
+Textos (ES/EN) y los cinco colores se editan en un panel (Sveltia CMS) en una ruta secreta con
+contraseña; cómo entrar y cómo funciona está en el README. Lo importante para el diseño:
+
+- **Una sola fuente**: `content/`. `scripts/build.mjs` escribe los textos en `index.html`
+  (el español va en el HTML para Google y sin JavaScript) y en `i18n.js`, y la paleta en `:root`.
+- **Texto plano**: sin HTML en el panel. Lo que va entre `*asteriscos*` sale en violeta
+  (`<em>` en titulares, `.hl` en el manifiesto). Las tres líneas del titular del hero son
+  tres campos; el isotipo de la segunda lo pone el build.
+- **Límites de caracteres** por campo (`scripts/contenido.mjs`), pensados para que ningún texto
+  rompa su maqueta: p. ej. 13 caracteres en la línea 2 del hero o 12 en las palabras gigantes
+  del Método.
+- La web publicada sigue siendo estática: el Worker solo actúa en el panel y en las rutas que no existen.
 
 ## Probar y desplegar
 

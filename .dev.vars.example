@@ -1,0 +1,4 @@
+# Copia este archivo como .dev.vars para probar el panel en local con `npx wrangler dev`.
+# Usa valores de prueba: los de verdad se ponen en Cloudflare con `npx wrangler secret put …`.
+PANEL_PATH=ruta-de-prueba-cambiala
+PANEL_PASSWORD=contrasena-de-prueba

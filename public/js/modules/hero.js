@@ -5,7 +5,7 @@
    - Muro curvo con los fotogramas del spot: columnas a velocidades distintas que se sincronizan
      (misma velocidad y filas alineadas) a medida que se baja. Ligera inclinación con el ratón.
    ========================================================= */
-import { reduce, root, MQ, lockScroll } from "./core.js";
+import { reduce, root, MQ, lockScroll, cssColor, rgbOf } from "./core.js";
 
 const { gsap } = window;
 
@@ -113,6 +113,7 @@ function runOpening(prepare, onReveal) {
   const ctx = canvas.getContext("2d");
   const countEl = ov.querySelector(".opening__count span");
   const CHARS = " .·:-=+*#%@";
+  const BG = cssColor("obsidian"), SOFT = rgbOf(cssColor("violet-soft")), LIGHT = rgbOf(cssColor("glacial"));
   const state = { v: 0, sync: 0 };
   const t0 = performance.now();
   let w = 0, h = 0, raf = 0, frame = 0;
@@ -131,7 +132,7 @@ function runOpening(prepare, onReveal) {
     if (frame++ % 2) return;                          // 30 fps: sobra para una textura y cuesta la mitad
     const t = (now - t0) / 1000;
     const phase = (1 - state.sync) * 2.4;             // el desfase desaparece al llegar a 100
-    ctx.fillStyle = "#1C1C1C";
+    ctx.fillStyle = BG;
     ctx.fillRect(0, 0, w, h);
     ctx.font = '500 12px "Montserrat", ui-monospace, monospace';
     for (let y = 0; y < h; y += 16) {
@@ -141,7 +142,7 @@ function runOpening(prepare, onReveal) {
         const o = Math.min(0.999, Math.max(0, a * b * 1.25 - 0.05));
         const ch = CHARS[(o * CHARS.length) | 0];
         if (ch === " ") continue;
-        ctx.fillStyle = o > 0.82 ? `rgba(160,139,255,${(0.45 + o * 0.5).toFixed(2)})` : `rgba(240,241,255,${(0.1 + o * 0.6).toFixed(2)})`;
+        ctx.fillStyle = o > 0.82 ? `rgba(${SOFT},${(0.45 + o * 0.5).toFixed(2)})` : `rgba(${LIGHT},${(0.1 + o * 0.6).toFixed(2)})`;
         ctx.fillText(ch, x, y + 12);
       }
     }

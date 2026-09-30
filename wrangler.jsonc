@@ -1,12 +1,27 @@
 {
-  // Syncro — web estática desplegada en Cloudflare Workers (Static Assets)
-  // Desplegar: npx wrangler@latest deploy
+  // Syncro — web estática en Cloudflare Workers (Static Assets) + un Worker mínimo para el panel de contenido.
+  // Desplegar: npx wrangler@latest deploy  (antes genera la web desde content/ con scripts/build.mjs)
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "syncro",
+  "main": "worker/index.js",
   "compatibility_date": "2026-09-17",
+  // Genera index.html, i18n.js, los colores y la configuración del panel a partir de content/.
+  // Si el contenido no pasa las comprobaciones, no se despliega.
+  "build": {
+    "command": "node scripts/build.mjs",
+    "watch_dir": ["content", "scripts"]
+  },
   "assets": {
     "directory": "./public/",
-    "html_handling": "auto-trailing-slash"
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    // El Worker solo se adelanta a los archivos en /_panel (para que no se sirvan por su ruta real).
+    // Todo lo demás se sirve directamente, sin pasar por el Worker.
+    "run_worker_first": ["/_panel", "/_panel/*"]
   },
+  // Intentos de contraseña en el panel: 20 por minuto e IP
+  "ratelimits": [
+    { "name": "PANEL_LIMIT", "namespace_id": "1001", "simple": { "limit": 20, "period": 60 } }
+  ],
   "workers_dev": true
 }

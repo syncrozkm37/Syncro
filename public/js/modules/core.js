@@ -19,6 +19,11 @@ export const MQ = {
 
 export let lenis = null;
 
+/* Colores de la paleta (los escribe el build en :root desde el panel): "#RRGGBB" */
+export const cssColor = (name) => getComputedStyle(root).getPropertyValue("--" + name).trim();
+/* "#RRGGBB" → "r,g,b" para montar rgba() con opacidad */
+export const rgbOf = (hex) => [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16)).join(",");
+
 export function initCore() {
   gsap.registerPlugin(ScrollTrigger, SplitText);
   gsap.defaults({ ease: "expo.out", duration: 1.1 });

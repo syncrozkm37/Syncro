@@ -1,0 +1,22 @@
+{
+  "es": {
+    "opening_label": "[ En sincronía ]",
+    "hero_label": "Branding y web · Pontevedra",
+    "hero_meta3": "Agenda abierta",
+    "hero_title_1": "Que te",
+    "hero_title_2": "encuentren.",
+    "hero_title_3": "Que te *elijan.*",
+    "hero_cta": "Cuéntanos tu caso",
+    "hero_scroll": "Scroll"
+  },
+  "en": {
+    "opening_label": "[ In sync ]",
+    "hero_label": "Branding & web · Pontevedra",
+    "hero_meta3": "Booking new projects",
+    "hero_title_1": "Get",
+    "hero_title_2": "found.",
+    "hero_title_3": "Get *chosen.*",
+    "hero_cta": "Tell us about it",
+    "hero_scroll": "Scroll"
+  }
+}

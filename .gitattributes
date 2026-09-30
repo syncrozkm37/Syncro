@@ -1,0 +1,2 @@
+# Librerías de terceros: tal cual, sin convertir saltos de línea
+public/vendor/** -text
