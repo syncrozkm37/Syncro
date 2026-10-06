@@ -1,129 +1,74 @@
 /* =========================================================
-   04 · Método (oscuro): cuatro actos, como en la web original
-   Escritorio con ratón: cuatro actos a pantalla completa, fijados y atados al scroll.
-   Cada uno tiene una palabra grande, una línea y un visual hecho con elementos de marca:
-     1 Escuchar  → ondas que se abren desde un punto violeta
-     2 Definir   → 48 isotipos desordenados que encajan en la retícula (sincronía)
-     3 Construir → una maqueta de bloques que se convierte en la web real de Kaia
-     4 Lanzar    → un haz violeta que sube
-   Móvil / táctil: los actos van uno debajo de otro y se reproducen al entrar.
-   Movimiento reducido: todo en su estado final, sin animación.
+   04 · Método (oscuro): lista que se ilumina
+   Escritorio con ratón: la sección se queda fija mientras bajas y se ilumina un paso
+   cada vez (su plazo y su texto aparecen a la derecha); la línea de la izquierda se llena.
+   Móvil / táctil: los pasos van uno debajo de otro y se ilumina el que pasa por el centro.
+   Movimiento reducido o sin JavaScript: todos los pasos encendidos y sin fijar.
+   El cambio de color y de texto lo hace el CSS (.is-on); aquí solo se mide el scroll.
    ========================================================= */
-import { MQ } from "./core.js";
-
-const { gsap, ScrollTrigger } = window;
-
-/* Aleatorio con semilla: el desorden inicial es siempre el mismo */
-function seeded(seed) { return () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }; }
-
-/* Cada visual devuelve una línea de tiempo de duración 1 (se encaja en el tramo de su acto) */
-function visualTimeline(act, n) {
-  const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
-  if (n === 1) {
-    const rings = act.querySelectorAll(".v-rings circle:not(.v-dot)");
-    tl.fromTo(rings, { scale: 0.35, opacity: 0, transformOrigin: "50% 50%" },
-      { scale: 1, opacity: (i) => 0.9 - i * 0.1, duration: 0.8, stagger: 0.03 }, 0)
-      .fromTo(act.querySelector(".v-dot"), { scale: 0, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.3 }, 0);
-  } else if (n === 2) {
-    const rnd = seeded(7);
-    const marks = act.querySelectorAll(".v-grid use");
-    tl.fromTo(marks,
-      { x: () => (rnd() - 0.5) * 520, y: () => (rnd() - 0.5) * 380, rotation: () => (rnd() - 0.5) * 220, opacity: 0.35, transformOrigin: "50% 50%" },
-      { x: 0, y: 0, rotation: 0, opacity: 1, duration: 0.85, stagger: { each: 0.004, from: "random" }, ease: "power3.inOut" }, 0);
-  } else if (n === 3) {
-    const rnd = seeded(3);
-    tl.fromTo(act.querySelectorAll(".v-build .b"),
-      { xPercent: () => (rnd() - 0.5) * 140, yPercent: () => (rnd() - 0.5) * 260, opacity: 0 },
-      { xPercent: 0, yPercent: 0, opacity: 1, duration: 0.55, stagger: 0.04, ease: "power3.out" }, 0)
-      .fromTo(act.querySelector(".v-build__shot"), { opacity: 0, scale: 1.04 }, { opacity: 1, scale: 1, duration: 0.3 }, 0.7);
-  } else if (n === 4) {
-    tl.fromTo(act.querySelector(".v-launch__beam"), { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: 0.8, ease: "power3.inOut" }, 0)
-      .fromTo(act.querySelector(".v-launch__glow"), { scale: 0.3, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.9 }, 0);
-  }
-  return tl;
-}
-
-/* La palabra grande nunca se sale de su acto (por si en el panel se escribe una más larga) */
-function fitWords(acts) {
-  acts.forEach((act) => {
-    const word = act.querySelector(".act__word");
-    word.style.fontSize = "";
-    const cs = getComputedStyle(act);
-    const avail = act.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
-    const w = word.scrollWidth;
-    if (avail > 0 && w > avail) word.style.fontSize = (parseFloat(getComputedStyle(word).fontSize) * avail) / w + "px";
-  });
-}
+import { MQ, reduce } from "./core.js";
 
 export function initMethod() {
   const sec = document.getElementById("metodo");
-  if (!sec) return;
+  if (!sec || reduce) return;
   const pin = sec.querySelector(".method__pin");
-  const acts = Array.from(sec.querySelectorAll(".act"));
-  const dots = Array.from(sec.querySelectorAll(".acts__dots i"));
+  const list = sec.querySelector(".steps");
+  const steps = Array.from(list.querySelectorAll(".step"));
+  const desk = window.matchMedia(MQ.desktop);
+  const clamp = (v) => Math.max(0, Math.min(1, v));
+  let active = -1, ticking = false;
 
-  const refit = () => fitWords(acts);
-  refit();
-  window.addEventListener("resize", refit);
-  // Con las fuentes ya cargadas cambian las alturas de lo de arriba: se vuelven a medir los tramos del scroll
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { refit(); if (ScrollTrigger) ScrollTrigger.refresh(); });
-  document.addEventListener("syncro:lang", () => {
-    refit();
-    if (ScrollTrigger) requestAnimationFrame(() => ScrollTrigger.refresh());
-  });
+  list.classList.add("is-spy");
+  function setActive(i) {
+    if (i === active) return;
+    active = i;
+    steps.forEach((s, k) => s.classList.toggle("is-on", k === i));
+  }
 
-  if (!gsap || !ScrollTrigger) return; // sin GSAP: los actos quedan uno debajo de otro, quietos
-
-  const mm = gsap.matchMedia();
-
-  /* Escritorio: actos fijados y atados al scroll · Sin fijar (móvil / táctil): cada acto se reproduce al entrar */
-  mm.add({ desktop: MQ.desktop, motion: MQ.motion }, (ctx) => {
-    const { desktop, motion } = ctx.conditions;
-    if (!motion) return;
-
-    if (!desktop) {
-      acts.forEach((act, i) => {
-        const tl = gsap.timeline({ scrollTrigger: { trigger: act, start: "top 72%", once: true } });
-        tl.from(act.querySelector(".act__word"), { yPercent: 105, duration: 1.1, ease: "expo.out" }, 0)
-          .from(act.querySelectorAll(".act__time, .act__line"), { y: 24, opacity: 0, duration: 1, stagger: 0.08, ease: "expo.out" }, 0.1)
-          .add(visualTimeline(act, i + 1).duration(1.6), 0);
+  function update() {
+    ticking = false;
+    const vh = window.innerHeight;
+    if (sec.classList.contains("is-pinned")) {
+      // Fijado: el avance por el tramo fijo decide el paso (cuatro tramos iguales)
+      const r = pin.getBoundingClientRect();
+      const p = clamp(-r.top / Math.max(1, r.height - vh));
+      list.style.setProperty("--p", p.toFixed(4));
+      setActive(Math.min(steps.length - 1, Math.floor(p * steps.length)));
+    } else {
+      // Sin fijar: el paso más cerca del centro de la pantalla
+      const mid = vh * 0.5;
+      let best = 0, bestD = Infinity;
+      steps.forEach((s, k) => {
+        const r = s.getBoundingClientRect();
+        const d = Math.abs(r.top + r.height / 2 - mid);
+        if (d < bestD) { bestD = d; best = k; }
       });
-      return;
+      const lr = list.getBoundingClientRect();
+      list.style.setProperty("--p", clamp((mid - lr.top) / lr.height).toFixed(4));
+      setActive(best);
     }
+  }
 
-    sec.classList.add("is-pinned");
-    refit();
-    const tl = gsap.timeline({
-      defaults: { ease: "none" },
-      scrollTrigger: {
-        trigger: pin, start: "top top", end: "bottom bottom", scrub: 0.6,
-        onUpdate: (self) => {
-          const i = Math.min(acts.length - 1, Math.floor(self.progress * acts.length));
-          dots.forEach((d, k) => d.classList.toggle("is-on", k === i));
-        },
-      },
+  /* La palabra nunca invade el texto de la derecha ni se sale (por si en el panel se escribe una más larga) */
+  function fit() {
+    steps.forEach((s) => {
+      const w = s.querySelector(".step__word"), info = s.querySelector(".step__info");
+      w.style.fontSize = "";
+      const limit = (sec.classList.contains("is-pinned") ? info.offsetLeft - 32 : s.clientWidth) - w.offsetLeft;
+      if (limit > 0 && w.scrollWidth > limit) w.style.fontSize = (parseFloat(getComputedStyle(w).fontSize) * limit) / w.scrollWidth + "px";
     });
-    acts.forEach((act, i) => {
-      const n = i + 1;
-      const word = act.querySelector(".act__word");
-      const bits = act.querySelectorAll(".act__time, .act__line");
-      if (i > 0) {
-        tl.fromTo(act, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2 }, i)
-          .fromTo(word, { yPercent: 105 }, { yPercent: 0, duration: 0.45, ease: "power3.out" }, i)
-          .fromTo(bits, { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, stagger: 0.06, ease: "power3.out" }, i + 0.08);
-      }
-      if (i === 0) {
-        // El primer visual se dibuja mientras la escena llega, para no empezar con la pantalla vacía
-        gsap.timeline({ scrollTrigger: { trigger: pin, start: "top 85%", end: "top top", scrub: 0.6 } }).add(visualTimeline(act, n));
-      } else {
-        tl.add(visualTimeline(act, n), i + 0.05);
-      }
-      if (i < acts.length - 1) {
-        tl.to(word, { yPercent: -105, duration: 0.4, ease: "power3.in" }, i + 0.78)
-          .to(bits, { y: -20, opacity: 0, duration: 0.3 }, i + 0.78)
-          .to(act, { autoAlpha: 0, duration: 0.2 }, i + 0.96);
-      }
-    });
-    return () => { sec.classList.remove("is-pinned"); refit(); };
-  });
+  }
+
+  function layout() {
+    sec.classList.toggle("is-pinned", desk.matches);
+    fit();
+    update();
+  }
+
+  window.addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  window.addEventListener("resize", layout);
+  if (desk.addEventListener) desk.addEventListener("change", layout);
+  document.addEventListener("syncro:lang", () => requestAnimationFrame(layout));
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
+  layout();
 }

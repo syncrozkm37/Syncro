@@ -1,34 +1,20 @@
 /* =========================================================
-   Núcleo: scroll suave (Lenis) sincronizado con GSAP/ScrollTrigger,
-   y anclas internas con foco accesible.
-   Lenis solo si no hay movimiento reducido. GSAP solo lo usa Método.
+   Núcleo: scroll suave (Lenis) y anclas internas con foco accesible.
+   Lenis solo si no hay movimiento reducido.
    ========================================================= */
 export const root = document.documentElement;
 export const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-/* Condiciones para gsap.matchMedia(): los actos fijados de Método, solo en escritorio con ratón */
+/* Método se fija en pantalla solo en escritorio con ratón y sin movimiento reducido */
 export const MQ = {
   desktop: "(min-width: 1024px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)",
-  motion: "(prefers-reduced-motion: no-preference)",
 };
 
 export let lenis = null;
 
 export function initCore() {
-  const { gsap, ScrollTrigger } = window;
-  const withGsap = !!(gsap && ScrollTrigger);
-  if (withGsap) {
-    gsap.registerPlugin(ScrollTrigger);
-    ScrollTrigger.config({ ignoreMobileResize: true });
-  }
   if (!reduce && window.Lenis) {
-    // Con GSAP, un solo reloj: el de GSAP mueve Lenis y ScrollTrigger se entera de cada paso
-    lenis = new window.Lenis({ lerp: 0.12, smoothWheel: true, autoRaf: !withGsap });
-    if (withGsap) {
-      lenis.on("scroll", ScrollTrigger.update);
-      gsap.ticker.add((t) => lenis.raf(t * 1000));
-      gsap.ticker.lagSmoothing(0);
-    }
+    lenis = new window.Lenis({ lerp: 0.12, smoothWheel: true, autoRaf: true });
     root.classList.add("has-lenis");
   }
   document.addEventListener("click", onAnchorClick);

@@ -164,8 +164,7 @@ export const COLORES = [
   { name: "gris", token: "ink-muted", label: "Gris de texto", hint: "Textos secundarios y base de los grises." },
 ];
 
-/* Tonos derivados: [color A, color B, cuánto de B, ajuste]  (B puede ser "#000000", "#FFFFFF" o "pantalla":
-   A fundido en modo trama consigo mismo, más luminoso y con el mismo tono).
+/* Tonos derivados: [color A, color B, cuánto de B, ajuste]  (B puede ser "#000000" o "#FFFFFF").
    ajuste (opcional): { fondo, min, hacia } — si el tono no llega a "min" de contraste sobre "fondo",
    la mezcla se mueve hacia "hacia" (0 = todo A, 1 = todo B) lo justo para llegar.
    Así los textos "apagados" siguen legibles aunque cambien los colores base. */
@@ -173,20 +172,14 @@ export const DERIVADOS = {
   "ink": ["obsidian", "obsidian", 0],
   "glacial-2": ["glacial", "ink-muted", 0.06],        // superficies claras (franja de Servicios, tarjetas)
   "obsidian-2": ["obsidian", "ink-muted", 0.15],      // superficies oscuras
-  "device": ["obsidian", "#000000", 0.54],             // la maqueta de navegador de Método
-  "device-bar": ["obsidian", "#FFFFFF", 0.03],
   "dim-light": ["glacial", "ink-muted", 0.73, { fondo: "glacial", min: 3.2, hacia: 1 }],   // texto "apagado" sobre claro (servicio próximamente)
   "on-dark-muted": ["glacial", "ink-muted", 0.25],    // texto secundario sobre oscuro
   "on-dark-faint": ["glacial", "ink-muted", 0.45],    // etiquetas sobre oscuro
+  "dim-dark": ["obsidian", "glacial", 0.38, { fondo: "obsidian", min: 3.2, hacia: 1 }],   // pasos apagados de Método
   // Degradado de la portada y del contacto (violeta hacia el negro y hacia el blanco)
   "violet-night": ["violet", "#000000", 0.72],
   "violet-deep": ["violet", "#000000", 0.4],
   "lavender": ["violet-soft", "#FFFFFF", 0.55],
-  // Los mismos tonos aclarados para las manchas de la portada (dan la luz del degradado de la maqueta)
-  "hero-violet": ["violet", "pantalla", 1],
-  "hero-night": ["violet-night", "pantalla", 1],
-  "hero-deep": ["violet-deep", "pantalla", 1],
-  "hero-lavender": ["lavender", "pantalla", 1],
 };
 /* Tonos con transparencia: [color, opacidad] */
 export const TRANSPARENTES = {
@@ -199,12 +192,12 @@ export const TRANSPARENTES = {
 export const CONTRASTES = [
   ["ink", "glacial", 4.5, "el texto principal sobre el blanco glacial", "Oscurece el negro obsidiana o aclara el blanco glacial."],
   ["ink", "glacial-2", 4.5, "el texto sobre las superficies claras", "Oscurece el negro obsidiana o aclara el blanco glacial."],
-  ["ink-muted", "glacial-2", 4.5, "el gris de texto sobre las tarjetas de los planes", "Oscurece el gris de texto."],
   ["ink-muted", "glacial", 4.5, "el gris de texto sobre el blanco glacial", "Oscurece el gris de texto."],
   ["violet", "glacial", 4.5, "el violeta sobre el blanco glacial (textos pequeños y botones)", "Oscurece el violeta eléctrico."],
   ["violet-soft", "obsidian", 4.5, "el violeta sobre oscuro encima del negro obsidiana", "Aclara el violeta sobre oscuro."],
   ["on-dark-muted", "obsidian", 4.5, "el texto secundario sobre oscuro", "Oscurece el negro obsidiana o aclara el gris de texto."],
   ["on-dark-faint", "obsidian", 4.5, "las etiquetas sobre oscuro", "Oscurece el negro obsidiana o aclara el gris de texto."],
+  ["dim-dark", "obsidian", 3, "los pasos apagados de Método", "Aclara el blanco glacial u oscurece el negro obsidiana."],
   ["dim-light", "glacial", 3, "el texto apagado sobre claro (servicio «próximamente»)", "Oscurece el gris de texto."],
 ];
 

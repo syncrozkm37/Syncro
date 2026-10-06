@@ -1,6 +1,6 @@
 /* =========================================================
    Syncro — home: punto de entrada (módulo ES)
-   GSAP + ScrollTrigger (los actos de Método) y Lenis llegan antes con <script defer>.
+   Lenis llega antes con <script defer>. Sin más librerías.
    ========================================================= */
 import { initCore } from "./modules/core.js";
 import { initNav } from "./modules/nav.js";

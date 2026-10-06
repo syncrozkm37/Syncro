@@ -42,18 +42,13 @@
   --ink:#1C1C1C;
   --glacial-2:#E7E8F6;
   --obsidian-2:#252528;
-  --device:#0D0D0D;
-  --device-bar:#232323;
   --dim-light:#808192;
   --on-dark-muted:#CACBDA;
   --on-dark-faint:#ABACBC;
+  --dim-dark:#6D6D72;
   --violet-night:#140642;
   --violet-deep:#2C0D8E;
   --lavender:#D4CBFF;
-  --hero-violet:#7D28FE;
-  --hero-night:#260C73;
-  --hero-deep:#5019CD;
-  --hero-lavender:#F8F4FF;
   --line:rgba(28,28,28,.14);
   --line-dark:rgba(240,241,255,.16);
   /* @fin:colores */
@@ -124,8 +119,6 @@ html.lenis,html.lenis body{height:auto}
 .btn--light:hover{background:var(--violet);color:var(--glacial)}
 .btn--line{border-color:var(--violet);color:var(--ink)}
 .btn--line:hover{background:var(--violet);color:var(--glacial)}
-.btn--dark{background:var(--obsidian);color:var(--glacial)}
-.btn--dark:hover{background:var(--violet)}
 
 /* ---------- 4. Navegación (la de la maqueta: píldora oscura con borde violeta) ---------- */
 .nav{
@@ -183,23 +176,19 @@ html.lenis,html.lenis body{height:auto}
 
 /* ---------- 5. Portada (oscura): degradado con grano, isotipo y lema ---------- */
 .hero{position:relative;min-height:100svh;overflow:hidden;isolation:isolate;background:#000;color:var(--obsidian)}
-/* Fondo casi negro + cinco capas (manchas) que derivan solas (js/modules/hero.js) + grano fijo encima.
-   Los tonos hero-* son los de la paleta aclarados (los calcula el build): dan la luz del degradado de la maqueta. */
-.hero__bg{position:absolute;inset:0;z-index:-1;overflow:hidden;background:color-mix(in srgb, var(--obsidian) 60%, #000)}
-.hero__defs{position:absolute;width:0;height:0}
-.hero__layer{position:absolute;left:-12%;top:-12%;width:124%;height:124%;max-width:none;will-change:transform}
-.hero__layer[data-drift="glow"]{transform-origin:93% 41%}
-.hero__layer[data-drift="crown"]{transform-origin:88% 11%}
-.hero__layer[data-drift="band"]{transform-origin:50% 50%}
-.hero__layer[data-drift="wave"]{transform-origin:25% 80%}
-.hero__layer[data-drift="lav"]{transform-origin:91% 91%}
-.hero__grain{position:absolute;inset:0;width:100%;height:100%}
-.hero__bg .f-violet{fill:var(--hero-violet)}
-.hero__bg .f-white{fill:color-mix(in srgb, var(--glacial), #fff 90%)}
-.hero__bg .f-lavender{fill:var(--hero-lavender)}
-.hero__bg .s-night{stop-color:var(--hero-night)}
-.hero__bg .s-deep{stop-color:var(--hero-deep)}
-.hero__bg .s-violet{stop-color:var(--hero-violet)}
+/* Fondo: la composición fija en SVG y, encima, el líquido en WebGL (js/modules/hero.js),
+   que aparece con un fundido en cuanto dibuja su primer fotograma; entonces el SVG deja de pintarse */
+.hero__bg{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+.hero__bg .f-black{fill:color-mix(in srgb, var(--obsidian), #000 70%)}
+.hero__bg .f-violet{fill:var(--violet)}
+.hero__bg .f-white{fill:color-mix(in srgb, var(--glacial), #fff 70%)}
+.hero__bg .f-lavender{fill:var(--lavender)}
+.hero__bg .s-night{stop-color:var(--violet-night)}
+.hero__bg .s-deep{stop-color:var(--violet-deep)}
+.hero__bg .s-violet{stop-color:var(--violet)}
+.hero__fluid{position:absolute;inset:0;z-index:-1;width:100%;height:100%;opacity:0;transition:opacity 1.2s var(--ease)}
+.hero.is-live .hero__fluid{opacity:1}
+.hero.is-live .hero__bg{visibility:hidden;transition:visibility 0s 1.2s}
 .hero__iso{position:absolute;left:50%;top:50%;width:clamp(104px, 11.5vw, 200px);height:auto;color:var(--glacial);transform:translate(-50%, -50%);animation:iso-in 1.4s var(--ease) both}
 @keyframes iso-in{from{opacity:0;transform:translate(-50%, -44%)}}
 .hero__copy{position:absolute;left:0;right:0;bottom:clamp(72px, 17vh, 200px)}
@@ -259,90 +248,60 @@ html.lenis,html.lenis body{height:auto}
 .card__tag{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--violet)}
 .card__tag--live::before{content:"";display:inline-block;width:6px;height:6px;margin-right:6px;border-radius:50%;background:currentColor;vertical-align:1px}
 
-/* 04 · Método (oscuro): cuatro actos, como en la web original. Escritorio con ratón: a pantalla
-   completa y fijados (js/modules/method.js). Móvil, táctil y movimiento reducido: uno debajo de otro. */
-.method{position:relative;padding-top:var(--sec-y);background:var(--obsidian);color:var(--glacial);overflow-x:clip}
-.method__pin{position:relative;margin-top:clamp(56px, 7vw, 110px)}
-.acts{display:grid;gap:clamp(80px, 12vw, 150px);padding-inline:var(--gutter)}
-.act{position:relative;display:grid;justify-items:center;align-content:center;gap:clamp(10px, 1.4vw, 18px);text-align:center}
-.act__visual{position:relative;display:grid;place-items:center;width:min(78vw, 440px);aspect-ratio:1;margin-bottom:clamp(8px, 1.4vw, 20px)}
-.act__time{color:var(--on-dark-faint)}
-.act__mask{max-width:100%;overflow:hidden;padding:.1em .12em .16em;margin:-.1em -.12em -.16em}
-.act__word{display:block;font-family:var(--font-display);font-weight:600;font-size:clamp(2.6rem, 10.4vw, 10.5rem);line-height:1;letter-spacing:-.045em;white-space:nowrap}
-.act__line{max-width:32ch;color:var(--on-dark-muted);font-size:clamp(16px, 1.3vw, 20px);line-height:1.5}
-.acts__dots{display:none}
-
-/* Visuales de cada acto: elementos de marca (la web de Kaia es la única imagen) */
-.v-rings{width:100%;height:auto;overflow:visible}
-.v-rings circle{fill:none;stroke:var(--glacial);stroke-width:1;opacity:.5}
-.v-rings .v-dot{fill:var(--violet-soft);stroke:none;opacity:1;filter:drop-shadow(0 0 14px color-mix(in srgb, var(--violet-soft) 90%, transparent))}
-.v-grid{width:100%;height:auto;overflow:visible;color:var(--glacial)}
-.v-grid use:nth-child(7n+3){color:var(--violet-soft)}
-.act--3 .act__visual{aspect-ratio:16 / 11}
-.v-build{position:relative;width:100%;overflow:hidden;border-radius:12px;background:var(--device);border:1px solid var(--line-dark);box-shadow:0 30px 60px -24px rgba(0,0,0,.6)}
-.v-build__bar{display:flex;align-items:center;gap:5px;height:20px;padding:0 10px;background:var(--device-bar)}
-.v-build__bar i{width:6px;height:6px;border-radius:50%;background:color-mix(in srgb, var(--glacial) 22%, transparent)}
-.v-build__body{position:relative;aspect-ratio:16 / 10}
-.v-build .b{position:absolute;border-radius:6px;background:color-mix(in srgb, var(--glacial) 13%, transparent)}
-.v-build .b--nav{left:5%;right:5%;top:6%;height:7%}
-.v-build .b--h1{left:20%;right:20%;top:22%;height:10%;background:color-mix(in srgb, var(--glacial) 55%, transparent)}
-.v-build .b--h2{left:30%;right:30%;top:36%;height:6%}
-.v-build .b--btn{left:43%;right:43%;top:46%;height:6%;background:var(--violet-soft)}
-.v-build .b--c1,.v-build .b--c2,.v-build .b--c3{top:60%;width:28%;height:32%}
-.v-build .b--c1{left:5%}.v-build .b--c2{left:36%}.v-build .b--c3{left:67%}
-.v-build__shot{position:absolute;inset:0}
-.v-build__shot img{width:100%;height:100%;object-fit:cover;object-position:top}
-.v-launch{position:relative;width:70%;height:100%}
-.v-launch__beam{position:absolute;left:50%;bottom:0;width:3px;height:100%;margin-left:-1.5px;border-radius:3px;background:linear-gradient(to top, var(--glacial) 0%, var(--violet-soft) 30%, transparent 100%);box-shadow:0 0 22px 5px color-mix(in srgb, var(--violet) 55%, transparent)}
-.v-launch__glow{position:absolute;left:50%;bottom:-38%;width:150%;aspect-ratio:1;margin-left:-75%;border-radius:50%;background:radial-gradient(circle, color-mix(in srgb, var(--violet) 60%, transparent) 0%, color-mix(in srgb, var(--violet) 18%, transparent) 38%, transparent 64%)}
-
-/* Escritorio: los cuatro actos fijados, uno tras otro en la misma pantalla */
-.method.is-pinned .method__pin{height:400svh}
-.method.is-pinned .method__stage{position:sticky;top:0;height:100svh;overflow:clip}
-.method.is-pinned .acts{display:block;height:100%;padding:0}
-.method.is-pinned .act{position:absolute;inset:0;padding:calc(var(--nav-h) + 1vh) var(--gutter) 5vh}
-.method.is-pinned .act:not(:first-child){visibility:hidden;opacity:0}
-.method.is-pinned .act__visual{width:min(44vh, 420px)}
-.method.is-pinned .act--3 .act__visual{width:min(62vh, 580px)}
-.method.is-pinned .acts__dots{position:absolute;right:var(--gutter);top:50%;display:flex;flex-direction:column;gap:10px;transform:translateY(-50%)}
-.acts__dots i{width:6px;height:6px;border-radius:50%;background:var(--line-dark);transition:background-color .3s, transform .3s}
-.acts__dots i.is-on{background:var(--violet-soft);transform:scale(1.5)}
-
-/* El lema, grande y centrado */
-.motto{padding-block:clamp(96px, 11vw, 170px) var(--sec-y);text-align:center}
-.motto__q{max-width:16ch;margin-inline:auto;font-family:var(--font-display);font-weight:600;font-size:clamp(2rem, 5.6vw, 5.25rem);line-height:1.04;letter-spacing:-.035em;text-wrap:balance}
+/* 04 · Método (oscuro): lista que se ilumina. Escritorio con ratón: fijada mientras se baja (js/modules/method.js) */
+.method{position:relative;background:var(--obsidian);color:var(--glacial)}
+.method__stage{padding-top:var(--sec-y)}
+.steps{position:relative;margin-top:clamp(40px, 5vw, 72px);padding-left:clamp(20px, 2.2vw, 34px)}
+/* La línea de la izquierda: gris de fondo y violeta que se llena con el avance (--p, de 0 a 1) */
+.steps::before,.steps::after{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;border-radius:2px;background:var(--line-dark)}
+.steps::after{background:var(--violet-soft);transform-origin:50% 0;transform:scaleY(var(--p, 1))}
+.step{position:relative;display:grid;grid-template-columns:clamp(36px, 3.6vw, 60px) minmax(0, 1fr);align-items:baseline;padding-block:clamp(8px, 1.2vh, 16px)}
+.step__num{font-size:12px;font-weight:600;letter-spacing:.16em;color:var(--violet-soft);font-variant-numeric:tabular-nums;transition:color .5s var(--ease)}
+.step__word{font-family:var(--font-display);font-weight:600;font-size:clamp(2.2rem, 10vw, 4.6rem);line-height:1.05;letter-spacing:-.035em;white-space:nowrap;justify-self:start;transition:color .5s var(--ease)}
+.step__info{grid-column:2;max-width:36ch;margin-top:10px}
+.step__time{color:var(--on-dark-faint)}
+.step__text{margin-top:6px;color:var(--on-dark-muted);font-size:var(--fs-text);line-height:1.5}
+/* Con JavaScript: el paso activo en blanco y los demás apagados (contraste 3:1 como mínimo, el de los textos grandes) */
+.steps.is-spy .step__num,.steps.is-spy .step__word{color:var(--dim-dark)}
+.steps.is-spy .step.is-on .step__num{color:var(--violet-soft)}
+.steps.is-spy .step.is-on .step__word{color:var(--glacial)}
+/* Fijada (escritorio): la sección llena la pantalla y el texto del paso activo aparece a la derecha, a su altura */
+.method.is-pinned .method__pin{height:260svh}
+.method.is-pinned .method__stage{position:sticky;top:0;display:flex;flex-direction:column;justify-content:center;height:100svh;padding-block:calc(var(--nav-h) + 2vh) 4vh}
+.method.is-pinned .step__word{font-size:clamp(2.6rem, min(6.4vw, 9.6vh), 6.25rem)}
+.method.is-pinned .step__info{position:absolute;left:52%;top:50%;margin:0;opacity:0;transform:translateY(-35%);transition:opacity .45s var(--ease), transform .6s var(--ease);pointer-events:none}
+.method.is-pinned .step.is-on .step__info{opacity:1;transform:translateY(-50%)}
+/* El lema */
+.motto{padding-block:clamp(80px, 9vw, 140px) var(--sec-y)}
+.motto__q{max-width:20ch;font-family:var(--font-display);font-weight:600;font-size:clamp(1.6rem, 3.6vw, 3.2rem);line-height:1.1;letter-spacing:-.025em;text-wrap:balance}
 .motto__q em{font-style:normal;color:var(--violet-soft)}
-.motto__p{justify-content:center;margin-top:clamp(18px, 2vw, 28px);color:var(--on-dark-faint)}
+.motto__p{margin-top:14px;color:var(--on-dark-muted)}
 
-/* 05 · Planes (claro, la pantalla tranquila): sin cifras; lo que incluye cada plan va en un desplegable */
-.prices__shared{display:flex;flex-wrap:wrap;align-items:baseline;gap:.3em .5em;margin-top:clamp(28px, 3.4vw, 48px);font-family:var(--font-display);font-weight:500;font-size:clamp(1.15rem, 2vw, 1.85rem);letter-spacing:-.02em}
-.prices__shared .dot{color:var(--violet)}
-.plans{display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:clamp(16px, 2vw, 28px);align-items:start;margin-top:clamp(36px, 4.4vw, 64px)}
-.plan{position:relative;display:flex;flex-direction:column;gap:14px;min-width:0;padding:clamp(24px, 2.6vw, 40px);border-radius:var(--radius);background:var(--glacial-2);transition:transform .6s var(--ease)}
-@media (hover: hover) and (pointer: fine){ .plan:hover{transform:translateY(-6px)} }
-.plan__name{margin-top:clamp(36px, 4.4vw, 76px);font-family:var(--font-display);font-weight:600;font-size:clamp(1.3rem, 2vw, 1.85rem);line-height:1.12;letter-spacing:-.025em}
-.plan__for{color:var(--ink-muted);font-size:15px}
-.plan__fee{font-size:13px;font-weight:700;letter-spacing:.02em}
-.plan__more{display:flex;align-items:center;width:100%;margin-top:10px;padding:14px 0;border-top:1px solid var(--line);font-family:var(--font-display);font-size:13px;font-weight:600;text-align:left}
+/* 05 · Planes (claro): tres tarjetas con borde fino; el plan completo, con borde violeta.
+   Sin cifras; lo que incluye cada plan va en un desplegable */
+.prices .lead .dot{color:var(--violet)}
+.plans{display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:clamp(16px, 2vw, 28px);align-items:start;margin-top:clamp(40px, 5vw, 72px)}
+.plan{display:flex;flex-direction:column;min-width:0;padding:clamp(24px, 2.4vw, 36px);border:1px solid var(--line);border-radius:var(--radius);background:color-mix(in srgb, var(--glacial), #fff 60%)}
+.plan__name{margin-top:clamp(28px, 3.4vw, 52px);font-family:var(--font-display);font-weight:600;font-size:clamp(1.25rem, 1.8vw, 1.6rem);line-height:1.15;letter-spacing:-.02em}
+.plan__for{min-height:3.2em;margin-top:10px;color:var(--ink-muted);font-size:15px;line-height:1.6}
+.plan__fee{display:block;color:var(--violet);font-weight:600}
+.plan__more{display:flex;align-items:center;width:100%;margin-top:18px;padding:14px 0;border-top:1px solid var(--line);font-family:var(--font-display);font-size:13px;font-weight:600;text-align:left}
 .plan__plus{position:relative;flex:none;width:12px;height:12px;margin-left:auto}
 .plan__plus::before,.plan__plus::after{content:"";position:absolute;left:0;right:0;top:50%;height:1.5px;margin-top:-.75px;background:currentColor;transition:transform .5s var(--ease)}
 .plan__plus::after{transform:rotate(90deg)}
 .plan__more[aria-expanded="true"] .plan__plus::after{transform:rotate(0deg)}
-.plan__list li{display:flex;gap:12px;padding:9px 0;border-top:1px solid var(--line);font-size:14px;font-weight:500}
-.plan__list li::before{content:"";flex:none;width:6px;height:6px;margin-top:.6em;border-radius:50%;background:var(--violet)}
+.plan__list li{display:flex;gap:12px;padding:9px 0;border-top:1px solid var(--line);font-size:14px}
+.plan__list li::before{content:"";flex:none;width:5px;height:5px;margin-top:.62em;border-radius:50%;background:var(--violet)}
 .js .plan__panel{display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .6s var(--ease), visibility 0s .6s}
 .js .plan__panel > ul{min-height:0;overflow:hidden}
 .js .plan__more[aria-expanded="true"] + .plan__panel{grid-template-rows:1fr;visibility:visible;transition:grid-template-rows .6s var(--ease)}
-.plan .btn{align-self:flex-start;margin-top:10px}
-.plan__badge{position:absolute;top:clamp(24px, 2.6vw, 40px);right:clamp(24px, 2.6vw, 40px);padding:5px 11px;border:1px solid color-mix(in srgb, var(--glacial) 50%, transparent);border-radius:999px;font-size:10px}
-.plan--featured{background:var(--violet);color:var(--glacial)}
-.plan--featured .label .num{color:var(--glacial)}
-.plan--featured .plan__for{color:color-mix(in srgb, var(--glacial) 82%, transparent)}
-.plan--featured .plan__more,.plan--featured .plan__list li{border-color:color-mix(in srgb, var(--glacial) 28%, transparent)}
-.plan--featured .plan__list li::before{background:var(--glacial)}
-.plan--featured .btn--light:hover{background:var(--obsidian);color:var(--glacial)}
-.plan--featured :focus-visible{outline-color:var(--glacial)}
-.prices__note{margin-top:28px;color:var(--ink-muted);font-size:13px}
+.plan__cta{display:inline-flex;align-items:center;gap:.6em;align-self:flex-start;margin-top:14px;font-family:var(--font-display);font-size:13px;font-weight:600;color:var(--violet);text-underline-offset:4px}
+.plan__cta:hover{text-decoration:underline}
+.plan__cta .arr{width:14px;height:14px;flex:none;transition:transform .4s var(--ease)}
+.plan__cta:hover .arr,.plan__cta:focus-visible .arr{transform:translateX(3px)}
+.plan__badge{margin-left:auto;padding:3px 10px;border-radius:999px;background:var(--violet);color:var(--glacial);font-size:10px}
+.plan--featured{border-color:var(--violet);box-shadow:0 0 0 .5px var(--violet)}
+.prices__note{margin-top:24px;color:var(--ink-muted);font-size:13px}
 
 /* ---------- 7. Contacto + pie (oscuro) ---------- */
 .contact{position:relative;overflow:hidden;isolation:isolate;background:var(--obsidian);color:var(--glacial)}
@@ -392,6 +351,7 @@ html.lenis,html.lenis body{height:auto}
   .cards{grid-template-columns:repeat(2, minmax(0, 1fr))}
   .values__list{grid-template-columns:repeat(2, minmax(0, 1fr))}
   .plans{grid-template-columns:1fr;max-width:640px}
+  .plan__for{min-height:0}
   .svc{grid-template-columns:clamp(44px, 8vw, 130px) minmax(0, 1fr)}
   .svc__desc{grid-column:2}
 }
