@@ -41,108 +41,21 @@
           "i18n": true,
           "fields": [
             {
-              "name": "opening_label",
-              "label": "Pantalla de carga · etiqueta",
-              "widget": "string",
-              "i18n": true,
-              "required": true,
-              "maxlength": 28,
-              "hint": "La etiqueta centrada mientras carga la web la primera vez."
-            },
-            {
-              "name": "hero_label",
-              "label": "Etiqueta superior",
+              "name": "hero_title",
+              "label": "Lema",
               "widget": "string",
               "i18n": true,
               "required": true,
               "maxlength": 40,
-              "hint": "Arriba a la izquierda, en mayúsculas pequeñas."
+              "hint": "Abajo a la izquierda, sobre el degradado."
             },
             {
-              "name": "hero_meta3",
-              "label": "Estado",
-              "widget": "string",
+              "name": "hero_sub",
+              "label": "Frase bajo el lema",
+              "widget": "text",
               "i18n": true,
               "required": true,
-              "maxlength": 28,
-              "hint": "Arriba a la derecha, junto al punto violeta."
-            },
-            {
-              "name": "hero_title_1",
-              "label": "Titular · línea 1",
-              "widget": "string",
-              "i18n": true,
-              "required": true,
-              "maxlength": 14,
-              "hint": "Lo que pongas entre \\*asteriscos\\* sale en violeta (p. ej. Que te \\*elijan.\\*)."
-            },
-            {
-              "name": "hero_title_2",
-              "label": "Titular · línea 2",
-              "widget": "string",
-              "i18n": true,
-              "required": true,
-              "maxlength": 13,
-              "hint": "Lleva el isotipo delante. Lo que pongas entre \\*asteriscos\\* sale en violeta (p. ej. Que te \\*elijan.\\*)."
-            },
-            {
-              "name": "hero_title_3",
-              "label": "Titular · línea 3",
-              "widget": "string",
-              "i18n": true,
-              "required": true,
-              "maxlength": 18,
-              "hint": "Lo que pongas entre \\*asteriscos\\* sale en violeta (p. ej. Que te \\*elijan.\\*)."
-            },
-            {
-              "name": "hero_cta",
-              "label": "Botón",
-              "widget": "string",
-              "i18n": true,
-              "required": true,
-              "maxlength": 28
-            },
-            {
-              "name": "hero_scroll",
-              "label": "Indicador de scroll",
-              "widget": "string",
-              "i18n": true,
-              "required": true,
-              "maxlength": 12
-            }
-          ]
-        },
-        {
-          "name": "fig",
-          "label": "Fig. 01 · Isotipo",
-          "file": "content/textos/fig.json",
-          "format": "json",
-          "i18n": true,
-          "fields": [
-            {
-              "name": "fig_cap",
-              "label": "Pie de figura",
-              "widget": "string",
-              "i18n": true,
-              "required": true,
-              "maxlength": 30,
-              "hint": "Arriba a la izquierda, junto a «Fig. 01»."
-            },
-            {
-              "name": "fig_a",
-              "label": "Frase · línea 1",
-              "widget": "string",
-              "i18n": true,
-              "required": true,
-              "maxlength": 20
-            },
-            {
-              "name": "fig_b",
-              "label": "Frase · línea 2",
-              "widget": "string",
-              "i18n": true,
-              "required": true,
-              "maxlength": 20
+              "maxlength": 90
             }
           ]
         },
@@ -162,16 +75,42 @@
               "maxlength": 20
             },
             {
-              "name": "studio_text",
-              "label": "Manifiesto",
+              "name": "about_title",
+              "label": "¿Quiénes somos? · título",
+              "widget": "string",
+              "i18n": true,
+              "required": true,
+              "maxlength": 40
+            },
+            {
+              "name": "about_1",
+              "label": "¿Quiénes somos? · columna 1",
               "widget": "text",
               "i18n": true,
               "required": true,
-              "maxlength": 240,
-              "hint": "Se ilumina palabra a palabra al hacer scroll. Lo que pongas entre \\*asteriscos\\* sale en violeta (p. ej. Que te \\*elijan.\\*)."
+              "maxlength": 200,
+              "hint": "Lo que pongas entre \\*asteriscos\\* sale en violeta (p. ej. Que te \\*elijan.\\*)."
             },
             {
-              "name": "studio_missionL",
+              "name": "about_2",
+              "label": "¿Quiénes somos? · columna 2",
+              "widget": "text",
+              "i18n": true,
+              "required": true,
+              "maxlength": 200,
+              "hint": "Lo que pongas entre \\*asteriscos\\* sale en violeta (p. ej. Que te \\*elijan.\\*)."
+            },
+            {
+              "name": "about_3",
+              "label": "¿Quiénes somos? · columna 3",
+              "widget": "text",
+              "i18n": true,
+              "required": true,
+              "maxlength": 200,
+              "hint": "Lo que pongas entre \\*asteriscos\\* sale en violeta (p. ej. Que te \\*elijan.\\*)."
+            },
+            {
+              "name": "mission_label",
               "label": "Misión · título",
               "widget": "string",
               "i18n": true,
@@ -179,15 +118,24 @@
               "maxlength": 20
             },
             {
-              "name": "studio_mission",
+              "name": "mission_q",
+              "label": "Misión · pregunta",
+              "widget": "string",
+              "i18n": true,
+              "required": true,
+              "maxlength": 70
+            },
+            {
+              "name": "mission_text",
               "label": "Misión · texto",
               "widget": "text",
               "i18n": true,
               "required": true,
-              "maxlength": 140
+              "maxlength": 420,
+              "hint": "Lo que pongas entre \\*asteriscos\\* sale en violeta (p. ej. Que te \\*elijan.\\*)."
             },
             {
-              "name": "studio_visionL",
+              "name": "vision_label",
               "label": "Visión · título",
               "widget": "string",
               "i18n": true,
@@ -195,68 +143,93 @@
               "maxlength": 20
             },
             {
-              "name": "studio_vision",
+              "name": "vision_q",
+              "label": "Visión · pregunta",
+              "widget": "string",
+              "i18n": true,
+              "required": true,
+              "maxlength": 70
+            },
+            {
+              "name": "vision_text",
               "label": "Visión · texto",
               "widget": "text",
               "i18n": true,
               "required": true,
-              "maxlength": 140
+              "maxlength": 360,
+              "hint": "Lo que pongas entre \\*asteriscos\\* sale en violeta (p. ej. Que te \\*elijan.\\*)."
             },
             {
-              "name": "studio_teamL",
-              "label": "Equipo · título",
+              "name": "values_title",
+              "label": "Valores · título",
+              "widget": "string",
+              "i18n": true,
+              "required": true,
+              "maxlength": 30
+            },
+            {
+              "name": "val_1t",
+              "label": "Valor 1 · nombre",
               "widget": "string",
               "i18n": true,
               "required": true,
               "maxlength": 20
             },
             {
-              "name": "team_jorgeR",
-              "label": "Jorge · rol",
-              "widget": "string",
+              "name": "val_1d",
+              "label": "Valor 1 · frase",
+              "widget": "text",
               "i18n": true,
               "required": true,
-              "maxlength": 30
+              "maxlength": 110
             },
             {
-              "name": "team_jorgeD",
-              "label": "Jorge · descripción",
+              "name": "val_2t",
+              "label": "Valor 2 · nombre",
               "widget": "string",
               "i18n": true,
               "required": true,
-              "maxlength": 60
+              "maxlength": 20
             },
             {
-              "name": "team_loisR",
-              "label": "Lois · rol",
-              "widget": "string",
+              "name": "val_2d",
+              "label": "Valor 2 · frase",
+              "widget": "text",
               "i18n": true,
               "required": true,
-              "maxlength": 30
+              "maxlength": 110
             },
             {
-              "name": "team_loisD",
-              "label": "Lois · descripción",
+              "name": "val_3t",
+              "label": "Valor 3 · nombre",
               "widget": "string",
               "i18n": true,
               "required": true,
-              "maxlength": 60
+              "maxlength": 20
             },
             {
-              "name": "team_eliR",
-              "label": "Elías · rol",
-              "widget": "string",
+              "name": "val_3d",
+              "label": "Valor 3 · frase",
+              "widget": "text",
               "i18n": true,
               "required": true,
-              "maxlength": 30
+              "maxlength": 110
             },
             {
-              "name": "team_eliD",
-              "label": "Elías · descripción",
+              "name": "val_4t",
+              "label": "Valor 4 · nombre",
               "widget": "string",
               "i18n": true,
               "required": true,
-              "maxlength": 60
+              "maxlength": 20
+            },
+            {
+              "name": "val_4d",
+              "label": "Valor 4 · frase",
+              "widget": "text",
+              "i18n": true,
+              "required": true,
+              "maxlength": 110
             }
           ]
         },
@@ -291,7 +264,7 @@
               "i18n": true,
               "required": true,
               "maxlength": 26,
-              "hint": "También sale como etiqueta en los paneles de Proyectos."
+              "hint": "También es el nombre del plan 1 en Planes."
             },
             {
               "name": "svc_1d",
@@ -308,7 +281,7 @@
               "i18n": true,
               "required": true,
               "maxlength": 26,
-              "hint": "También es el nombre del plan 2 en Precios."
+              "hint": "También es el nombre del plan 2 en Planes."
             },
             {
               "name": "svc_2d",
@@ -406,7 +379,7 @@
               "widget": "string",
               "i18n": true,
               "required": true,
-              "maxlength": 32
+              "maxlength": 40
             },
             {
               "name": "work_izS",
@@ -415,14 +388,6 @@
               "i18n": true,
               "required": true,
               "maxlength": 60
-            },
-            {
-              "name": "work_dev",
-              "label": "Izanagi · estado",
-              "widget": "string",
-              "i18n": true,
-              "required": true,
-              "maxlength": 20
             },
             {
               "name": "work_p1s",
@@ -462,35 +427,19 @@
               "widget": "string",
               "i18n": true,
               "required": true,
-              "maxlength": 14
+              "maxlength": 16
+            },
+            {
+              "name": "work_dev",
+              "label": "Etiqueta «en desarrollo»",
+              "widget": "string",
+              "i18n": true,
+              "required": true,
+              "maxlength": 20
             },
             {
               "name": "work_concept",
               "label": "Etiqueta «conceptual»",
-              "widget": "string",
-              "i18n": true,
-              "required": true,
-              "maxlength": 16
-            },
-            {
-              "name": "work_orders",
-              "label": "Etiqueta · pedidos",
-              "widget": "string",
-              "i18n": true,
-              "required": true,
-              "maxlength": 20
-            },
-            {
-              "name": "work_booking",
-              "label": "Etiqueta · reservas",
-              "widget": "string",
-              "i18n": true,
-              "required": true,
-              "maxlength": 20
-            },
-            {
-              "name": "work_appts",
-              "label": "Etiqueta · citas",
               "widget": "string",
               "i18n": true,
               "required": true,
@@ -511,42 +460,6 @@
               "i18n": true,
               "required": true,
               "maxlength": 36,
-              "hint": "Solo lo oyen los lectores de pantalla."
-            },
-            {
-              "name": "work_izAlt",
-              "label": "Izanagi · descripción de la imagen",
-              "widget": "text",
-              "i18n": true,
-              "required": true,
-              "maxlength": 120,
-              "hint": "Texto alternativo de la captura (accesibilidad)."
-            },
-            {
-              "name": "work_rail",
-              "label": "Carrusel · nombre accesible",
-              "widget": "string",
-              "i18n": true,
-              "required": true,
-              "maxlength": 40,
-              "hint": "Solo lo oyen los lectores de pantalla."
-            },
-            {
-              "name": "work_prev",
-              "label": "Botón · anterior",
-              "widget": "string",
-              "i18n": true,
-              "required": true,
-              "maxlength": 30,
-              "hint": "Solo lo oyen los lectores de pantalla."
-            },
-            {
-              "name": "work_next",
-              "label": "Botón · siguiente",
-              "widget": "string",
-              "i18n": true,
-              "required": true,
-              "maxlength": 30,
               "hint": "Solo lo oyen los lectores de pantalla."
             }
           ]
@@ -581,8 +494,7 @@
               "widget": "string",
               "i18n": true,
               "required": true,
-              "maxlength": 12,
-              "hint": "Sale a pantalla completa: mejor una sola palabra."
+              "maxlength": 14
             },
             {
               "name": "proc_1d",
@@ -590,7 +502,7 @@
               "widget": "text",
               "i18n": true,
               "required": true,
-              "maxlength": 100
+              "maxlength": 90
             },
             {
               "name": "proc_1w",
@@ -606,7 +518,7 @@
               "widget": "string",
               "i18n": true,
               "required": true,
-              "maxlength": 12
+              "maxlength": 14
             },
             {
               "name": "proc_2d",
@@ -614,7 +526,7 @@
               "widget": "text",
               "i18n": true,
               "required": true,
-              "maxlength": 100
+              "maxlength": 90
             },
             {
               "name": "proc_2w",
@@ -630,7 +542,7 @@
               "widget": "string",
               "i18n": true,
               "required": true,
-              "maxlength": 12
+              "maxlength": 14
             },
             {
               "name": "proc_3d",
@@ -638,7 +550,7 @@
               "widget": "text",
               "i18n": true,
               "required": true,
-              "maxlength": 100
+              "maxlength": 90
             },
             {
               "name": "proc_3w",
@@ -654,7 +566,7 @@
               "widget": "string",
               "i18n": true,
               "required": true,
-              "maxlength": 12
+              "maxlength": 14
             },
             {
               "name": "proc_4d",
@@ -662,7 +574,7 @@
               "widget": "text",
               "i18n": true,
               "required": true,
-              "maxlength": 100
+              "maxlength": 90
             },
             {
               "name": "proc_4w",
@@ -693,7 +605,7 @@
         },
         {
           "name": "precios",
-          "label": "05 · Precios",
+          "label": "05 · Planes",
           "file": "content/textos/precios.json",
           "format": "json",
           "i18n": true,
@@ -743,12 +655,12 @@
             },
             {
               "name": "price_includes",
-              "label": "Desplegable «qué incluye»",
+              "label": "Etiqueta «incluye»",
               "widget": "string",
               "i18n": true,
               "required": true,
-              "maxlength": 24,
-              "hint": "Sale en los tres planes."
+              "maxlength": 20,
+              "hint": "Sale en los tres planes, encima de la lista."
             },
             {
               "name": "price_cta",
@@ -761,7 +673,7 @@
             },
             {
               "name": "price_aL",
-              "label": "Plan 1 · nombre",
+              "label": "Plan 1 · etiqueta",
               "widget": "string",
               "i18n": true,
               "required": true,
@@ -857,7 +769,7 @@
             },
             {
               "name": "price_cL",
-              "label": "Plan 3 · nombre",
+              "label": "Plan 3 · etiqueta",
               "widget": "string",
               "i18n": true,
               "required": true,
@@ -865,7 +777,7 @@
             },
             {
               "name": "price_cN",
-              "label": "Plan 3 · subtítulo",
+              "label": "Plan 3 · nombre",
               "widget": "string",
               "i18n": true,
               "required": true,
@@ -938,12 +850,11 @@
             },
             {
               "name": "contact_big",
-              "label": "Titular gigante",
+              "label": "Titular",
               "widget": "string",
               "i18n": true,
               "required": true,
-              "maxlength": 16,
-              "hint": "Se ajusta solo al ancho de la pantalla."
+              "maxlength": 20
             },
             {
               "name": "contact_p",
@@ -1089,7 +1000,7 @@
             },
             {
               "name": "nav_pricing",
-              "label": "Menú · Precios",
+              "label": "Menú · Planes",
               "widget": "string",
               "i18n": true,
               "required": true,
@@ -1102,7 +1013,8 @@
               "widget": "string",
               "i18n": true,
               "required": true,
-              "maxlength": 14
+              "maxlength": 14,
+              "hint": "Menú del móvil."
             },
             {
               "name": "nav_cta",
@@ -1129,22 +1041,6 @@
               "required": true,
               "maxlength": 40,
               "hint": "Aparece al navegar con el teclado."
-            },
-            {
-              "name": "cursor_drag",
-              "label": "Cursor · arrastrar",
-              "widget": "string",
-              "i18n": true,
-              "required": true,
-              "maxlength": 12
-            },
-            {
-              "name": "cursor_view",
-              "label": "Cursor · ver web",
-              "widget": "string",
-              "i18n": true,
-              "required": true,
-              "maxlength": 12
             }
           ]
         }
@@ -1176,7 +1072,7 @@
               "widget": "color",
               "allowInput": true,
               "required": true,
-              "hint": "Acento sobre fondos claros: botones, números, palabras destacadas. Tiene que contrastar con el blanco glacial."
+              "hint": "Acento sobre fondos claros (botones, números, palabras destacadas) y el degradado de la portada. Tiene que contrastar con el blanco glacial."
             },
             {
               "name": "violeta_suave",

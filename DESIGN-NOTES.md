@@ -1,153 +1,85 @@
-# Rediseño de la home — notas
+# Home minimalista — notas de diseño
 
-Rama `redesign-home`. La home pasa de contar las cosas con texto a enseñarlas con
-imagen y movimiento: menos palabras, trabajo real a gran tamaño, ritmo de "actos"
-claros y oscuros. El contenido es el mismo; la forma de contarlo, no.
+Rama `web-minimalista`. La home sigue el **manual de marca** (Jorge, «Manual de marca», oct. 2026):
+menos efectos y menos texto, mucho aire, los textos de estrategia del manual y su maqueta de web
+(páginas 25 y 26) como referencia de portada, navegación y tipografía.
 
-Referencias (por orden): sashamartynchuk.com (ritmo y movimiento), grigoletti.ch
-(orden e índices), spykercars.com (la imagen manda), nbnzia.com (un concepto que
-lo ata todo). Se ha tomado el tono, no los diseños.
+## Qué cambió respecto a la versión anterior
 
-## Concepto: «En sincronía»
-
-El isotipo es un trazo en S que se cortó por la línea que une sus dos puntas
-(mismo trazo del manual, recortado con `clipPath`; no se ha redibujado nada).
-Esas dos mitades desfasadas que encajan son el motivo de movimiento, en 4 momentos:
-
-1. **Apertura**: un campo de caracteres ondula en dos fases que se van alineando
-   mientras el contador llega a 100 (como la carga de la web modelo Marea); la cortina sube.
-2. **Hero → Fig. 01**: las columnas del muro se mueven a distinta velocidad y se
-   alinean al bajar; en la Fig. 01 las dos mitades del isotipo entran giradas desde
-   lados opuestos y encajan, y sube "Marca y web, en sincronía."
-3. **Método · Definir**: 48 isotipos desordenados encajan en una retícula.
-4. **Contacto**: "¿Hablamos?" y el email llegan desde lados opuestos al haz violeta.
-
-## Estructura y ritmo
-
-| Sección | Acto | Qué se ve | Referencia |
-|---|---|---|---|
-| Apertura | oscuro | Caracteres que ondulan y se sincronizan + contador 000→100 (una vez por sesión) | Marea (web modelo) |
-| Hero | oscuro | Titular gigante sobre un muro curvo con fotogramas del spot (provisional) | Sasha |
-| Fig. 01 | oscuro | Las dos mitades del isotipo encajan + frase | nbnzia |
-| 01 Estudio | claro | Manifiesto que se ilumina + misión y visión en grande + equipo compacto | Sasha |
-| 02 Servicios | claro | Índice sencillo: número, título y descripción a la vista (sin imágenes) | Grigoletti |
-| 03 Proyectos | oscuro | Recorrido horizontal fijado, seis paneles de marca | Sasha / nbnzia |
-| 04 Método | oscuro | Cuatro actos a pantalla completa + lema | Sasha / Spyker |
-| 05 Precios | claro | La pantalla tranquila: sin cifras, lo mínimo | — |
-| 06 Contacto | oscuro | Resplandor violeta, haz vertical, pie | Sasha |
-
-El orden de secciones es el de siempre (lo pediste así). Las anclas no cambian.
+- **Portada**: fuera el muro de fotogramas, el titular gigante y la pantalla de carga. Ahora es la
+  de la maqueta: degradado con grano (negro, violeta y blanco), isotipo en el centro y el lema
+  «Marca y web en sincronía» pequeño abajo a la izquierda.
+- **Estudio**: fuera el manifiesto y el equipo. Ahora: ¿Quiénes somos? (tres columnas, como la
+  maqueta), misión y visión, y los cuatro valores del manual.
+- **Servicios, Proyectos, Método, Planes, Contacto**: las mismas secciones, con menos texto y sin
+  secciones fijadas. Proyectos pasa de recorrido horizontal a rejilla; Método, de cuatro actos a
+  pantalla completa a cuatro pasos en fila; Planes muestra lo que incluye cada plan sin desplegable.
+- **Se fue**: la Fig. 01, el cursor propio, los botones magnéticos y las letras que ruedan.
+- **Menú** como la maqueta: «Planes» (antes «Precios») y «Contáctanos» (antes «Hablemos»).
 
 ## Tipo, color y texto
 
-- **Montserrat en todo** (variable 100–900, autoalojada). Titulares en mayúsculas,
-  peso 800, interletra −0,035/−0,05 em. Unbounded solo vive en el logo SVG.
-- **Color**: obsidiana, violeta y glacial del manual. El violeta es la luz (acento,
-  haz, cursor, estado activo), no el fondo. Sobre oscuro, el texto violeta usa
-  `--violet-soft` #A08BFF (6,2:1); el violeta puro solo da 2,1:1.
-- **Paleta editable**: cinco colores se cambian desde el panel (obsidiana, violeta,
-  violeta sobre oscuro, glacial y gris de texto). El resto de tonos (superficies, grises
-  sobre oscuro, textos "apagados", maquetas) se calculan a partir de ellos en el build
-  (`scripts/contenido.mjs › DERIVADOS`); las transparencias usan `color-mix()` sobre esas
-  variables. No queda ningún color de marca escrito a mano en el CSS ni en el JS (solo sombras
-  negras). Los colores de las marcas de ejemplo (paneles de Proyectos) y de las imágenes no cambian.
-  El build no publica una paleta sin contraste AA, y los textos "apagados" se ajustan solos
-  lo justo para seguir legibles.
-- **Texto**: frases cortas y mucha imagen. Misión, visión y la descripción de cada
-  servicio están a la vista (Misión y Visión van antes que el equipo); lo que incluye
-  cada plan va en un desplegable (abierto si no hay JavaScript).
-- **Se cayó**: la entradilla del hero, "Ver proyectos" como segundo botón, la frase
-  del negocio de la esquina y las cifras de precios (nunca las hubo).
-- **Honestidad**: nada inventado. Caso 00 (marca propia), Izanagi (en desarrollo) y
-  cuatro webs conceptuales, con sus etiquetas.
+- **Unbounded** (autoalojada, variable) en títulos, menú y botones; **Montserrat** en el texto,
+  las etiquetas y los enlaces. Es lo que dice el manual (página 21). Titulares en minúscula y
+  peso 600, sin mayúsculas gigantes.
+- **Color**: la paleta del manual (obsidiana, violeta y glacial), editable desde el panel. Los
+  colores alternativos del manual (rojo carmesí, azul digital, negro cósmico) no se usan en la web.
+- **Textos del manual**: corregidos y pulidos sin cambiar el sentido (erratas como «strat up» o
+  «Sentirnos motivamos», y frases largas partidas). Lo destacado en violeta es lo que el manual
+  resalta. El resto de secciones, recortadas y con el tono del manual: cercano, directo, joven y
+  profesional.
 
-## Inventario de movimiento
+## La portada
 
-| Qué | Dónde | Cómo se ajusta / desactiva |
+El degradado es un SVG con formas difuminadas (una ola blanca, una banda violeta y manchas violeta
+y lavanda) al que un filtro desplaza los píxeles con ruido: así los bordes quedan «pulverizados»
+como en la maqueta, y encima va un grano fino. Pesa menos de 3 KB, se ve nítido a cualquier tamaño
+y sus colores salen de la paleta (si cambias el violeta en el panel, cambia el degradado).
+Las formas están en `public/index.html` (sección `.hero`) y los colores en `home.css` (`.hero__bg`).
+
+## Movimiento
+
+| Qué | Dónde | Cómo se ajusta |
 |---|---|---|
-| Scroll suave (Lenis) sincronizado con ScrollTrigger | `js/modules/core.js` | `lerp` en `initCore()`; no se activa con movimiento reducido |
-| Apertura (~3 s, una vez por sesión, cualquier gesto la acelera ×4) | `hero.js` → `runOpening()` | Duración del contador en el timeline; quitar la clase `is-opening` del script del `<head>` la desactiva |
-| Muro del hero: 7 columnas en bucle con los fotogramas del spot (`img/spot/`), se sincronizan al bajar | `hero.js` | `speeds`, `common` (px/s) y el tramo del ScrollTrigger |
-| Inclinación del muro con el ratón (±5°) | `hero.js` | Multiplicadores en `onMove` |
-| Fig. 01 fijada: las mitades del isotipo encajan, resplandor y frase | `fig.js` | `--fig-h` en CSS y `end` del ScrollTrigger; en móvil se reproduce una vez |
-| Manifiesto que se ilumina palabra a palabra (todas empiezan apagadas) | `studio.js` | `start`/`end` del scrub; colores `--dim-light`/`--dim-hl` → `--ink`/`--violet` |
-| Misión y visión línea a línea; fichas del equipo que suben | `studio.js` | `start` y `delay` de `revealLines()`; `stagger` de las fichas |
-| Servicios: las filas entran; hover con franja, isotipo en el margen y título violeta | `services.js` + CSS (`.svc`) | Solo CSS para el hover |
-| Proyectos: recorrido horizontal y parallax interior | `work.js` | `fromTo` de navegador/móvil/nombre; ancho de panel en CSS |
-| Método: 4 actos fijados, visual por acto | `method.js` | Tiempos de entrada/salida por acto; `visualTimeline()` |
-| Titulares que entran línea a línea | `core.js` → `revealLines()` | `start`, `stagger`, `duration` |
-| Máscaras de línea (`.ln`) con holgura arriba para las tildes de las mayúsculas | `home.css` | Si una frase con Í/É/Á entra desde su máscara, escóndela ≥ 130 % (no 105 %) |
-| Contacto: las dos mitades encajan en el haz | `contact.js` | `xPercent` inicial y tramo |
-| Cursor (enlace, "Arrastra", "Ver web ↗") y botones magnéticos | `cursor.js` | `data-cursor`, `data-magnetic` |
-| Navegación: píldora con sección activa, tema por acto, letras que ruedan | `nav.js` | Línea del 45 % en `update()` |
+| Scroll suave (Lenis) | `js/modules/core.js` | `lerp`; no se activa con movimiento reducido |
+| Apariciones suaves al entrar (una vez) | `js/modules/reveal.js` + `[data-reveal]` en el HTML | `style="--d:n"` escalona; duración en `.js [data-reveal]` (CSS) |
+| Entrada del isotipo de la portada | CSS (`@keyframes iso-in`) | Duración en `.hero__iso` |
+| Menú: tema claro/oscuro, velo al bajar, sección activa | `js/modules/nav.js` | Línea del 45 % en `update()` |
+| Hover de Servicios (franja, isotipo, título violeta) | CSS (`.svc`) | Solo CSS |
 
-Curvas: `expo.out` para entradas, `power3/4` para salidas, `none` en lo atado al
-scroll. Solo se animan `transform`, `opacity`, `clip-path` y `color`.
-
-## Movimiento reducido, táctil y sin JavaScript
-
-- **Movimiento reducido**: sin Lenis, sin apertura, sin fijados, sin parallax, sin
-  cursor. Todo en su estado final; Proyectos es un carrusel nativo.
-- **Táctil o ventana < 1024 px**: nada se fija. Proyectos es un carrusel con
-  ajuste a cada panel; los actos de Método van uno debajo de otro y se reproducen
-  al entrar.
-- **Sin JavaScript**: todo visible; la barra lleva fondo propio; desplegables abiertos.
-- **Red de seguridad**: si el JS no arranca en 4 s, se quitan los estados de animación.
-  Cada sección arranca por separado: si una falla, las demás siguen.
+Ya no hay GSAP: con apariciones suaves y hovers basta CSS, IntersectionObserver y Lenis.
+Con movimiento reducido no hay scroll suave ni apariciones: todo está en su sitio desde el principio.
+Sin JavaScript, todo visible (y si el JS no arranca en 3 s, también).
 
 ## Accesibilidad
 
-- Anclas con foco en el destino, skip link, `:focus-visible` visible en claro y oscuro.
-- Teclado: todo es alcanzable; en Proyectos, al enfocar un panel el scroll lo centra
-  y las flechas ← → pasan de panel.
-- Idioma a mitad de página: los cortes de SplitText se rehacen y los fijados siguen.
-- Contraste AA (scrims sobre el muro; texto "apagado" del manifiesto ≥ 3:1 en texto grande).
-- Copiar el email avisa con `role="status"`; `Escríbenos` sigue siendo `mailto`.
+- Anclas con foco en el destino, skip link y `:focus-visible` visible en claro y oscuro.
+- Jerarquía de encabezados: h1 en la portada, h2 por sección y h3/h4 dentro.
+- Contraste AA garantizado por el build para cualquier paleta que se ponga en el panel.
+- Copiar el email avisa con `role="status"`; «Escríbenos» sigue siendo `mailto`.
 
-## Rendimiento (local, Lighthouse 12, primera visita con la apertura)
+## Rendimiento (local, Lighthouse 12)
 
 | | Rendimiento | Accesibilidad | Buenas prácticas | SEO | LCP | CLS | TBT |
 |---|---|---|---|---|---|---|---|
-| Móvil | 99 | 100 | 100 | 100 | 2,2 s | 0 | 30 ms |
-| Escritorio | 100 | 100 | 100 | 100 | 0,5 s | 0 | 0 ms |
+| Móvil | 99 | 100 | 100 | 100 | 1,8 s | 0 | 50 ms |
+| Escritorio | 100 | 100 | 100 | 100 | 0,4 s | 0 | 0 ms |
 
-- `index.html`: de 426 KB a ~58 KB (sin base64; gzip ≈ 10 KB).
-- Carga inicial en móvil: ~262 KB transferidos. Imágenes en AVIF + WebP con `srcset`
-  (240/480 en el muro, 640/1120 en capturas); todo lo que no se ve, en diferido.
-- La textura oscura pasó de 245 KB incrustada a 9–52 KB según ancho (el grano se
-  hace con un ruido SVG en CSS).
-- Cloudflare comprime el texto en producción; `_headers` da un año de caché a
-  `/vendor` y `/fonts` (carpetas con versión) y una semana a `/img`.
-
-## Material que mejoraría la web (opcional)
-
-No hay huecos ni imágenes de relleno: todo es material real del repo o se
-dibuja en código. Si me lo das, sube de nivel:
-
-- **Fotos del equipo** (Jorge, Lois, Elías), mismo tratamiento las tres.
-- **Los fotogramas definitivos del muro** (ahora son del spot, de forma provisional).
-  El vídeo del spot (21,7 MB) no se usa: habría que recortarlo y comprimirlo antes.
-- **Una grabación de pantalla de Izanagi** (1440×900, 10 s) para su panel.
-- Email con dominio propio cuando exista (`CONTACT_EMAIL`).
+- Sin GSAP ni la pantalla de carga: menos JavaScript y la portada se pinta a la primera.
+- Fuera los fotogramas del spot y las texturas oscuras (siguen en el historial de git).
+- Cloudflare comprime el texto; `_headers` da un año de caché a `/vendor` y `/fonts` y una semana a `/img`.
 
 ## Contenido editable (panel)
 
-Textos (ES/EN) y los cinco colores se editan en un panel (Sveltia CMS) en una ruta secreta con
-contraseña; cómo entrar y cómo funciona está en el README. Lo importante para el diseño:
-
-- **Una sola fuente**: `content/`. `scripts/build.mjs` escribe los textos en `index.html`
-  (el español va en el HTML para Google y sin JavaScript) y en `i18n.js`, y la paleta en `:root`.
-- **Texto plano**: sin HTML en el panel. Lo que va entre `*asteriscos*` sale en violeta
-  (`<em>` en titulares, `.hl` en el manifiesto). Las tres líneas del titular del hero son
-  tres campos; el isotipo de la segunda lo pone el build.
-- **Límites de caracteres** por campo (`scripts/contenido.mjs`), pensados para que ningún texto
-  rompa su maqueta: p. ej. 13 caracteres en la línea 2 del hero o 12 en las palabras gigantes
-  del Método.
-- La web publicada sigue siendo estática: el Worker solo actúa en el panel y en las rutas que no existen.
+Textos (ES/EN) y los cinco colores se editan en el panel (ruta secreta con contraseña; ver README).
+`scripts/contenido.mjs` define las secciones del panel y sus límites de caracteres; `scripts/build.mjs`
+escribe los textos en `index.html` e `i18n.js` y la paleta en `:root`, y no publica nada que no pase
+las comprobaciones. En los textos de Estudio y en los titulares, lo que va entre `*asteriscos*` sale
+en violeta.
 
 ## Probar y desplegar
 
 ```bash
-npx wrangler@latest dev      # en local, igual que producción (incluye _headers)
-npx wrangler@latest deploy   # publicar
+npx wrangler@latest dev      # en local, igual que producción (Worker del panel incluido)
+npx wrangler@latest deploy   # publicar (con la publicación automática conectada, basta con fusionar en main)
 ```

@@ -16,11 +16,11 @@ public/index.html          la home (marcado; ES/EN)
 public/css/home.css        estilos de la home (la paleta de :root la escribe el build)
 public/js/i18n.js          cambio de idioma (el diccionario lo escribe el build)
 public/js/home.js          arranque (módulo ES) + CONTACT_EMAIL
-public/js/modules/*.js     núcleo de movimiento y una pieza por sección
+public/js/modules/*.js     scroll suave y anclas, navegación, apariciones suaves y copiar el email
 public/_panel/             el panel (Sveltia CMS): solo se sirve por la ruta secreta
-public/vendor/             GSAP 3.15.0, Lenis 1.3.26 y Sveltia CMS 0.224.0, fijados
-public/fonts/              Montserrat variable 5.3.0 (latin + latin-ext), autoalojada
-public/img/                texturas de marca, fotogramas del spot (muro del hero), capturas (AVIF + WebP)
+public/vendor/             Lenis 1.3.26 (scroll suave) y Sveltia CMS 0.224.0 (panel), fijados
+public/fonts/              Unbounded y Montserrat variables 5.3.0 (latin + latin-ext), autoalojadas
+public/img/                capturas de los proyectos (AVIF + WebP)
 public/_headers            caché de Cloudflare: /vendor y /fonts un año; /img una semana
 public/proyectos/          las cuatro webs modelo ya compiladas (Ferro, Olmo, Kaia, Marea)
 wrangler.jsonc             configuración de Cloudflare Workers (Static Assets + Worker + build)
@@ -125,7 +125,7 @@ Llevan `noindex`: son negocios ficticios y no deben aparecer en Google.
 
 - Negro obsidiana `#1C1C1C` · Púrpura eléctrico `#4915ED` · Blanco glacial `#F0F1FF`
   (los valores vivos están en `content/colores.json`)
-- Montserrat en toda la web; Unbounded solo en el logo (SVG)
+- Unbounded en títulos, menú y botones; Montserrat en el texto (como dice el manual de marca)
 - Logos: los SVG originales del manual de identidad
 
 ## Probar en local
@@ -152,6 +152,6 @@ comprobaciones, no despliega.
 - Los archivos generados que hay en el repositorio pueden ir por detrás de `content/` (el panel solo
   guarda los JSON); se regeneran en cada build.
 - El email de contacto está en la constante `CONTACT_EMAIL` de `public/js/home.js`.
-- Si cambias una versión de GSAP, Lenis, Sveltia CMS o Montserrat, cambia también el nombre de su
+- Si cambias una versión de Lenis, Sveltia CMS, Unbounded o Montserrat, cambia también el nombre de su
   carpeta (la caché de un año depende de ello) y la ruta en el HTML.
 - La landing anterior en Next.js sigue en el historial de git.

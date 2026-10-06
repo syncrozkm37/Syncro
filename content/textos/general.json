@@ -1,32 +1,28 @@
 {
   "es": {
-    "meta_title": "Syncro — Branding y web para negocios locales",
-    "meta_desc": "Syncro es un estudio de branding y desarrollo web en Pontevedra. Diseñamos la marca y construimos la web de negocios locales para que los encuentren y los elijan.",
+    "meta_title": "Syncro · Páginas web y branding para empresas locales",
+    "meta_desc": "Syncro es una startup de Pontevedra que crea y desarrolla páginas web y branding de marca para empresas locales, con identidad propia.",
     "nav_studio": "Estudio",
     "nav_services": "Servicios",
     "nav_work": "Proyectos",
     "nav_process": "Método",
-    "nav_pricing": "Precios",
+    "nav_pricing": "Planes",
     "nav_contact": "Contacto",
-    "nav_cta": "Hablemos",
+    "nav_cta": "Contáctanos",
     "nav_menu": "Abrir menú",
-    "a11y_skip": "Saltar al contenido",
-    "cursor_drag": "Arrastra",
-    "cursor_view": "Ver web"
+    "a11y_skip": "Saltar al contenido"
   },
   "en": {
-    "meta_title": "Syncro — Branding & web for local businesses",
-    "meta_desc": "Syncro is a branding and web development studio in Pontevedra, Spain. We design the brand and build the website so local businesses get found — and chosen.",
+    "meta_title": "Syncro · Websites and branding for local businesses",
+    "meta_desc": "Syncro is a start-up from Pontevedra, Spain, that designs and builds websites and brand identities for local businesses, each with an identity of its own.",
     "nav_studio": "Studio",
     "nav_services": "Services",
     "nav_work": "Work",
     "nav_process": "Process",
-    "nav_pricing": "Pricing",
+    "nav_pricing": "Plans",
     "nav_contact": "Contact",
-    "nav_cta": "Let's talk",
+    "nav_cta": "Contact us",
     "nav_menu": "Open menu",
-    "a11y_skip": "Skip to content",
-    "cursor_drag": "Drag",
-    "cursor_view": "View site"
+    "a11y_skip": "Skip to content"
   }
 }
