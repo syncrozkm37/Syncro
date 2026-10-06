@@ -104,7 +104,7 @@ export const SECCIONES = [
       t("price.amt", "Precio · texto", 16, { hint: "Encima de los planes: «A medida · Presupuesto cerrado en 48 h»." }),
       t("price.quote", "Precio · frase", 40),
       t("price.monthly", "Cuota mensual", 24, { hint: "Sale en los planes 2 y 3." }),
-      t("price.includes", "Etiqueta «incluye»", 20, { hint: "Sale en los tres planes, encima de la lista." }),
+      t("price.includes", "Desplegable «qué incluye»", 24, { hint: "Sale en los tres planes: abre la lista de lo que incluye cada uno." }),
       t("price.cta", "Botón", 28, { hint: "Sale en los tres planes." }),
       t("price.aL", "Plan 1 · etiqueta", 16), t("price.aF", "Plan 1 · para quién", 50),
       t("price.a1", "Plan 1 · incluye 1", 50), t("price.a2", "Plan 1 · incluye 2", 50), t("price.a3", "Plan 1 · incluye 3", 50), t("price.a4", "Plan 1 · incluye 4", 50),
@@ -164,7 +164,8 @@ export const COLORES = [
   { name: "gris", token: "ink-muted", label: "Gris de texto", hint: "Textos secundarios y base de los grises." },
 ];
 
-/* Tonos derivados: [color A, color B, cuánto de B, ajuste]  (B puede ser "#000000" o "#FFFFFF").
+/* Tonos derivados: [color A, color B, cuánto de B, ajuste]  (B puede ser "#000000", "#FFFFFF" o "pantalla":
+   A fundido en modo trama consigo mismo, más luminoso y con el mismo tono).
    ajuste (opcional): { fondo, min, hacia } — si el tono no llega a "min" de contraste sobre "fondo",
    la mezcla se mueve hacia "hacia" (0 = todo A, 1 = todo B) lo justo para llegar.
    Así los textos "apagados" siguen legibles aunque cambien los colores base. */
@@ -172,6 +173,8 @@ export const DERIVADOS = {
   "ink": ["obsidian", "obsidian", 0],
   "glacial-2": ["glacial", "ink-muted", 0.06],        // superficies claras (franja de Servicios, tarjetas)
   "obsidian-2": ["obsidian", "ink-muted", 0.15],      // superficies oscuras
+  "device": ["obsidian", "#000000", 0.54],             // la maqueta de navegador de Método
+  "device-bar": ["obsidian", "#FFFFFF", 0.03],
   "dim-light": ["glacial", "ink-muted", 0.73, { fondo: "glacial", min: 3.2, hacia: 1 }],   // texto "apagado" sobre claro (servicio próximamente)
   "on-dark-muted": ["glacial", "ink-muted", 0.25],    // texto secundario sobre oscuro
   "on-dark-faint": ["glacial", "ink-muted", 0.45],    // etiquetas sobre oscuro
@@ -179,6 +182,11 @@ export const DERIVADOS = {
   "violet-night": ["violet", "#000000", 0.72],
   "violet-deep": ["violet", "#000000", 0.4],
   "lavender": ["violet-soft", "#FFFFFF", 0.55],
+  // Los mismos tonos aclarados para las manchas de la portada (dan la luz del degradado de la maqueta)
+  "hero-violet": ["violet", "pantalla", 1],
+  "hero-night": ["violet-night", "pantalla", 1],
+  "hero-deep": ["violet-deep", "pantalla", 1],
+  "hero-lavender": ["lavender", "pantalla", 1],
 };
 /* Tonos con transparencia: [color, opacidad] */
 export const TRANSPARENTES = {
@@ -191,6 +199,7 @@ export const TRANSPARENTES = {
 export const CONTRASTES = [
   ["ink", "glacial", 4.5, "el texto principal sobre el blanco glacial", "Oscurece el negro obsidiana o aclara el blanco glacial."],
   ["ink", "glacial-2", 4.5, "el texto sobre las superficies claras", "Oscurece el negro obsidiana o aclara el blanco glacial."],
+  ["ink-muted", "glacial-2", 4.5, "el gris de texto sobre las tarjetas de los planes", "Oscurece el gris de texto."],
   ["ink-muted", "glacial", 4.5, "el gris de texto sobre el blanco glacial", "Oscurece el gris de texto."],
   ["violet", "glacial", 4.5, "el violeta sobre el blanco glacial (textos pequeños y botones)", "Oscurece el violeta eléctrico."],
   ["violet-soft", "obsidian", 4.5, "el violeta sobre oscuro encima del negro obsidiana", "Aclara el violeta sobre oscuro."],

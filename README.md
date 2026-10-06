@@ -16,9 +16,9 @@ public/index.html          la home (marcado; ES/EN)
 public/css/home.css        estilos de la home (la paleta de :root la escribe el build)
 public/js/i18n.js          cambio de idioma (el diccionario lo escribe el build)
 public/js/home.js          arranque (módulo ES) + CONTACT_EMAIL
-public/js/modules/*.js     scroll suave y anclas, navegación, apariciones suaves y copiar el email
+public/js/modules/*.js     scroll suave, navegación, portada animada, apariciones suaves, Método y Planes, email
 public/_panel/             el panel (Sveltia CMS): solo se sirve por la ruta secreta
-public/vendor/             Lenis 1.3.26 (scroll suave) y Sveltia CMS 0.224.0 (panel), fijados
+public/vendor/             Lenis 1.3.26 (scroll suave), GSAP 3.15.0 (actos de Método) y Sveltia CMS 0.224.0 (panel), fijados
 public/fonts/              Unbounded y Montserrat variables 5.3.0 (latin + latin-ext), autoalojadas
 public/img/                capturas de los proyectos (AVIF + WebP)
 public/_headers            caché de Cloudflare: /vendor y /fonts un año; /img una semana

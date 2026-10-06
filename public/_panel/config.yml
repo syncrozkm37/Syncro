@@ -655,12 +655,12 @@
             },
             {
               "name": "price_includes",
-              "label": "Etiqueta «incluye»",
+              "label": "Desplegable «qué incluye»",
               "widget": "string",
               "i18n": true,
               "required": true,
-              "maxlength": 20,
-              "hint": "Sale en los tres planes, encima de la lista."
+              "maxlength": 24,
+              "hint": "Sale en los tres planes: abre la lista de lo que incluye cada uno."
             },
             {
               "name": "price_cta",

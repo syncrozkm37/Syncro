@@ -94,7 +94,9 @@ const baseCompleta = Object.keys(pal).length === COLORES.length;
 if (baseCompleta) {
   const col = (n) => (n.startsWith("#") ? n : pal[n]);
   for (const [name, [a, b, t0, ajuste]] of Object.entries(DERIVADOS)) {
-    const A = rgb(col(a)), B = rgb(col(b));
+    const A = rgb(col(a));
+    // "pantalla": el color fundido en modo trama consigo mismo (más luminoso, mismo tono)
+    const B = b === "pantalla" ? A.map((v) => 255 - ((255 - v) * (255 - v)) / 255) : rgb(col(b));
     const mezcla = (t) => aHex(A.map((v, i) => v * (1 - t) + B[i] * t));
     let t = t0;
     // Si no llega al contraste mínimo, se acerca a "hacia" lo justo (búsqueda binaria)
