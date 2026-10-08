@@ -28,6 +28,7 @@
 <link rel="modulepreload" href="/js/modules/nav.js">
 <link rel="modulepreload" href="/js/modules/hero.js">
 <link rel="modulepreload" href="/js/modules/reveal.js">
+<link rel="modulepreload" href="/js/modules/work.js">
 <link rel="modulepreload" href="/js/modules/method.js">
 <link rel="modulepreload" href="/js/modules/prices.js">
 <link rel="modulepreload" href="/js/modules/contact.js">
@@ -48,6 +49,7 @@
       <path fill="currentColor" transform="translate(-348.414 -425.255)" d="M372.84,557.816c146.131,40.214,272.41,92.529,269.7,102.037s-85.732-1.376-85.732-1.376,278.812,77.745,103.6-33.568-26.9-81.863,33.4-72.58v-.007c-146.131-40.214-272.41-92.529-269.7-102.037s85.733,1.376,85.733,1.376-278.813-77.745-103.6,33.568,26.9,81.863-33.4,72.58"/>
     </symbol>
     <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></symbol>
+    <symbol id="i-arrow-l" viewBox="0 0 16 16"><path d="M15 8H2M7 3 2 8l5 5" fill="none" stroke="currentColor" stroke-width="1.4"/></symbol>
     <symbol id="blob" viewBox="0 0 100 70"><path fill="currentColor" d="M18,6 C36,-2 70,1 86,14 C98,24 101,40 92,52 C82,66 52,72 30,66 C11,61 0,49 2,33 C3,21 8,11 18,6 Z"/></symbol>
   </defs>
 </svg>
@@ -187,56 +189,101 @@
   </div>
 </section>
 
-<!-- ===================== 03 · PROYECTOS: rejilla sencilla ===================== -->
+<!-- ===================== 03 · PROYECTOS: carrusel horizontal libre ===================== -->
 <section class="sec work" id="proyectos" data-theme="light" aria-labelledby="work-t">
   <div class="wrap">
     <p class="label"><span class="num">03</span><span data-i18n="work.label">Proyectos</span></p>
     <h2 class="h2" id="work-t" data-i18n-html="work.title">Hecho por nosotros, <em>de principio a fin</em>.</h2>
     <p class="lead" data-i18n="work.intro">Nuestra marca, un producto propio y cuatro webs completas que puedes abrir.</p>
-    <ul class="cards">
-      <li class="card" data-reveal>
-        <div class="card__media card__media--brand" aria-hidden="true"><svg class="card__logo" viewBox="0 0 1204.145 259.627"><use href="#imagotipo"/></svg></div>
-        <h3 class="card__name">Syncro</h3>
-        <p class="card__meta"><span class="card__tag" data-i18n="work.own">Caso 00</span><span data-i18n="work.p0s">Nuestra propia marca</span></p>
-      </li>
-      <li class="card" data-reveal style="--d:1">
-        <div class="card__media" aria-hidden="true"><picture><source type="image/avif" srcset="/img/work/izanagi-home-desktop-960.avif 960w, /img/work/izanagi-home-desktop-1440.avif 1440w" sizes="(min-width: 1100px) 30vw, (min-width: 700px) 46vw, 92vw"><img src="/img/work/izanagi-home-desktop-960.webp" srcset="/img/work/izanagi-home-desktop-960.webp 960w, /img/work/izanagi-home-desktop-1440.webp 1440w" sizes="(min-width: 1100px) 30vw, (min-width: 700px) 46vw, 92vw" alt="" width="960" height="600" loading="lazy" decoding="async"></picture></div>
-        <h3 class="card__name">Izanagi</h3>
-        <p class="card__meta"><span class="card__tag card__tag--live" data-i18n="work.dev">En desarrollo</span><span data-i18n="work.izS">Reservas y gestión para estudios de tatuaje</span></p>
-      </li>
-      <li class="card" data-reveal style="--d:2">
-        <a class="card__link" href="/proyectos/olmo/" target="_blank" rel="noopener">
-          <div class="card__media" aria-hidden="true"><picture><source type="image/avif" srcset="/img/work/olmo-web-640.avif 640w" sizes="(min-width: 1100px) 30vw, (min-width: 700px) 46vw, 92vw"><img src="/img/work/olmo-web.webp" srcset="/img/work/olmo-web-640.webp 640w, /img/work/olmo-web.webp 1120w" sizes="(min-width: 1100px) 30vw, (min-width: 700px) 46vw, 92vw" alt="" width="1120" height="700" loading="lazy" decoding="async"></picture></div>
-          <h3 class="card__name">Olmo <span class="card__cta"><span data-i18n="work.view">Ver web</span> ↗</span></h3>
-          <p class="card__meta"><span class="card__tag" data-i18n="work.concept">Conceptual</span><span data-i18n="work.p1s">Panadería de barrio</span></p>
-          <span class="sr-only" data-i18n="work.newTab">(se abre en otra pestaña)</span>
-        </a>
-      </li>
-      <li class="card" data-reveal>
-        <a class="card__link" href="/proyectos/kaia/" target="_blank" rel="noopener">
-          <div class="card__media" aria-hidden="true"><picture><source type="image/avif" srcset="/img/work/kaia-web-640.avif 640w" sizes="(min-width: 1100px) 30vw, (min-width: 700px) 46vw, 92vw"><img src="/img/work/kaia-web.webp" srcset="/img/work/kaia-web-640.webp 640w, /img/work/kaia-web.webp 1120w" sizes="(min-width: 1100px) 30vw, (min-width: 700px) 46vw, 92vw" alt="" width="1120" height="700" loading="lazy" decoding="async"></picture></div>
-          <h3 class="card__name">Kaia <span class="card__cta"><span data-i18n="work.view">Ver web</span> ↗</span></h3>
-          <p class="card__meta"><span class="card__tag" data-i18n="work.concept">Conceptual</span><span data-i18n="work.p2s">Clínica de fisioterapia</span></p>
-          <span class="sr-only" data-i18n="work.newTab">(se abre en otra pestaña)</span>
-        </a>
-      </li>
-      <li class="card" data-reveal style="--d:1">
-        <a class="card__link" href="/proyectos/ferro/" target="_blank" rel="noopener">
-          <div class="card__media" aria-hidden="true"><picture><source type="image/avif" srcset="/img/work/ferro-web-640.avif 640w" sizes="(min-width: 1100px) 30vw, (min-width: 700px) 46vw, 92vw"><img src="/img/work/ferro-web.webp" srcset="/img/work/ferro-web-640.webp 640w, /img/work/ferro-web.webp 1120w" sizes="(min-width: 1100px) 30vw, (min-width: 700px) 46vw, 92vw" alt="" width="1120" height="700" loading="lazy" decoding="async"></picture></div>
-          <h3 class="card__name">Ferro <span class="card__cta"><span data-i18n="work.view">Ver web</span> ↗</span></h3>
-          <p class="card__meta"><span class="card__tag" data-i18n="work.concept">Conceptual</span><span data-i18n="work.p3s">Taller de bicicletas</span></p>
-          <span class="sr-only" data-i18n="work.newTab">(se abre en otra pestaña)</span>
-        </a>
-      </li>
-      <li class="card" data-reveal style="--d:2">
-        <a class="card__link" href="/proyectos/marea/" target="_blank" rel="noopener">
-          <div class="card__media" aria-hidden="true"><picture><source type="image/avif" srcset="/img/work/marea-web-640.avif 640w" sizes="(min-width: 1100px) 30vw, (min-width: 700px) 46vw, 92vw"><img src="/img/work/marea-web.webp" srcset="/img/work/marea-web-640.webp 640w, /img/work/marea-web.webp 1120w" sizes="(min-width: 1100px) 30vw, (min-width: 700px) 46vw, 92vw" alt="" width="1120" height="700" loading="lazy" decoding="async"></picture></div>
-          <h3 class="card__name">Marea <span class="card__cta"><span data-i18n="work.view">Ver web</span> ↗</span></h3>
-          <p class="card__meta"><span class="card__tag" data-i18n="work.concept">Conceptual</span><span data-i18n="work.p4s">Taberna marinera</span></p>
-          <span class="sr-only" data-i18n="work.newTab">(se abre en otra pestaña)</span>
-        </a>
-      </li>
-    </ul>
+  </div>
+  <!-- La página baja con normalidad: el carrusel solo se mueve en horizontal si se quiere
+       (trackpad o dedo, arrastrar con el ratón, flechas). Ver js/modules/work.js.
+       data-lenis-prevent-horizontal: los gestos horizontales del trackpad van al carrusel y no al scroll suave.
+       En cada panel el nombre va antes que la etiqueta (así lo leen primero los lectores de pantalla); el CSS sube la etiqueta -->
+  <div class="work__rail" data-reveal>
+    <div class="work__track" id="work-track" tabindex="0" role="region" data-i18n-attr="aria-label:work.rail" aria-label="Proyectos (desplazable)" data-lenis-prevent-horizontal>
+      <ul class="work__list">
+        <li class="wp wp--own" style="--wp-bg:var(--violet);--wp-fg:var(--glacial)">
+          <div class="wp__in">
+            <div class="wp__brand" aria-hidden="true">
+              <picture class="wp__tex"><source type="image/avif" srcset="/img/brand/oscuro-960.avif 960w, /img/brand/oscuro-1600.avif 1600w" sizes="(min-width: 1024px) 76vw, (orientation: landscape) and (min-width: 640px) 58vw, 84vw"><img src="/img/brand/oscuro-960.webp" srcset="/img/brand/oscuro-960.webp 960w, /img/brand/oscuro-1600.webp 1600w" sizes="(min-width: 1024px) 76vw, (orientation: landscape) and (min-width: 640px) 58vw, 84vw" alt="" width="1600" height="900" loading="lazy" decoding="async" draggable="false"></picture>
+              <svg class="wp__logo" viewBox="0 0 1204.145 259.627"><use href="#imagotipo"/></svg>
+            </div>
+            <h3 class="wp__name">Syncro</h3>
+            <p class="wp__meta"><span data-i18n="work.own">Caso 00</span><span class="wp__sector" data-i18n="work.p0s">Nuestra propia marca</span></p>
+            <p class="wp__foot"><span class="wp__tags"><span class="tag" data-i18n="work.brand">Identidad de marca</span><span class="tag">Web</span></span></p>
+          </div>
+        </li>
+        <li class="wp" style="--wp-bg:#141414;--wp-fg:#F0F1FF">
+          <div class="wp__in">
+            <div class="wp__media" aria-hidden="true">
+              <div class="wp__browser"><div class="wp__bar"><i></i><i></i><i></i></div><picture><source type="image/avif" srcset="/img/work/izanagi-home-desktop-960.avif 960w, /img/work/izanagi-home-desktop-1440.avif 1440w" sizes="(min-width: 1024px) 42vw, (orientation: landscape) and (min-width: 640px) 34vw, 66vw"><img src="/img/work/izanagi-home-desktop-960.webp" srcset="/img/work/izanagi-home-desktop-960.webp 960w, /img/work/izanagi-home-desktop-1440.webp 1440w" sizes="(min-width: 1024px) 42vw, (orientation: landscape) and (min-width: 640px) 34vw, 66vw" alt="" width="1440" height="900" loading="lazy" decoding="async" draggable="false"></picture></div>
+              <div class="wp__phone"><picture><source type="image/avif" srcset="/img/work/izanagi-home-movil-390.avif"><img src="/img/work/izanagi-home-movil-390.webp" alt="" width="390" height="844" loading="lazy" decoding="async" draggable="false"></picture></div>
+            </div>
+            <h3 class="wp__name">Izanagi</h3>
+            <p class="wp__meta"><span class="wp__live" data-i18n="work.dev">En desarrollo</span><span class="wp__sector" data-i18n="work.izS">Reservas y gestión para estudios de tatuaje</span></p>
+            <p class="wp__foot"><span class="wp__tags"><span class="tag">Web app</span><span class="tag" data-i18n="work.booking">Reservas</span><span class="tag">Next.js</span></span></p>
+          </div>
+        </li>
+        <li class="wp" style="--wp-bg:#EADFCB;--wp-fg:#231B15">
+          <a class="wp__in" href="/proyectos/olmo/" target="_blank" rel="noopener" draggable="false">
+            <div class="wp__media" aria-hidden="true">
+              <div class="wp__browser"><div class="wp__bar"><i></i><i></i><i></i></div><picture><source type="image/avif" srcset="/img/work/olmo-web-640.avif 640w, /img/work/olmo-web.avif 1120w" sizes="(min-width: 1024px) 42vw, (orientation: landscape) and (min-width: 640px) 34vw, 66vw"><img src="/img/work/olmo-web.webp" srcset="/img/work/olmo-web-640.webp 640w, /img/work/olmo-web.webp 1120w" sizes="(min-width: 1024px) 42vw, (orientation: landscape) and (min-width: 640px) 34vw, 66vw" alt="" width="1120" height="700" loading="lazy" decoding="async" draggable="false"></picture></div>
+              <div class="wp__phone"><picture><source type="image/avif" srcset="/img/work/olmo-movil-240.avif 240w, /img/work/olmo-movil.avif 360w" sizes="(min-width: 1024px) 9vw, (orientation: landscape) and (min-width: 640px) 7vw, 23vw"><img src="/img/work/olmo-movil.webp" srcset="/img/work/olmo-movil-240.webp 240w, /img/work/olmo-movil.webp 360w" sizes="(min-width: 1024px) 9vw, (orientation: landscape) and (min-width: 640px) 7vw, 23vw" alt="" width="360" height="780" loading="lazy" decoding="async" draggable="false"></picture></div>
+            </div>
+            <h3 class="wp__name">Olmo</h3>
+            <p class="wp__meta"><span data-i18n="work.concept">Conceptual</span><span class="wp__sector" data-i18n="work.p1s">Panadería de barrio</span></p>
+            <p class="wp__foot"><span class="wp__tags"><span class="tag" data-i18n="work.brand">Identidad de marca</span><span class="tag" data-i18n="work.orders">Pedidos online</span></span><span class="wp__cta"><span data-i18n="work.view">Ver web</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></p>
+            <span class="sr-only" data-i18n="work.newTab">(se abre en otra pestaña)</span>
+          </a>
+        </li>
+        <li class="wp" style="--wp-bg:#1E3B30;--wp-fg:#F0F1FF">
+          <a class="wp__in" href="/proyectos/kaia/" target="_blank" rel="noopener" draggable="false">
+            <div class="wp__media" aria-hidden="true">
+              <div class="wp__browser"><div class="wp__bar"><i></i><i></i><i></i></div><picture><source type="image/avif" srcset="/img/work/kaia-web-640.avif 640w, /img/work/kaia-web.avif 1120w" sizes="(min-width: 1024px) 42vw, (orientation: landscape) and (min-width: 640px) 34vw, 66vw"><img src="/img/work/kaia-web.webp" srcset="/img/work/kaia-web-640.webp 640w, /img/work/kaia-web.webp 1120w" sizes="(min-width: 1024px) 42vw, (orientation: landscape) and (min-width: 640px) 34vw, 66vw" alt="" width="1120" height="700" loading="lazy" decoding="async" draggable="false"></picture></div>
+              <div class="wp__phone"><picture><source type="image/avif" srcset="/img/work/kaia-movil-240.avif 240w, /img/work/kaia-movil.avif 360w" sizes="(min-width: 1024px) 9vw, (orientation: landscape) and (min-width: 640px) 7vw, 23vw"><img src="/img/work/kaia-movil.webp" srcset="/img/work/kaia-movil-240.webp 240w, /img/work/kaia-movil.webp 360w" sizes="(min-width: 1024px) 9vw, (orientation: landscape) and (min-width: 640px) 7vw, 23vw" alt="" width="360" height="780" loading="lazy" decoding="async" draggable="false"></picture></div>
+            </div>
+            <h3 class="wp__name">Kaia</h3>
+            <p class="wp__meta"><span data-i18n="work.concept">Conceptual</span><span class="wp__sector" data-i18n="work.p2s">Clínica de fisioterapia</span></p>
+            <p class="wp__foot"><span class="wp__tags"><span class="tag">Web</span><span class="tag" data-i18n="work.booking">Reservas</span></span><span class="wp__cta"><span data-i18n="work.view">Ver web</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></p>
+            <span class="sr-only" data-i18n="work.newTab">(se abre en otra pestaña)</span>
+          </a>
+        </li>
+        <li class="wp" style="--wp-bg:#FF5A1F;--wp-fg:#0B0B0B">
+          <a class="wp__in" href="/proyectos/ferro/" target="_blank" rel="noopener" draggable="false">
+            <div class="wp__media" aria-hidden="true">
+              <div class="wp__browser"><div class="wp__bar"><i></i><i></i><i></i></div><picture><source type="image/avif" srcset="/img/work/ferro-web-640.avif 640w, /img/work/ferro-web.avif 1120w" sizes="(min-width: 1024px) 42vw, (orientation: landscape) and (min-width: 640px) 34vw, 66vw"><img src="/img/work/ferro-web.webp" srcset="/img/work/ferro-web-640.webp 640w, /img/work/ferro-web.webp 1120w" sizes="(min-width: 1024px) 42vw, (orientation: landscape) and (min-width: 640px) 34vw, 66vw" alt="" width="1120" height="700" loading="lazy" decoding="async" draggable="false"></picture></div>
+              <div class="wp__phone"><picture><source type="image/avif" srcset="/img/work/ferro-movil-240.avif 240w, /img/work/ferro-movil.avif 360w" sizes="(min-width: 1024px) 9vw, (orientation: landscape) and (min-width: 640px) 7vw, 23vw"><img src="/img/work/ferro-movil.webp" srcset="/img/work/ferro-movil-240.webp 240w, /img/work/ferro-movil.webp 360w" sizes="(min-width: 1024px) 9vw, (orientation: landscape) and (min-width: 640px) 7vw, 23vw" alt="" width="360" height="780" loading="lazy" decoding="async" draggable="false"></picture></div>
+            </div>
+            <h3 class="wp__name">Ferro</h3>
+            <p class="wp__meta"><span data-i18n="work.concept">Conceptual</span><span class="wp__sector" data-i18n="work.p3s">Taller de bicicletas</span></p>
+            <p class="wp__foot"><span class="wp__tags"><span class="tag">Web</span><span class="tag" data-i18n="work.appts">Citas</span></span><span class="wp__cta"><span data-i18n="work.view">Ver web</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></p>
+            <span class="sr-only" data-i18n="work.newTab">(se abre en otra pestaña)</span>
+          </a>
+        </li>
+        <li class="wp" style="--wp-bg:#E7E1D4;--wp-fg:#0E0F10">
+          <a class="wp__in" href="/proyectos/marea/" target="_blank" rel="noopener" draggable="false">
+            <div class="wp__media" aria-hidden="true">
+              <div class="wp__browser"><div class="wp__bar"><i></i><i></i><i></i></div><picture><source type="image/avif" srcset="/img/work/marea-web-640.avif 640w, /img/work/marea-web.avif 1120w" sizes="(min-width: 1024px) 42vw, (orientation: landscape) and (min-width: 640px) 34vw, 66vw"><img src="/img/work/marea-web.webp" srcset="/img/work/marea-web-640.webp 640w, /img/work/marea-web.webp 1120w" sizes="(min-width: 1024px) 42vw, (orientation: landscape) and (min-width: 640px) 34vw, 66vw" alt="" width="1120" height="700" loading="lazy" decoding="async" draggable="false"></picture></div>
+              <div class="wp__phone"><picture><source type="image/avif" srcset="/img/work/marea-movil-240.avif 240w, /img/work/marea-movil.avif 360w" sizes="(min-width: 1024px) 9vw, (orientation: landscape) and (min-width: 640px) 7vw, 23vw"><img src="/img/work/marea-movil.webp" srcset="/img/work/marea-movil-240.webp 240w, /img/work/marea-movil.webp 360w" sizes="(min-width: 1024px) 9vw, (orientation: landscape) and (min-width: 640px) 7vw, 23vw" alt="" width="360" height="780" loading="lazy" decoding="async" draggable="false"></picture></div>
+            </div>
+            <h3 class="wp__name">Marea</h3>
+            <p class="wp__meta"><span data-i18n="work.concept">Conceptual</span><span class="wp__sector" data-i18n="work.p4s">Taberna marinera</span></p>
+            <p class="wp__foot"><span class="wp__tags"><span class="tag" data-i18n="work.brand">Identidad de marca</span><span class="tag">Web</span><span class="tag" data-i18n="work.booking">Reservas</span></span><span class="wp__cta"><span data-i18n="work.view">Ver web</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></span></p>
+            <span class="sr-only" data-i18n="work.newTab">(se abre en otra pestaña)</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="work__hud wrap">
+      <!-- El contador se anuncia (sin prisa) al cambiar de proyecto con las flechas -->
+      <span class="work__count" aria-live="polite" aria-atomic="true"><b id="work-i">01</b> / <span id="work-n">06</span></span>
+      <span class="work__progress" aria-hidden="true"><span id="work-bar"></span></span>
+      <span class="work__ctrl">
+        <button type="button" id="work-prev" aria-controls="work-track" data-i18n-attr="aria-label:work.prev" aria-label="Proyecto anterior"><svg aria-hidden="true"><use href="#i-arrow-l"/></svg></button>
+        <button type="button" id="work-next" aria-controls="work-track" data-i18n-attr="aria-label:work.next" aria-label="Proyecto siguiente"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      </span>
+    </div>
   </div>
 </section>
 

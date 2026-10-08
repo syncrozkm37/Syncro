@@ -12,8 +12,12 @@ menos efectos y menos texto, mucho aire, los textos de estrategia del manual y s
   y se deja arrastrar por el cursor.
 - **Estudio**: fuera el manifiesto y el equipo. Ahora: ¿Quiénes somos? (tres columnas, como la
   maqueta), misión y visión, y los cuatro valores del manual.
-- **Servicios, Proyectos, Contacto**: las mismas secciones, con menos texto. Proyectos pasa de
-  recorrido horizontal a rejilla.
+- **Servicios y Contacto**: las mismas secciones, con menos texto.
+- **Proyectos**: los paneles grandes de la web original (cada uno en el color de su marca, con
+  navegador, móvil y el nombre en grande), pero en un **carrusel libre**: la sección ya no se queda
+  fija ni obliga a ver los seis al bajar. La página baja con normalidad y el carrusel se mueve en
+  horizontal solo si se quiere (trackpad o dedo, arrastrando con el ratón, flechas o Mayúsculas +
+  rueda). Va sobre fondo claro, con un borde finísimo para que los paneles beis no se fundan.
 - **Método**: la idea de la web original (los cuatro pasos, uno tras otro al bajar) en versión
   mínima: una lista de cuatro palabras grandes que se quedan fijas y se ilumina una cada vez, con su
   plazo y su texto al lado. Sin dibujos.
@@ -67,15 +71,17 @@ pierde el contexto. Las formas están en `public/index.html` (sección `.hero`) 
 | Scroll suave (Lenis) | `js/modules/core.js` | `lerp`; no se activa con movimiento reducido |
 | Apariciones suaves al entrar (una vez) | `js/modules/reveal.js` + `[data-reveal]` en el HTML | `style="--d:n"` escalona; duración en `.js [data-reveal]` (CSS) |
 | Entrada del isotipo de la portada | CSS (`@keyframes iso-in`) | Duración en `.hero__iso` |
+| Proyectos: carrusel libre con profundidad | `js/modules/work.js` + CSS (`.work`, `.wp`) | El JS solo pone `--t` en cada panel (0 en su sitio, ±1 al lado); cuánto corre cada capa, en las reglas `transform` de `.wp__browser`, `.wp__phone`, `.wp__name` y `.wp__logo`; arrastre e inercia en `DRAG_MIN`, `FLICK` y `FLING` |
 | Método: lista que se ilumina | `js/modules/method.js` + CSS (`.steps`, `.step.is-on`) | Fijada solo en escritorio con ratón (`.method.is-pinned`; el alto del tramo, en `.method__pin`); en móvil se ilumina el paso que pasa por el centro |
 | Planes: desplegable «qué incluye» | `js/modules/prices.js` + CSS (`.plan__panel`) | Solo cambia `aria-expanded`; la transición es CSS |
 | Menú: tema claro/oscuro, velo al bajar, sección activa | `js/modules/nav.js` | Línea del 45 % en `update()` |
 | Hover de Servicios (franja, isotipo, título violeta) | CSS (`.svc`) | Solo CSS |
 
 Sin librerías de animación: WebGL, CSS, IntersectionObserver y Lenis. Con movimiento reducido no hay
-scroll suave, portada animada, Método fijado ni apariciones: todo está en su sitio desde el principio
-y los cuatro pasos de Método, encendidos. Sin JavaScript, todo visible (y si el JS no arranca en 3 s,
-también); el desplegable de Planes se ve abierto.
+scroll suave, portada animada, profundidad en Proyectos, Método fijado ni apariciones: todo está en su
+sitio desde el principio y los cuatro pasos de Método, encendidos. Sin JavaScript, todo visible (y si
+el JS no arranca en 3 s, también); el desplegable de Planes se ve abierto y el carrusel de Proyectos es
+un scroll horizontal normal, con su barra.
 
 ## Accesibilidad
 
@@ -94,7 +100,10 @@ también); el desplegable de Planes se ve abierto.
 
 - Sin pantalla de carga: la portada se pinta a la primera (la imagen fija) y el líquido llega después.
 - Sin GSAP: solo Lenis (6 KB) y nuestros módulos.
-- Fuera los fotogramas del spot y las texturas oscuras (siguen en el historial de git).
+- Fuera los fotogramas del spot y las texturas (siguen en el historial de git); solo vuelve la oscura,
+  en 960 y 1600, para el panel de Syncro en Proyectos.
+- Las capturas de Proyectos son `lazy`; cuando el carrusel se acerca a la pantalla se piden todas, para
+  que al deslizar ya estén.
 - Cloudflare comprime el texto; `_headers` da un año de caché a `/vendor` y `/fonts` y una semana a `/img`.
 
 ## Contenido editable (panel)

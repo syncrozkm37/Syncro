@@ -446,6 +446,38 @@
               "maxlength": 16
             },
             {
+              "name": "work_brand",
+              "label": "Etiqueta · identidad de marca",
+              "widget": "string",
+              "i18n": true,
+              "required": true,
+              "maxlength": 20
+            },
+            {
+              "name": "work_orders",
+              "label": "Etiqueta · pedidos",
+              "widget": "string",
+              "i18n": true,
+              "required": true,
+              "maxlength": 20
+            },
+            {
+              "name": "work_booking",
+              "label": "Etiqueta · reservas",
+              "widget": "string",
+              "i18n": true,
+              "required": true,
+              "maxlength": 20
+            },
+            {
+              "name": "work_appts",
+              "label": "Etiqueta · citas",
+              "widget": "string",
+              "i18n": true,
+              "required": true,
+              "maxlength": 16
+            },
+            {
               "name": "work_view",
               "label": "Enlace «ver web»",
               "widget": "string",
@@ -460,6 +492,33 @@
               "i18n": true,
               "required": true,
               "maxlength": 36,
+              "hint": "Solo lo oyen los lectores de pantalla."
+            },
+            {
+              "name": "work_rail",
+              "label": "Carrusel · nombre accesible",
+              "widget": "string",
+              "i18n": true,
+              "required": true,
+              "maxlength": 40,
+              "hint": "Solo lo oyen los lectores de pantalla."
+            },
+            {
+              "name": "work_prev",
+              "label": "Botón · anterior",
+              "widget": "string",
+              "i18n": true,
+              "required": true,
+              "maxlength": 30,
+              "hint": "Solo lo oyen los lectores de pantalla."
+            },
+            {
+              "name": "work_next",
+              "label": "Botón · siguiente",
+              "widget": "string",
+              "i18n": true,
+              "required": true,
+              "maxlength": 30,
               "hint": "Solo lo oyen los lectores de pantalla."
             }
           ]

@@ -6,6 +6,7 @@ import { initCore } from "./modules/core.js";
 import { initNav } from "./modules/nav.js";
 import { initHero } from "./modules/hero.js";
 import { initReveal } from "./modules/reveal.js";
+import { initWork } from "./modules/work.js";
 import { initMethod } from "./modules/method.js";
 import { initPrices } from "./modules/prices.js";
 import { initContact } from "./modules/contact.js";
@@ -19,6 +20,7 @@ function boot() {
   run("nav", initNav);
   run("portada", initHero);
   run("apariciones", initReveal);
+  run("proyectos", initWork);
   run("método", initMethod);
   run("planes", initPrices);
   run("contacto", () => initContact(CONTACT_EMAIL));

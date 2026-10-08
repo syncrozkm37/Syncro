@@ -14,7 +14,11 @@ export let lenis = null;
 
 export function initCore() {
   if (!reduce && window.Lenis) {
-    lenis = new window.Lenis({ lerp: 0.12, smoothWheel: true, autoRaf: true });
+    lenis = new window.Lenis({
+      lerp: 0.12, smoothWheel: true, autoRaf: true,
+      // Mayúsculas + rueda es scroll horizontal (el carrusel de Proyectos): lo hace el navegador
+      virtualScroll: ({ event }) => !event.shiftKey,
+    });
     root.classList.add("has-lenis");
   }
   document.addEventListener("click", onAnchorClick);

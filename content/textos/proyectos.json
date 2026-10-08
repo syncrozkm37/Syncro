@@ -12,8 +12,15 @@
     "work_own": "Caso 00",
     "work_dev": "En desarrollo",
     "work_concept": "Conceptual",
+    "work_brand": "Identidad de marca",
+    "work_orders": "Pedidos online",
+    "work_booking": "Reservas",
+    "work_appts": "Citas",
     "work_view": "Ver web",
-    "work_newTab": "(se abre en otra pestaña)"
+    "work_newTab": "(se abre en otra pestaña)",
+    "work_rail": "Proyectos (desplazable)",
+    "work_prev": "Proyecto anterior",
+    "work_next": "Proyecto siguiente"
   },
   "en": {
     "work_label": "Work",
@@ -28,7 +35,14 @@
     "work_own": "Case 00",
     "work_dev": "In development",
     "work_concept": "Concept",
+    "work_brand": "Brand identity",
+    "work_orders": "Online orders",
+    "work_booking": "Bookings",
+    "work_appts": "Appointments",
     "work_view": "View site",
-    "work_newTab": "(opens in a new tab)"
+    "work_newTab": "(opens in a new tab)",
+    "work_rail": "Projects (scrollable)",
+    "work_prev": "Previous project",
+    "work_next": "Next project"
   }
 }
