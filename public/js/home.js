@@ -11,7 +11,7 @@ import { initMethod } from "./modules/method.js";
 import { initPrices } from "./modules/prices.js";
 import { initContact } from "./modules/contact.js";
 
-const CONTACT_EMAIL = "syncrozkm37@gmail.com"; // buzón compartido del estudio; cambiar al dominio propio cuando lo haya
+const CONTACT_EMAIL = "equipo.syncro@gmail.com"; // buzón compartido del estudio; cambiar al dominio propio cuando lo haya
 
 function boot() {
   initCore();
